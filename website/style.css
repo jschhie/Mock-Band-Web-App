@@ -1,3 +1,7 @@
 footer {
     background-color: thistle;
 }
+
+div, footer {
+    margin: 20px;
+}

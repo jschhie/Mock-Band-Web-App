@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- 
+            <link rel="stylesheet" href="../style.css"/>
+        -->
+
+        <style>
+            div, footer {
+                margin: 20px;
+            }
+        </style>
+
+        <link
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            crossorigin="anonymous"
+        />
+
+        <title>{% block title %}{% endblock title %}</title>
+
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/index">HOME</a></li>
+                    <li><a href="/store">STORE</a></li>
+                    <li><a href="/about">ABOUT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr>
+
+        <div>
+            {% block content %} {% endblock %}
+        </div>
+    </body>
+
+    <footer>
+        <h3>BTS</h3>
+        <ul>
+            <li>
+                <a href="https://www.youtube.com/channel/UCLkAepWjdylmXSltofFvsYQ" target="_blank">
+                    <img src="https://www.freepnglogos.com/uploads/youtube-logo-hd-8.png" width="80px"/>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://open.spotify.com/artist/3Nrfpe0tUJi4K4DXYWgMUX" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/232px-Spotify_icon.svg.png" width="30px"/>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.instagram.com/bts.bighitofficial/" target="_blank">
+                    <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-instagram-icon-png-image_6315974.png" width="30px"/>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</html>

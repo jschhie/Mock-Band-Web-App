@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    BTS | Store
+{% endblock %}
+
+{% block content %}
+<section>
+    <h2>MUSIC</h2>
+    <div>
+        <div><strong>Young Forever</strong></div>
+        <img src="https://ibighit.com/bts/images/bts/discography/young_forever/album-cover.jpg" height="100px"/>
+        <div>
+            <span>$19.99</span>
+            <button type="button" class="btn btn-dark">Add to Cart</button>
+        </div>
+    </div>
+
+    <div>
+        <div><strong>WINGS</strong></div>
+        <img src="https://ibighit.com/bts/images/bts/discography/wings/album-cover.jpg" height="100px"/>
+        <div>
+            <span>$21.99</span>
+            <button type="button" class="btn btn-dark">Add to Cart</button>
+        </div>
+    </div>
+
+    <div>
+        <div><strong>You Never Walk Alone</strong></div>
+        <img src="https://ibighit.com/bts/images/bts/discography/you_never_walk_alone/album-cover.jpg" height="100px"/>
+        <div>
+            <span>$25.99</span>
+            <button type="button" class="btn btn-dark">Add to Cart</button>
+        </div>
+    </div>
+
+    <div>
+        <div><strong>Love Yourself: HER</strong></div>
+        <img src="https://ibighit.com/bts/images/bts/discography/love_yourself-her/album-cover.jpg" height="100px"/>
+        <div>
+            <span>$28.99</span>
+            <button type="button" class="btn btn-dark">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<!--
+<section>
+    <h2>MERCH</h2>
+    <div>
+        <div><strong>Love Yourself: Black Hoodie</strong></div>
+        <img src="https://i.imgur.com/uY08QrC.jpg" height="100px"/>
+        <div>
+            <span>$31.99</span>
+            <button type="button">Add to Cart</button>
+        </div>
+    </div>
+
+    <div>
+        <div><strong>Love Yourself: White Hoodie</strong></div>
+        <img src="https://i.imgur.com/eGNWgwP.jpg" height="100px"/>
+        <div>
+            <span>$31.99</span>
+            <button type="button">Add to Cart</button>
+        </div>
+    </div>
+</section>
+-->
+
+<section>
+    <h2>CART</h2>
+    <div>
+        <strong>ITEM</strong>
+        &lt;&gt;
+        <strong>PRICE</strong>
+        &lt;&gt;
+        <strong>QUANTITY</strong>
+    </div>
+    
+    <div>
+        <img src="https://ibighit.com/bts/images/bts/discography/you_never_walk_alone/album-cover.jpg" width="80px">
+        <span>You Never Walk Alone Album</span>
+        &lt;&gt;
+        <span>$28.99</span>
+        <input type="number" value="1">
+        &lt;&gt;
+        <button type="button" class="btn btn-dark">REMOVE</button>
+    </div>
+
+    <!-- 
+    <div>
+        <img src="https://i.imgur.com/uY08QrC.jpg" width="80px">
+        <span>Love Yourself: Black Hoodie</span>
+        &lt;&gt;
+        <span>$31.99</span>
+        <input type="number" value="1">
+        &lt;&gt;
+        <button type="button">REMOVE</button>
+    </div> 
+    -->
+    
+    <hr>
+
+    <div>
+        <strong>TOTAL</strong>
+        <span>$28.99</span>
+    </div>
+
+    <br>
+
+    <div>
+        <button type="button" class="btn btn-dark">PURCHASE</button>
+    </div>
+
+</section>
+
+{% endblock %}
