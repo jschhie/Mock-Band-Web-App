@@ -3,16 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        <!-- 
-            <link rel="stylesheet" href="../style.css"/>
-        -->
-
-        <style>
-            div, footer {
-                margin: 20px;
-            }
-        </style>
 
         <link
         rel="stylesheet" 
@@ -27,12 +17,33 @@
             crossorigin="anonymous"
         />
 
+        <link type="text/css" href="../static/style.css" rel="stylesheet"/>
+
         <title>{% block title %}{% endblock title %}</title>
 
     </head>
 
     <body>
         <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="/index">HOME</a>
+                        <a class="nav-item nav-link" href="/store">STORE</a>
+                        <a class="nav-item nav-link" href="/about">ABOUT</a>
+                    </div>
+                </div>
+
+            </nav>
+            <!--
             <nav>
                 <ul>
                     <li><a href="/index">HOME</a></li>
@@ -40,6 +51,7 @@
                     <li><a href="/about">ABOUT</a></li>
                 </ul>
             </nav>
+            -->
         </header>
 
         <hr>
@@ -47,6 +59,19 @@
         <div>
             {% block content %} {% endblock %}
         </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+        ></script>
+        
     </body>
 
     <footer>
