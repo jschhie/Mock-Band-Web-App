@@ -3,6 +3,18 @@ nav, footer {
     color: white;
 }
 
+#navbar a {
+    color: white;
+}
+
 div {
     margin: 20px;
+}
+
+.index-top-div {
+    text-align: center;
+}
+
+#checkout-div {
+    text-align: right;
 }
