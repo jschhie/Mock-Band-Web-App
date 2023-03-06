@@ -3,9 +3,16 @@ nav, footer {
     color: white;
 }
 
+footer {
+    bottom: 0px;
+    height: 100px;
+    width: 100%;
+}
+
 #navbar a {
     color: white;
 }
+
 
 div {
     margin: 20px;
@@ -17,4 +24,3 @@ div {
 
 #checkout-div {
     text-align: right;
-}
