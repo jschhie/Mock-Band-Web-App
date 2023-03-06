@@ -1,18 +1,48 @@
-nav, footer {
-    background-color: #343434;
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
 footer {
+    background-color: rgb(0,0,0);
+    color: white;
     bottom: 0px;
-    height: 100px;
+    height: 80px;
     width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 #navbar a {
+    color: rgb(255,255,255,0.8);
+}
+
+#navbar {
+    border-bottom: 1px solid rgb(255,255,255,.3);
+}
+
+.btn {
+    background-color: rgb(0,0,0,0.3);
+    color: black;
+}
+
+#navbar a:hover, .btn:hover {
+    background-color: rgb(0,0,0,0.5);
     color: white;
 }
 
+.social-icon:hover {
+    fill: white;
+}
+
+.custom-navbar, footer {
+    background-color: rgb(0,0,0,0.6);
+    background-image: url("https://live.staticflickr.com/65535/52730718051_800c0bd143_b.jpg");
+    background-size: cover;
+    background-blend-mode: multiply; /* combine bg color and image together */
+    min-height: 100%;
+    padding-bottom: 10px;
+    text-align: center;
+    color: white;
+}
 
 div {
     margin: 20px;
@@ -24,3 +54,20 @@ div {
 
 #checkout-div {
     text-align: right;
+}
+
+body {
+    padding-bottom: 10px;
+    font-family: 'Yomogi', cursive;
+}
+
+.section-header {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2.5em;
+}
+
+.about-img {
+    float: left;
+    margin: 15px;
+}
