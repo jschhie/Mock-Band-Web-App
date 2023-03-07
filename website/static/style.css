@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
 footer {
-    background-color: rgb(0,0,0);
-    color: white;
-    bottom: 0px;
-    height: 80px;
+    height: 130px;
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 5px;
     padding-left: 20px;
+    background-color: black;
+    color: white;
 }
 
 #navbar a {
@@ -24,6 +22,11 @@ footer {
     color: black;
 }
 
+.index-top-btn {
+    background-color: rgb(255,255,255,0.2);
+    color: white;
+}
+
 #navbar a:hover, .btn:hover {
     background-color: rgb(0,0,0,0.5);
     color: white;
@@ -33,7 +36,7 @@ footer {
     fill: white;
 }
 
-.custom-navbar, footer {
+.custom-navbar {
     background-color: rgb(0,0,0,0.6);
     background-image: url("https://live.staticflickr.com/65535/52730718051_800c0bd143_b.jpg");
     background-size: cover;
@@ -46,10 +49,6 @@ footer {
 
 div {
     margin: 20px;
-}
-
-.index-top-div {
-    text-align: center;
 }
 
 #checkout-div {
