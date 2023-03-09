@@ -1,8 +1,17 @@
 /* import font */
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
 div {
     margin: 20px;
+}
+
+body {
+    font-family: 'Yomogi', cursive;
+}
+
+header, footer, .shop-item-title, .section-header, .btn, .tour-date {
+    font-family: 'Pangolin', cursive;
 }
 
 header {
@@ -13,10 +22,6 @@ header {
     padding-bottom: 5px;
     text-align: center;
     color: white;
-}
-
-body {
-    font-family: 'Yomogi', cursive;
 }
 
 footer {
@@ -35,6 +40,11 @@ footer {
 
 .custom-navbar {
     border-bottom: 1px solid rgb(255,255,255,.3);
+}
+
+.nav-item {
+    display: inline-block;
+    width: 33%;
 }
 
 /* BUTTONS */
@@ -139,7 +149,43 @@ after totaling up 100 percent */
     margin: 15px;
 }
 
-/* CHECKOUT STORE SECTION */
+/* STORE SECTION */
+.shop-item {
+    margin: 30px;
+}
+
+.shop-item-title {
+    display: block; /* on its own line */
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: teal;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 150px;
+}
+
+.shop-item-details  {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-item-price {
+    flex-grow: 1;
+}
+
+.shop-items-all {
+    display: flex;
+    flex-wrap: wrap; /* wrap to new line */
+    justify-content: space-around; 
+    /* adds even amount of space around (top bottom left right) */
+}
+
 #checkout-div {
     text-align: right;
+    /* make button to rightmost of screen */
 }
