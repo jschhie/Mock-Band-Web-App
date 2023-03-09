@@ -6,6 +6,7 @@
 
 {% block content %}
 <section>
+    <!-- MUSIC SECTION -->
     <h2 class="section-header">music</h2>
     <div class="shop-items-all">
         <div class="shop-item">
@@ -62,6 +63,7 @@
     </div>
 </section>
 
+<!-- MERCH SECTION -->
 <section>
     <h2 class="section-header">merch</h2>
     <div class="shop-items-all">
@@ -93,31 +95,47 @@
     </div>
 </section>
 
+<!-- CART SECTION -->
 <section>
     <h2 class="section-header">cart</h2>
-    <div>
-        <strong>ITEM</strong>
-        &lt;&gt;
-        <strong>PRICE</strong>
-        &lt;&gt;
-        <strong>QUANTITY</strong>
+    <!-- CART HEADER ROW -->
+    <div class="cart-row">
+        <span class="cart-item cart-header cart-column">ITEM</span>
+        <span class="cart-price cart-header cart-column">PRICE</span>
+        <span class="cart-amount cart-header cart-column">QUANTITY</span>
     </div>
-    
-    <div>
-        <img src="https://live.staticflickr.com/65535/52726600750_3946190a20_w.jpg" width="80px">
-        <span>You Never Walk Alone Album</span>
-        &lt;&gt;
-        <span>$28.99</span>
-        <input type="number" value="1">
-        &lt;&gt;
-        <button type="button" class="btn">REMOVE</button>
+    <!-- ALL CART ITEMS -->
+    <div class="cart-items-all">
+        <div class="cart-row">
+            <div class="cart-item cart-column">
+                <img class="cart-item-image" src="https://live.staticflickr.com/65535/52726600750_3946190a20_w.jpg" width="80px">
+                <span class="cart-item-title">You Never Walk Alone Album</span>
+            </div>
+            <span class="cart-price cart-column">$28.99</span>
+            <div class="cart-amount cart-column">
+                <input type="number" value="1" class="cart-input">
+                <button type="button" class="btn cart-remove-btn">REMOVE</button>
+            </div>
+        </div>
+        <!-- MORE CART ITEMS -->
+        <div class="cart-row">
+            <div class="cart-item cart-column">
+                <img class="cart-item-image" src="https://live.staticflickr.com/65535/52726147106_704a98479e_o.jpg" width="100px">
+                <span class="cart-item-title">Love Yourself: White Hoodie</span>
+            </div>
+            <span class="cart-price cart-column">$31.99</span>
+            <div class="cart-amount cart-column">
+                <input type="number" value="1" class="cart-input">
+                <button type="button" class="btn cart-remove-btn">REMOVE</button>
+            </div>
+        </div>
     </div>
-    
-    <hr>
-
-    <div id="checkout-div">
-        <strong>TOTAL</strong>
-        <span>$28.99</span>
+    <!-- CHECKOUT -->
+    <div class="cart-total">
+        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-price">$60.98</span>
+    </div>
+    <div class="submit-cart">
         <button type="button" class="btn">PURCHASE</button>
     </div>
 
