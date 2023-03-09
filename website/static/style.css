@@ -1,63 +1,81 @@
+/* import font */
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-
-footer {
-    height: 130px;
-    width: 100%;
-    padding-top: 5px;
-    padding-left: 20px;
-    background-color: black;
-    color: white;
-}
-
-#navbar a {
-    color: rgb(255,255,255,0.8);
-}
-
-#navbar {
-    border-bottom: 1px solid rgb(255,255,255,.3);
-}
-
-.btn {
-    background-color: rgb(0,0,0,0.3);
-    color: black;
-}
-
-.index-top-btn {
-    background-color: rgb(255,255,255,0.2);
-    color: white;
-}
-
-#navbar a:hover, .btn:hover {
-    background-color: rgb(0,0,0,0.5);
-    color: white;
-}
-
-.social-icon:hover {
-    fill: white;
-}
-
-.custom-navbar {
-    background-color: rgb(0,0,0,0.6);
-    background-image: url("https://live.staticflickr.com/65535/52730718051_800c0bd143_b.jpg");
-    background-size: cover;
-    background-blend-mode: multiply; /* combine bg color and image together */
-    min-height: 100%;
-    padding-bottom: 10px;
-    text-align: center;
-    color: white;
-}
 
 div {
     margin: 20px;
 }
 
-#checkout-div {
-    text-align: right;
+header {
+    background-color: rgb(0,0,0,0.6);
+    background-image: url("https://live.staticflickr.com/65535/52730718051_800c0bd143_b.jpg");
+    background-size: cover;
+    background-blend-mode: multiply; /* combine bg color and image together */
+    padding-bottom: 5px;
+    text-align: center;
+    color: white;
 }
 
 body {
-    padding-bottom: 10px;
     font-family: 'Yomogi', cursive;
+}
+
+footer {
+    height: 130px;
+    width: 100%;
+    padding-top: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/* NAVBAR  */
+.custom-navbar a {
+    color: rgb(255,255,255,0.8);
+}
+
+.custom-navbar {
+    border-bottom: 1px solid rgb(255,255,255,.3);
+}
+
+/* BUTTONS */
+.btn {
+    background-color: rgb(0,0,0);
+    color: white;
+    /* text align within buttons */
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em;
+}
+
+.header-btn {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.play-btn {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+#navbar a:hover, .play-btn:hover, .header-btn:hover {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+}
+
+/* SOCIAL ICONS, LINKS */
+.social-icon:hover {
+    fill: white;
+}
+
+.social-links {
+    display: table;
+    margin: 0 auto;
 }
 
 .section-header {
@@ -66,7 +84,62 @@ body {
     font-size: 2.5em;
 }
 
+/* INDEX, TOUR SECTION */
+.tour-row {
+    border-bottom: 1px solid black;
+    padding-bottom: 1em; /* space between content and border */
+    margin-bottom: 1em; /* space between border and bottom content */
+}
+
+.tour-row:last-child {
+    border-bottom: none;
+}
+
+.tour-item {
+    display: inline-block; 
+    /* to change the width of inline elements, 
+    can apply width, height without breaking line */
+    padding-right: 0.5em;
+}
+
+.tour-date {
+    color: teal;
+    font-weight: bold;
+    font-size: large;
+    width: 11%;
+}
+
+.tour-city {
+    width: 24%;
+}
+
+.tour-arena {
+    width: 42%;
+}
+
+.tour-btn {
+    max-width: 19%; 
+    /* instead of width, so button doesn't get larger */
+}
+
+.general-btn {
+    color: white;
+    background-color: black;
+}
+
+/* doesn't completely add up to 100 percent
+since inline block elements already add unremovable default spacings 
+
+solution: subtract about 1 percent from each width, 
+after totaling up 100 percent */
+
+/* ABOUT SECTION */
 .about-img {
     float: left;
     margin: 15px;
+}
+
+/* CHECKOUT STORE SECTION */
+#checkout-div {
+    text-align: right;
 }
