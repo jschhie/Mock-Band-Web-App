@@ -1,19 +1,22 @@
-/* import font */
+/* ==== import font ===== */
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
-section {
-    margin: 20px;
-}
-
-body {
+* {
+    padding: 0;
+    margin: 0;
     font-family: 'Yomogi', cursive;
 }
 
-header, footer, .section-header, .btn, .tour-date, .tour-city, .shop-item-title, .cart-item-title {
+section {
+    margin: 5%;
+}
+
+header, footer, .btn, .tour-date, .tour-city, .shop-item-title, .cart-item-title {
     font-family: 'Pangolin', cursive;
 }
 
+/* ==== BAND MAIN HEADER ===== */
 header {
     background-color: rgb(0,0,0,0.6);
     background-image: url("https://live.staticflickr.com/65535/52730718051_800c0bd143_b.jpg");
@@ -24,7 +27,7 @@ header {
     color: white;
 }
 
-header h3 {
+.band-name {
     margin-top: 5px;
     font-weight: bold;
     font-size: 2.5em;
@@ -41,7 +44,22 @@ footer {
     text-align: center;
 }
 
-/* NAVBAR  */
+.flex-footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-footer-title {
+    width: 60%;
+    text-align: left;
+}
+
+.flex-footer-socials {
+    width: 30%;
+    text-align: end;
+}
+
+/* ===== NAVBAR ====== */
 .custom-navbar a {
     color: rgb(255,255,255,0.8);
 }
@@ -55,7 +73,7 @@ footer {
     width: 33%;
 }
 
-/* BUTTONS */
+/* ===== BUTTONS ===== */
 .btn {
     background-color: rgb(0,0,0);
     color: white;
@@ -87,14 +105,19 @@ footer {
     color: white;
 }
 
-/* SOCIAL ICONS, LINKS */
-.social-icon:hover {
-    fill: white;
+.general-btn {
+    color: white;
+    background-color: black;
 }
 
-.social-links {
-    display: table;
-    margin: 0 auto;
+/* ==== BAND SOCIALS ==== */
+.social-icon {
+    padding-left: 5%;
+    height: 20px;
+}
+
+.social-icon:hover {
+    fill: white;
 }
 
 .section-header {
@@ -103,7 +126,12 @@ footer {
     font-size: 2.5em;
 }
 
-/* INDEX, TOUR SECTION */
+/* ===== INDEX, TOUR SECTION ==== */
+.flexbox-container {
+    display: flex;
+    justify-content: space-around; /*  distribute extra free space leftover */
+}
+
 .tour-row {
     border-bottom: 1px solid black;
     padding-bottom: 1em; /* space between content and border */
@@ -129,37 +157,25 @@ footer {
 }
 
 .tour-city {
-    width: 24%;
+    width: 25%;
     font-weight: bolder;
 }
 
 .tour-arena {
-    width: 42%;
+    width: 45%;
 }
 
-.tour-btn {
-    max-width: 19%; 
-    /* instead of width, so button doesn't get larger */
+.flexbox-btn {
+    max-width: 19%;
 }
 
-.general-btn {
-    color: white;
-    background-color: black;
-}
-
-/* doesn't completely add up to 100 percent
-since inline block elements already add unremovable default spacings 
-
-solution: subtract about 1 percent from each width, 
-after totaling up 100 percent */
-
-/* ABOUT SECTION */
+/* ===== ABOUT SECTION ===== */
 .about-img {
     float: left;
-    margin: 15px;
+    margin: 3%;
 }
 
-/* STORE SECTION, ITEMS */
+/* ===== STORE: ITEMS SECTION ===== */
 .shop-item {
     margin: 30px;
 }
@@ -169,7 +185,7 @@ after totaling up 100 percent */
     width: 100%;
     text-align: center;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: teal;
     margin-bottom: 15px;
 }
@@ -199,7 +215,7 @@ after totaling up 100 percent */
     /* adds even amount of space around (top bottom left right) */
 }
 
-/* CART SECTION */
+/* ===== STORE: CART SECTION ====== */
 .cart-header  {
     font-size: 1.5em;
     font-weight: bold;
@@ -275,6 +291,7 @@ after totaling up 100 percent */
     margin-right: 30px;
 }
 
+/* ===== STORE: SUBMIT SECTION ===== */
 .submit-cart {
     text-align: center;
 }
