@@ -36,27 +36,31 @@ header {
 }
 
 footer {
-    height: 130px;
+    height: 80px;
     width: 100%;
-    padding-top: 40px;
     background-color: black;
-    color: white;
-    text-align: center;
 }
 
 .flex-footer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.flex-footer-title {
-    width: 60%;
+.flex-footer-logo {
+    width: 20%;
     text-align: left;
+    margin-left: 20px;
 }
 
 .flex-footer-socials {
     width: 30%;
     text-align: end;
+    margin-right: 30px;
+}
+
+.flex-footer-socials a {
+    text-decoration: none;
 }
 
 /* ===== NAVBAR ====== */
