@@ -137,9 +137,11 @@ footer {
 }
 
 .tour-row {
+    display: flex;
     border-bottom: 1px solid black;
     padding-bottom: 1em; /* space between content and border */
     margin-bottom: 1em; /* space between border and bottom content */
+    align-items: center;
 }
 
 .tour-row:last-child {
