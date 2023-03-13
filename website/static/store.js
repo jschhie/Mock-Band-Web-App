@@ -89,18 +89,19 @@ function formatPrice(total, element) {
     var totalString = total.toString();
     var startIndex = totalString.indexOf("."); 
     
+    if (startIndex == -1) {
+        // whole integer value, without decimals
+        element.innerHTML = newPriceString + ".00";
+        return; // skip rest of code below
+    }
+
     var decimalPart = parseFloat(totalString.slice(startIndex, totalString.length));
     var test = (decimalPart * 100) % 10;
 
     // 0.1 * 100 = 10 [divisible by 10]
     // 0.2 * 100 = 20 [...]
     // 0.14 * 100 = 14 [NOT divisible by 10 perfectly]
-
-    if (startIndex == -1) {
-        // whole integer value, without decimals
-        element.innerHTML = newPriceString + ".00";
-    }
-    else if (test == 0) {
+    if (test == 0) {
         element.innerHTML = newPriceString + '0';
     }
     else {
