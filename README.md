@@ -7,8 +7,8 @@
 * Current Features: About, Tour/Home, and Store Page
   * About: displays info and graphic of band
   * Tour/Home: displays tour dates in a flexbox container 
-   * TODO: simulate purchasing tour tickets
-   * TODO: edit play button
+   * __TODO:__ simulate purchasing tour tickets
+   * __TODO__: edit play button
   * Store: displays merch and albums; simulates shopping cart and purchase
 
 ## Visual Demo
