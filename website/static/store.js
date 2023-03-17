@@ -1,45 +1,9 @@
-/* CHECK IF DOM CONTENT LOADED*/
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready);
-} else {
-    ready();
-}
-
-
-
-function ready() {
-    // Remove any unwanted items from cart
-    var removeCartItemBtns = document.getElementsByClassName("cart-remove-btn");
-    for (var i = 0; i < removeCartItemBtns.length; i++) {
-        var button = removeCartItemBtns[i];
-        button.addEventListener('click', removeCartItems);
-    }
-    
-    // Get user input for cart item quantities
-    var quantityInputs = document.getElementsByClassName("cart-input");
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i];
-        input.addEventListener('change', quantityChanged);
-    }
-
-    // Add new items to cart
-    var addCartItemBtns = document.getElementsByClassName("shop-item-btn");
-    for (var i = 0; i < addCartItemBtns.length; i++) {
-        var addCartBtn = addCartItemBtns[i];
-        addCartBtn.addEventListener('click', addCartItemClicked);
-    }
-
-    // Purchase items in cart
-    var purchaseBtn = document.getElementsByClassName("purchase-btn")[0];
-    purchaseBtn.addEventListener('click', purchaseClicked);
-
-}
-
-
-
 /* PURCHASE CART ITEMS */
-function purchaseClicked() {
-    var totalPrice = document.getElementsByClassName("cart-total-price")[0].innerText;
+function purchaseClicked(event) {
+    var cartElement = event.parentElement.parentElement;
+    var cartTotalElement = cartElement.getElementsByClassName("cart-total")[0];
+    var totalPrice = cartTotalElement.getElementsByClassName("cart-total-price")[0].innerText;
+    
     if (totalPrice == "$0.00") {
         alert("Empty cart! Please add items to cart before purchase.");
     }  else {
@@ -54,11 +18,9 @@ function purchaseClicked() {
     }
 }
 
-
-
 /* REMOVE CART ITEMS */
 function removeCartItems(event) {
-    var buttonClicked = event.target;
+    var buttonClicked = event;
     // removes "cart-row" element that the button is inside of 
     buttonClicked.parentElement.parentElement.remove(); 
     updateCartTotal();
@@ -66,23 +28,9 @@ function removeCartItems(event) {
 
 
 
-/* ITEM QUANTITY INPUT CHANGED */
-function quantityChanged(event) {
-    var input = event.target;
-    // check if valid number
-    if (isNaN(input.value) || input.value <= 0) {
-        // must purchase at least one item to remain in cart
-        input.value = 1;
-    }
-    updateCartTotal();
-}
-
-
-
-/* ADD NEW CART ITEM */
-function addCartItemClicked(event) {
-    var addItemBtn = event.target;
-    var itemRow = addItemBtn.parentElement.parentElement;
+function addToCart(event) {
+    var addToCartBtn = event;
+    var itemRow = addToCartBtn.parentElement.parentElement;
     
     // Get item's title, price, and image source
     var title = itemRow.getElementsByClassName("shop-item-title")[0].innerText;
@@ -90,14 +38,14 @@ function addCartItemClicked(event) {
     var imageSrc = itemRow.getElementsByClassName("shop-item-image")[0].src; 
 
     // Create new cart row with selected item if not already in cart
-    addItemToCart(title, price, imageSrc);
+    addRowToCart(title, price, imageSrc);
     updateCartTotal();
 }
 
 
 
 /* Helper Function to create new item row to cart container */
-function addItemToCart(title, price, imageSrc) {
+function addRowToCart(title, price, imageSrc) {
     var cartRow = document.createElement('div');
     cartRow.classList.add('cart-row');
 
@@ -118,16 +66,27 @@ function addItemToCart(title, price, imageSrc) {
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-amount cart-column">
-            <input type="number" value="1" class="cart-input">
-            <button type="button" class="btn cart-remove-btn">REMOVE</button>
+            <input type="number" value="1" class="cart-input" onchange="quantityChanged(this)">
+            <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">REMOVE</button>
         </div>`; 
     // backticks to use on multiple lines and can directly add variables with ${varName}
     cartRow.innerHTML = cartRowContents;
 
     // Add new cartRow to end of cartItemsAll
     cartItemsAll.append(cartRow); 
-    cartRow.getElementsByClassName("cart-remove-btn")[0].addEventListener('click', removeCartItems);
-    cartRow.getElementsByClassName("cart-input")[0].addEventListener('change', quantityChanged);
+}
+
+
+
+/* ITEM QUANTITY INPUT CHANGED */
+function quantityChanged(event) {
+    var input = event;
+    // check if valid number
+    if (isNaN(input.value) || input.value <= 0) {
+        // must purchase at least one item to remain in cart
+        input.value = 1;
+    }
+    updateCartTotal();
 }
 
 
