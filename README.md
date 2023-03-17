@@ -6,7 +6,7 @@
 * Experimenting with CSS and JavaScript in an interactive band web app
 * Current Features: About, Tour/Home, and Store Page
   * __About__: displays info and graphic of band
-  * __Tour/Home__: displays tour dates in a flexbox container 
+  * __Tour/Home__: displays tour dates
     * ``TODO:`` simulate purchasing tour tickets
     * ```TODO```: edit play button
   * __Store__: displays merch and albums; simulates shopping cart and purchase
