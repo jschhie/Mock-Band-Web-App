@@ -1,0 +1,314 @@
+/* ==== import font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Yomogi', cursive;
+}
+
+section {
+    margin: 5%;
+}
+
+header, footer, .btn, .tour-date, .tour-city, .shop-item-title, .cart-item-title {
+    font-family: 'Pangolin', cursive;
+}
+
+/* ==== BAND MAIN HEADER ===== */
+header {
+    background-color: rgb(0,0,0,0.6);
+    background-image: url("https://live.staticflickr.com/65535/52730718051_800c0bd143_b.jpg");
+    background-size: cover;
+    background-blend-mode: multiply; /* combine bg color and image together */
+    padding-bottom: 5px;
+    text-align: center;
+    color: white;
+}
+
+.band-name {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 2.5em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+footer {
+    height: 80px;
+    width: 100%;
+    background-color: black;
+}
+
+.flex-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-footer-logo {
+    width: 20%;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.flex-footer-socials {
+    width: 30%;
+    text-align: end;
+    margin-right: 30px;
+}
+
+.flex-footer-socials a {
+    text-decoration: none;
+}
+
+/* ===== NAVBAR ====== */
+.custom-navbar a {
+    color: rgb(255,255,255,0.8);
+}
+
+.custom-navbar {
+    border-bottom: 1px solid rgb(255,255,255,.3);
+}
+
+.nav-item {
+    display: inline-block;
+    width: 33%;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    background-color: rgb(0,0,0);
+    color: white;
+    /* text align within buttons */
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em;
+}
+
+.header-btn {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.play-btn {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+#navbar a:hover, .play-btn:hover, .header-btn:hover {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+}
+
+.general-btn {
+    color: white;
+    background-color: black;
+}
+
+/* ==== BAND SOCIALS ==== */
+.social-icon {
+    padding-left: 5%;
+    height: 20px;
+}
+
+.social-icon:hover {
+    fill: white;
+}
+
+.section-header {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2.5em;
+}
+
+/* ===== INDEX, TOUR SECTION ==== */
+.flexbox-container {
+    display: flex;
+    justify-content: space-around; /*  distribute extra free space leftover */
+}
+
+.tour-row {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-bottom: 1em; /* space between content and border */
+    margin-bottom: 1em; /* space between border and bottom content */
+    align-items: center;
+}
+
+.tour-row:last-child {
+    border-bottom: none;
+}
+
+.tour-item {
+    display: inline-block; 
+    /* to change the width of inline elements, 
+    can apply width, height without breaking line */
+    padding-right: 0.5em;
+}
+
+.tour-date {
+    color: teal;
+    font-weight: bold;
+    font-size: large;
+    width: 11%;
+}
+
+.tour-city {
+    width: 25%;
+    font-weight: bolder;
+}
+
+.tour-arena {
+    width: 45%;
+}
+
+.flexbox-btn {
+    max-width: 19%;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-img {
+    float: left;
+    margin: 3%;
+}
+
+/* ===== STORE: ITEMS SECTION ===== */
+.shop-item {
+    margin: 30px;
+}
+
+.shop-item-title {
+    display: block; /* on its own line */
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: teal;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 150px;
+    /* center images */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shop-item-details  {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-item-price {
+    flex-grow: 1;
+}
+
+.shop-items-all {
+    display: flex;
+    flex-wrap: wrap; /* wrap to new line */
+    justify-content: space-around; 
+    /* adds even amount of space around (top bottom left right) */
+}
+
+/* ===== STORE: CART SECTION ====== */
+.cart-header  {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center; /* vertically */
+    border-bottom: 1px solid black;
+    margin-right: 1.5em; /* space between columns */
+    padding-bottom: 10px;
+    margin-top: 10px; /* space between rows */
+}
+
+.cart-row {
+    display: flex; /* can add up to 100 percent widths */
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: auto;
+}
+
+.cart-item-title {
+    margin-left: 10px;
+    color: teal;
+    font-size: 1.2em;
+}
+
+.cart-price {
+    width: 20%;
+}
+
+.cart-amount {
+    width: 35%;
+}
+
+.cart-input {
+    width: 50px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.cart-remove-btn {
+    margin-left: 10px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    margin-top: 20px;
+    text-align: end;
+}
+
+.cart-total-label {
+    font-size: 2em;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.cart-total-price  {
+    font-size: 1.5em;
+    margin-right: 30px;
+}
+
+/* ===== STORE: SUBMIT SECTION ===== */
+.submit-cart {
+    text-align: center;
+}
+
+.submit-cart .btn {
+    background-color: teal;
+    color: white;
+    font-size: 1.3em;
+}
+
+.submit-cart .btn:hover {
+    background-color: rgba(0, 128, 128, 0.7);
+    color: white;
+}
