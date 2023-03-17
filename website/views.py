@@ -15,3 +15,7 @@ def about():
 @views.route('/store')
 def store():
     return render_template('store.html')
+
+@views.route('/buy-tix')
+def buy_tix():
+    return render_template('buy-tix.html')
