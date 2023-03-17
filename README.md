@@ -8,3 +8,17 @@
   * About: displays info and graphic of band
   * Tour/Home: displays tour dates in a flexbox container [TODO: simulate purchasing tour tickets]
   * Store: displays merch and albums; simulates shopping cart and purchase
+
+## Visual Demo
+
+### About Page
+<img src="https://github.com/jschhie/band-web-app/blob/main/demos/about1.png">
+
+### Home / Tours Page
+<img src="https://github.com/jschhie/band-web-app/blob/main/demos/home1.png">
+
+### Store Page Demo 1
+<img src="https://github.com/jschhie/band-web-app/blob/main/demos/purchase1.png">
+
+### Store Page Demo 2
+<img src="https://github.com/jschhie/band-web-app/blob/main/demos/store1.png">
