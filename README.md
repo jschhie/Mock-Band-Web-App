@@ -14,11 +14,9 @@
 ## Visual Demo
 
 ### About Page
-* About the band 
 <img src="https://github.com/jschhie/band-web-app/blob/main/demos/about1.png">
 
 ### Home / Tours Page
-* Display Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/demos/home1.png">
 
 ### Store Page Demo 1
@@ -27,5 +25,4 @@
 
 
 ### Store Page Demo 2
-* Interactive Cart + Purchase Section
 <img src="https://github.com/jschhie/band-web-app/blob/main/demos/purchase1.png">
