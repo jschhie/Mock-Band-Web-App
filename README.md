@@ -5,11 +5,11 @@
 ## Overview
 * Experimenting with CSS and JavaScript in an interactive band web app
 * Current Features: About, Tour/Home, and Store Page
-  * About: displays info and graphic of band
-  * Tour/Home: displays tour dates in a flexbox container 
-   * __TODO:__ simulate purchasing tour tickets
-   * __TODO__: edit play button
-  * Store: displays merch and albums; simulates shopping cart and purchase
+  * __About__: displays info and graphic of band
+  * __Tour/Home__: displays tour dates in a flexbox container 
+    * ``TODO:`` simulate purchasing tour tickets
+    * ```TODO```: edit play button
+  * __Store__: displays merch and albums; simulates shopping cart and purchase
 
 ## Visual Demo
 
@@ -27,5 +27,5 @@
 
 
 ### Store Page Demo 2
-* Cart Section / Continue to Purchase
+* Interactive Cart + Purchase Section
 <img src="https://github.com/jschhie/band-web-app/blob/main/demos/purchase1.png">
