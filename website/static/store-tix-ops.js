@@ -1,3 +1,5 @@
+/* * * * * STORE OPERATIONS -- PURCHASE ALBUMS, MERCH * * * * * */
+
 /* PURCHASE CART ITEMS */
 function purchaseClicked(event) {
     var cartElement = event.parentElement.parentElement;
@@ -17,6 +19,8 @@ function purchaseClicked(event) {
         document.getElementsByClassName("cart-total-price")[0].innerText = "$0.00";
     }
 }
+
+
 
 /* REMOVE CART ITEMS */
 function removeCartItems(event) {
@@ -150,4 +154,53 @@ function formatPrice(total, element) {
     else {
         element.innerHTML = newPriceString;
     }
+}
+
+
+
+/* * * * * PURCHASE TOUR TICKETS OPERATIONS * * * * * */
+
+function addTixToCart(event) {
+    var tixBtn = event;
+    
+    // Get ticket type, price, and icon
+    var tixType = tixBtn.getElementsByClassName("tix-type")[0].innerText;
+    var tixPrice = tixBtn.getElementsByClassName("tix-price")[0].innerText;
+    //var tixIcon = tixBtn.getElementsByClassName("tix-span")[0].getElementsByClassName("tix-icon")[0];
+
+    // Create new cart row with selected item if not already in cart
+    addTixRowToCart(tixType, tixPrice);
+    updateCartTotal();
+}
+
+
+function addTixRowToCart(tixType, price) {
+    var cartRow = document.createElement('div');
+    cartRow.classList.add('cart-row');
+
+    // Check if duplicate ticket
+    var cartItemsAll = document.getElementsByClassName("cart-items-all")[0];
+    var cartTixTypes = document.getElementsByClassName("cart-type");
+    
+    for (var i = 0; i < cartTixTypes.length; i++) {
+        if (cartTixTypes[i].innerText == tixType) {
+            alert('This item is already added to cart.');
+            return; // skip below code
+        }
+    }
+    
+    var cartRowContents = `       
+        <div class="cart-item cart-column">
+            <span class="cart-type">${tixType}</span>
+        </div>
+        <span class="cart-price cart-column">${price}</span>
+        <div class="cart-amount cart-column">
+            <input type="number" value="1" class="cart-input" onchange="quantityChanged(this)">
+            <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">REMOVE</button>
+        </div>`; 
+    cartRow.innerHTML = cartRowContents;
+
+    // Add new cartRow to end of cartItemsAll
+    cartItemsAll.append(cartRow); 
+
 }
