@@ -14,7 +14,7 @@ section {
     font-size: 0.8em;
 }
 
-header, footer, .btn, .tour-date, .tour-city, .shop-item-title, .cart-item-title {
+header, footer, .btn, .tour-date, .tour-city, .shop-item-title, .cart-item-title, .cart-type {
     font-family: 'Pangolin', cursive;
     font-size: 1em;
 }
@@ -291,10 +291,10 @@ footer {
     height: auto;
 }
 
-.cart-item-title {
+.cart-item-title, .cart-type {
     margin-left: 10px;
     color: teal;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .cart-price {

@@ -24,10 +24,10 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart.png">
 
 ### Home / Tours Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/tours.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtours.png">
 
 ### Tour Stadium / Ticket Cart Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/stadium.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtickets.png">
 
 ### About Page
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/about.png">
