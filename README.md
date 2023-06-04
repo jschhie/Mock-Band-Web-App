@@ -3,7 +3,7 @@
 > Python, HTML, CSS, Bootstrap, JavaScript, Flask
 
 ## Overview
-* Mock band website with store catalog and shopping cart functionality
+* Mock band website with store catalog & shopping cart functionality for merch and tour tickets
 * Current Features: About, Tour/Home, and Store Page
   * __About__: 
     * displays info and graphic of band
