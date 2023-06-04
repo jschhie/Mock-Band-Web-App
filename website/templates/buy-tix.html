@@ -3,5 +3,60 @@
 {% block title %}Unofficial BTS | Buy Tickets{% endblock %}
 
 {% block content %}
+<!-- ARENA MAP -->
+<section>
+    <h2 class="section-header">arena map for {{ arena }}</h2>
+    <div class="section-city">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
+        </span>
+        
+        {% if arena == "seoul" %}
+        <span>SEOUL, KOREA | SEOUL OLYMPIC STADIUM</span>
+        {% elif arena == "oakland" %}
+            <span>OAKLAND, CA, UNITED STATES | ORACLE ARENA</span>
+        {% elif arena == "la" %}
+            <span>LOS ANGELES, CA, UNITED STATES | STAPLES CENTER</span>
+        {% elif arena == "chicago" %}
+            <span>CHICAGO, IL, UNITED STATES | UNITED CENTER</span>
+        {% endif %}
+    </div>
+
+    <div class="arena-map row">
+        <button class="stage map-block map-btn btn col-md-12">STAGE</button>
+        <button class="map-row map-btn btn col-sm-3">SIDE A</button>
+        <button class="map-row map-btn btn col-sm-5">FRONT ROW</button>
+        <button class="map-row map-btn btn col-sm-3">SIDE B</button>
+        <button class="general-row map-block map-btn btn col-md-12">GENERAL ADMISSION</button>
+    </div>    
+</section>
+
+<!-- TICKETS CART -->
+<section>
+    <h2 class="section-header">cart</h2>
+    <!-- CART HEADER ROW -->
+    <div class="cart-row">
+        <span class="cart-item cart-header cart-column">TICKET TYPE</span>
+        <span class="cart-price cart-header cart-column">PRICE</span>
+        <span class="cart-amount cart-header cart-column">QUANTITY</span>
+    </div>
+    
+    <!-- ALL CART ITEMS -->
+    <div class="tix-cart-items-all">
+        <!-- Ticket Cart inserted interactively here -->
+    </div>
+    
+    <!-- CHECKOUT -->
+    <div class="tix-cart-total">
+        <span class="tix-cart-total-label">TOTAL</span>
+        <span class="tix-cart-total-price">$0.00</span>
+    </div>
+    <div class="tix-submit-cart">
+        <button type="button" class="tix-purchase-btn btn">PURCHASE</button>
+    </div>
+
+</section>
 
 {% endblock %}

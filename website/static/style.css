@@ -6,14 +6,17 @@
     padding: 0;
     margin: 0;
     font-family: 'Yomogi', cursive;
+    font-size: 1em;
 }
 
 section {
-    margin: 5%;
+    margin: 3%;
+    font-size: 0.8em;
 }
 
 header, footer, .btn, .tour-date, .tour-city, .shop-item-title, .cart-item-title {
     font-family: 'Pangolin', cursive;
+    font-size: 1em;
 }
 
 /* ==== BAND MAIN HEADER ===== */
@@ -87,6 +90,33 @@ footer {
     padding: .67em;
 }
 
+.map-block {
+    display: block;
+}
+
+.map-btn {
+    margin-top: 2%;
+    background-color: teal;
+    color: white;
+    font-size: larger;
+}
+
+.map-row {
+    margin-left: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.stage {
+    background-color: transparent;
+    color: teal;
+    border: 1px black solid;
+}
+
+.stage, .general-row {
+    padding: 30px;
+}
+
 .header-btn {
     background-color: rgba(255,255,255,0.2);
     color: white;
@@ -127,7 +157,12 @@ footer {
 .section-header {
     text-align: center;
     font-weight: bolder;
-    font-size: 2.5em;
+    font-size: 2em;
+}
+
+.section-city {
+    font-size: 1.4em;
+    text-align: center;
 }
 
 /* ===== INDEX, TOUR SECTION ==== */
@@ -153,6 +188,7 @@ footer {
     /* to change the width of inline elements, 
     can apply width, height without breaking line */
     padding-right: 0.5em;
+    font-size: 1.2em;
 }
 
 .tour-date {
@@ -172,13 +208,17 @@ footer {
 }
 
 .flexbox-btn {
-    max-width: 19%;
+    max-width: 18%;
 }
 
 /* ===== ABOUT SECTION ===== */
 .about-img {
     float: left;
     margin: 3%;
+}
+
+.about-text {
+    font-size: 1.2em;
 }
 
 /* ===== STORE: ITEMS SECTION ===== */
@@ -212,6 +252,7 @@ footer {
 
 .shop-item-price {
     flex-grow: 1;
+    font-size: 1.3em;
 }
 
 .shop-items-all {
@@ -221,7 +262,7 @@ footer {
     /* adds even amount of space around (top bottom left right) */
 }
 
-/* ===== STORE: CART SECTION ====== */
+/* ===== TOUR TICKETS + STORE: CART SECTION ====== */
 .cart-header  {
     font-size: 1.5em;
     font-weight: bold;
@@ -234,6 +275,7 @@ footer {
     margin-right: 1.5em; /* space between columns */
     padding-bottom: 10px;
     margin-top: 10px; /* space between rows */
+    font-size: 1.2em;
 }
 
 .cart-row {
@@ -281,34 +323,39 @@ footer {
     border: none;
 }
 
-.cart-total {
+.cart-total, .tix-cart-total {
     margin-top: 20px;
     text-align: end;
 }
 
-.cart-total-label {
+.cart-total-label, .tix-cart-total-label {
     font-size: 2em;
     font-weight: bold;
     margin-right: 10px;
 }
 
-.cart-total-price  {
+.cart-total-price, .tix-cart-total-price  {
     font-size: 1.5em;
     margin-right: 30px;
 }
 
 /* ===== STORE: SUBMIT SECTION ===== */
-.submit-cart {
+.submit-cart, .tix-submit-cart {
     text-align: center;
 }
 
-.submit-cart .btn {
+.submit-cart .btn, .tix-submit-cart .btn {
     background-color: teal;
     color: white;
     font-size: 1.3em;
 }
 
-.submit-cart .btn:hover {
+.submit-cart .btn:hover, .tix-submit-cart .btn:hover, .map-btn:hover {
     background-color: rgba(0, 128, 128, 0.7);
     color: white;
+}
+
+.map-btn:first-child:hover {
+    background-color: transparent;
+    color: teal;
 }
