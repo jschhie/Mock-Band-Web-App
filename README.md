@@ -14,15 +14,17 @@
 ## Visual Demo
 
 ### About Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/demos/about1.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/about.png">
 
 ### Home / Tours Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/demos/home1.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/tours.png">
+
+### Tour Stadium / Ticket Cart Page
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/stadium.png">
 
 ### Store Page Demo 1
 * Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/demos/store1.png">
-
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/merch.png">
 
 ### Store Page Demo 2
-<img src="https://github.com/jschhie/band-web-app/blob/main/demos/purchase1.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart.png">
