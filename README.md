@@ -10,8 +10,9 @@
   * __Store__: 
     * displays merch and albums
     * simulates shopping cart and online purchase
-  * __Tour/Home__: displays tour dates
-    * ``TODO:`` simulate purchasing tour tickets
+  * __Tour/Home__: 
+    * displays tour dates
+    * simulates tickets for purchase
     * ```TODO```: play button functionality
 
 ## Visual Demo
