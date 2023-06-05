@@ -9,6 +9,14 @@
     font-size: 1em;
 }
 
+.arena-link {
+    color: black;
+}
+
+.arena-link:hover {
+    color: teal;
+}
+
 section {
     margin: 3%;
     font-size: 0.8em;
@@ -108,13 +116,14 @@ footer {
 }
 
 .stage {
-    background-color: transparent;
-    color: teal;
+    background-color: black;
+    color: white;
     border: 1px black solid;
+    font-size: 1.5em;
 }
 
 .stage, .general-row {
-    padding: 30px;
+    padding: 20px;
 }
 
 .header-btn {
@@ -158,11 +167,13 @@ footer {
     text-align: center;
     font-weight: bolder;
     font-size: 2em;
+    margin-bottom: 3%;
 }
 
 .section-city {
     font-size: 1.4em;
     text-align: center;
+    margin-bottom: 2%;
 }
 
 /* ===== INDEX, TOUR SECTION ==== */
@@ -214,7 +225,8 @@ footer {
 /* ===== ABOUT SECTION ===== */
 .about-img {
     float: left;
-    margin: 3%;
+    margin: 1%;
+    border-radius: 15px;
 }
 
 .about-text {
@@ -242,6 +254,7 @@ footer {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
 }
 
 .shop-item-details  {
