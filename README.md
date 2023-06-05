@@ -1,6 +1,6 @@
 # Mock Band Web App
 
-> Python, HTML, CSS, Bootstrap, JavaScript, Flask
+> Flask, Python, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
 * Mock band website with store catalog & shopping cart functionality for merch and tour tickets
@@ -13,7 +13,7 @@
   * __Tour/Home__: 
     * displays tour dates
     * simulates tickets for purchase
-    * ```TODO```: play button functionality
+    * ```TODO```: play button
 
 ## Visual Demo
 
@@ -28,7 +28,7 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtours.png">
 
 ### Tour Stadium / Ticket Cart Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtickets.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20tickets2.png">
 
 ### About Page
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/about.png">
