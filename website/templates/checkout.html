@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Unofficial BTS | Checkout {% endblock %}
+
+{% block content %}
+
+<section>
+    <h2 class="section-header">checkout {{ txnType }} </h2>
+
+    <div class="checkout-section">
+        <h4 class="sub-header">shipping address</h4>
+        <br>
+        <label id="ship-name-label">Name</label>
+        <input placeholder="John Smith" id="shippingName">
+        <br>
+        <label>Shipping Address</label>
+        <input placeholder="123 Street, City, ST" id="shippingAddress">
+    </div>
+
+    <div class="checkout-section">
+        <h4 class="sub-header">billing address</h4>
+        <br>
+        <div class="form-check billing-button">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onchange="editCheckout(this)">
+            <label class="form-check-label" for="flexCheckDefault">Same as shipping address?</label>
+        </div>
+        <br>
+        <label id="bill-name-label">Name</label>
+        <input placeholder="John Smith" id="billName">
+        <br>
+        <label>Billing Address</label>
+        <input placeholder="123 Street, City, ST" id="billAddress">
+    </div>
+
+    <div class="checkout-section">
+        <h4 class="sub-header">delivery method</h4>
+        <br>
+        <div class="form-check">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
+                <label class="form-check-label" for="flexRadioDefault2" value="$5.99">
+                  <span class="radio-price">$5.99</span> - Standard Ground (5-7 biz days)
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onchange="radioChange(this)">
+                <label class="form-check-label" for="flexRadioDefault1">
+                <span class="radio-price">$12.99</span> - Express Shipping (3-5 biz days)
+                </label>
+            </div>
+    </div>
+
+    <div class="checkout-section">
+        <h4 class="sub-header">total</h4>
+        <br>
+        Subtotal: <span id="subtotal"></span>
+        <br>
+        Shipping & Handling: <span id="shipping-fee">$5.99</span>
+        <br>
+        Total Price: $<span id="total-price"></span>
+    </div>
+
+    <div class="submit-cart">
+        <button type="button" class="purchase-btn btn" onclick="purchaseClicked(this)">
+            PURCHASE
+        </button>
+    </div>
+
+</section>
+
+<script>
+    // Populate subtotal and predicted total price with $5.99 shipping fee
+    document.getElementById("subtotal").innerText = sessionStorage.getItem("subtotal");
+    document.getElementById("total-price").innerText = sessionStorage.getItem("predictedTotal");
+</script>
+
+{% endblock %}

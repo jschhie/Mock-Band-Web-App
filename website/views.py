@@ -11,7 +11,6 @@ def index():
 def about():
     return render_template('about.html')
 
-
 @views.route('/store')
 def store():
     return render_template('store.html')
@@ -19,3 +18,8 @@ def store():
 @views.route('/buy-tix/<string:arena>')
 def buy_tix(arena):
     return render_template('buy-tix.html', arena=arena)
+
+@views.route('/checkout/<string:txnType>')
+def checkout(txnType):
+    # where txnType is either "merch" or "tickets"
+    return render_template('checkout.html', txnType=txnType)
