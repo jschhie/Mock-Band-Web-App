@@ -1,6 +1,5 @@
 /* * * * * GENERAL PURCHASING OPERATIONS * * * * * */
 function radioChange(event) {
-
     shippingFee = event.parentElement.getElementsByClassName("form-check-label")[0].getElementsByClassName("radio-price")[0].innerText;
     document.getElementById("shipping-fee").innerText = shippingFee;
     addCheckoutPrices();
