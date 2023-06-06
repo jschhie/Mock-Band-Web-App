@@ -3,13 +3,15 @@
 > Flask, Python, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
-* Mock band website with store catalog & shopping cart functionality for merch and tour tickets
-* Current Features: About, Tour/Home, and Store Page
+* Mock band website with store catalog, shopping cart functionality, and checkout page for merch & tour tickets
+* Current Features
   * __About__: 
     * displays info and graphic of band
   * __Store__: 
     * displays merch and albums
-    * simulates shopping cart and online purchase
+    * simulates shopping cart
+  * __Checkout__:
+    * simulates checkout and final purchase
   * __Tour/Home__: 
     * displays tour dates
     * simulates tickets for purchase
