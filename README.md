@@ -27,7 +27,7 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart.png">
 
 ### Cart Checkout Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/checkout.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/centered-checkout.png">
 
 ### Home / Tours Page
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtours.png">
