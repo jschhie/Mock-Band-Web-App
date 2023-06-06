@@ -209,11 +209,13 @@ footer {
 
 
 #subtotal-label {
-    margin-right: 330px;/*150px;*/
+    margin-right: 320px;
+    font-weight: bolder;
 }
 
 #ship-handle-label {
-    margin-right: 242px;/*63px;*/
+    margin-right: 242px;
+    font-weight: bolder;
 }
 
 #total-price-label {
@@ -224,8 +226,12 @@ footer {
 }
 
 /* center shipping and shipping labels and input fields */
-#ship-name-label, #bill-name-label {
+/*#ship-name-label, #bill-name-label {
     margin-right: 80px;
+}*/
+
+.checkout-label {
+    width: 120px;
 }
 
 .section-city {
