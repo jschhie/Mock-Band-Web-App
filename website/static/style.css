@@ -199,7 +199,8 @@ footer {
 }
 
 .checkout-form {
-    width: 450px;
+    /*width: 450px;*/
+    width: 70%;
     margin: auto;
 }
 
@@ -207,15 +208,14 @@ footer {
     margin-top: 3%;
 }
 
-
-#subtotal-label {
-    margin-right: 320px;
+#ship-handle-label, #subtotal-label {
     font-weight: bolder;
+    font-size: 1.1em;
+    text-align: center;
 }
 
-#ship-handle-label {
-    margin-right: 242px;
-    font-weight: bolder;
+#shipping-fee, #subtotal {
+    text-align: center;
 }
 
 #total-price-label {
@@ -225,23 +225,15 @@ footer {
     text-align: center;
 }
 
-/* center shipping and shipping labels and input fields */
-/*#ship-name-label, #bill-name-label {
-    margin-right: 80px;
-}*/
-
-.checkout-label {
-    width: 120px;
+.shipping-form {
+    text-align: center;
 }
 
+/* center shipping and shipping labels and input fields */
 .section-city {
     font-size: 1.4em;
     text-align: center;
     margin-bottom: 2%;
-}
-
-#shippingName, #shippingAddress, #billName, #billAddress {
-    width: 300px;
 }
 
 /* ===== INDEX, TOUR SECTION ==== */
