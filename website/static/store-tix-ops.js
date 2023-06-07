@@ -61,7 +61,8 @@ function startCheckout(event, txnType) {
     
     if (totalPrice == "$0.00") {
         alert("Empty cart! Please add items to cart before purchase.");
-        // remain on the same page
+        // return to top of page
+        document.location.href = '#';
     }  else {
         // save session's totalPrice
         sessionStorage.setItem("subtotal", totalPrice);
@@ -85,6 +86,7 @@ function purchaseClicked(event) {
         document.location.href = '/';
     } else {
         alert('Please complete the missing fields!');
+        document.location.href = '#'; // return to top of page
     }
 
 }
