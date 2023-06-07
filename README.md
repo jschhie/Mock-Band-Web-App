@@ -36,7 +36,7 @@
 
 ## Running the Site Manually
 ### Application Requirements
-To run this website manually (on with your ```localhost```), download the required packages and this repository, as described below.
+To run this website manually (via your ```localhost```), download the required packages and this repository, as described below.
 
 The packages and libraries needed to run this website are listed in the ```requirements.txt``` file. 
 The following command will install all the required packages:
