@@ -1,39 +1,28 @@
-# Mock Band Web App
+# Music Band E-commerce Store
 
-> Flask, Python, HTML, CSS, Bootstrap, JavaScript, Jinja
+> Flask, Python, HTML, CSS, Bootstrap, JavaScript, Jinja Templating
 
 ## Overview
-* Mock e-commerce platform with a store catalog, shopping cart functionality, and customer checkout process for band merch & tour tickets
-* Current Features
-  * __About__: 
-    * displays info and graphic of band
-  * __Store__: 
-    * displays merch and albums
-    * simulates shopping cart
-  * __Checkout__:
-    * simulates checkout and final purchase
-  * __Tour/Home__: 
-    * displays tour dates
-    * simulates tickets for purchase
-    * ```TODO```: play button
+* Mock e-commerce platform, featuring a store catalog, shopping cart functionality, and customer checkout process for band merch & tour tickets
 
-## Visual Demo
+## Website Demo
 
-### Store Page Demo 1
-* Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/merch.png">
+### Store Page
+> Sample Merch and Albums for Sale
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-merch.png">
 
-### Store Page Demo 2
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart.png">
+### Store Cart
+> Cart Section for Merch
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-merch-cart.png">
 
-### Cart Checkout Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/centered-checkout.png">
+### Customer Checkout
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-checkout.png">
 
-### Home / Tours Page
+### Home / Tours
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtours.png">
 
-### Tour Stadium / Ticket Cart Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20tickets2.png">
+### Concert Stadium / Tickets
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-stadium.png">
 
 ### About Page
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/about.png">
