@@ -197,17 +197,13 @@ footer {
 
 .checkout-section {
     text-align: left;
-    font-size: 1.2em;
     margin-top: 3%;
+    font-size: medium;
 }
 
 .checkout-form {
-    width: 70%;
+    width: 75%;
     margin: auto;
-}
-
-.purchase-btn {
-    margin-top: 3%;
 }
 
 #ship-handle-label, #subtotal-label {
@@ -223,11 +219,11 @@ footer {
 #total-price-label {
     font-weight: bolder;
     font-size: 1.2em;
-    margin-top: 3%;
+    margin-top: 1%;
     text-align: center;
     border-top: 1px solid black;
-    padding-top: 3%;
-    margin-bottom: 3%;
+    padding-top: 1%;
+    margin-bottom: 1%;
 }
 
 .shipping-form {
@@ -432,17 +428,18 @@ footer {
 
 
 /* ===== STORE: SUBMIT SECTION ===== */
-.submit-cart, .tix-submit-cart {
+.submit-cart {
     text-align: center;
 }
 
-.submit-cart .btn, .tix-submit-cart .btn {
+.purchase-btn {
     background-color: teal;
     color: white;
-    font-size: 1.3em;
+    font-size: medium;
+    margin-top: 1%;
 }
 
-.submit-cart .btn:hover, .tix-submit-cart .btn:hover, .map-btn:hover {
+.purchase-btn:hover, .map-btn:hover {
     background-color: rgba(0, 128, 128, 0.7);
     color: white;
 }

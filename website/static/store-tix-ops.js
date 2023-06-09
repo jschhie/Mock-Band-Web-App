@@ -12,23 +12,22 @@ function addCheckoutPrices() {
 }
 
 function editCheckout(event) {
+    idNames = ["Name", "Address", "City", "Zip", "State", "Email"];
     if (event.checked) {
-        shippingName = document.getElementById('shippingName').value;
-        if (shippingName != '') {
-            document.getElementById('billName').value = shippingName;
-        }
-        
-        shippingAddress = document.getElementById('shippingAddress').value;
-        if (shippingAddress != '') {
-            document.getElementById('billAddress').value = shippingAddress;
+        for (i = 0; i < idNames.length; i++) {
+            idName = idNames[i];
+            shipValue = document.getElementById("ship" + idName).value;
+            // copy over to billing
+            document.getElementById("bill" + idName).value = shipValue;
         }
     } else {
         // clear billing fields
-        document.getElementById('billName').value = '';
-        document.getElementById('billAddress').value = '';
+        for (i = 0; i < idNames.length; i++) {
+            idName = idNames[i];
+            document.getElementById("bill" + idName).value = '';
+        }
     }
 }
-
 
 /* PURCHASE CART ITEMS */
 /*
@@ -74,21 +73,32 @@ function startCheckout(event, txnType) {
 }
 
 
-function purchaseClicked(event) {
+function purchaseClicked(event) {    
     // check if all fields are filled out
-    shipName = document.getElementById("shippingName").value;
-    shipAddr = document.getElementById("shippingAddress").value;
-    billingName = document.getElementById("billName").value;
-    billingAddr = document.getElementById("billAddress").value;
-    if (shipName && shipAddr && billingName && billingAddr) {
-        alert('Thank you for your purchase! Now returning to Home.');
-        // redirect to Home Page
-        document.location.href = '/';
-    } else {
-        alert('Please complete the missing fields!');
-        document.location.href = '#'; // return to top of page
+    ids = ["ship", "bill"];
+    idNames = ["Name", "Address", "City", "Zip", "State", "Email"];
+    for (i = 0; i < ids.length; i++) {
+        idType = ids[i];
+        for (j = 0; j < idNames.length; j++) {
+            idName = idNames[j];
+            if (checkFormFields(idType, idName) == false) {
+                alert('Please fill out missing fields!');
+                return false;
+            }
+        }
     }
+    // Successful form
+    return true;    
+}
 
+function checkFormFields(idType, idName) {
+    idString = idType + idName;
+    element = document.getElementById(idString).value;
+    if (element == '') {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 /* REMOVE CART ITEMS */
@@ -276,5 +286,3 @@ function addTixRowToCart(tixType, price) {
     cartItemsAll.append(cartRow); 
 
 }
-
-

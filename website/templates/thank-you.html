@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Unofficial BTS | Thank You{% endblock %}
+
+{% block content %}
+
+<section>
+
+    <div class="section-header">
+        Thank you for your purchase
+        {% if txnType == 'tickets' %}
+        <br>
+        <br>
+        <h4 class="sub-header">See you at the concert!</h4>
+        {% endif %}
+        <br>
+        <br>
+        <h4 class="sub-header">Order Summary</h4>
+        <!-- DISPLAY CUSTOMER INFO -->
+    </div>
+
+</section>
+
+
+{% endblock %}
