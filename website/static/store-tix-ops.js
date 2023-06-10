@@ -79,6 +79,13 @@ function startCheckout(event, txnType) {
 
 
 function purchaseClicked(event) {    
+    // check if invalid page visit or user already purchased but clicked 'Back' Page
+    if (document.getElementById("subtotal").innerText == "$0.00") {
+        alert('Invalid checkout page. Returning Home!');
+        document.location.href = '/';
+        return false;
+    }
+
     // check if all fields are filled out
     ids = ["ship", "bill"];
     idNames = ["Name", "Address", "City", "Zip", "State", "Email"];
