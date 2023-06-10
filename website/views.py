@@ -74,14 +74,19 @@ def checkout(txnType):
         db.session.add(new_order)
         db.session.commit()
 
-        json_cart = json.loads(request.form['jsonCart']) # [{'prod_title': '', 'qty_sold': #, 'unit_price': '$00.00'}, {}, {}]  
+        json_cart = json.loads(request.form['jsonCart']) 
+        # [{'prod_title': '', 'qty_sold': #, 'unit_price': '$00.00', 'venue': 'None', 'venue_date': 'None'}, {}, {}]  
+        # where venue and venue_date applicable to tickets only; else None value
+
         for dictionary in json_cart:
             prod_title = dictionary['prod_title']
             qty_sold = dictionary['qty_sold']
+            venue = dictionary['venue']
+            venue_date = dictionary['venue_date']
             # Find matching Product with prod_title
             product = Product.query.filter_by(prod_title=prod_title).first() # .one() raises exception if MultipleResultsFound
             # Create ItemSold object
-            new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id)
+            new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id, venue=venue, venue_date=venue_date)
             db.session.add(new_item_sold)
             db.session.commit()
 

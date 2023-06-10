@@ -137,7 +137,15 @@ function updateCartTotal() {
     var total = 0;
     var json_cart = []; // list of dictionaries
     var header = document.getElementsByClassName("cart-type-header")[0].innerText; // either "TICKET TYPE" (tickets) OR "ITEM" (merch)
-    
+
+    var venue = "None";
+    var venue_date = "None";
+    if (header == "TICKET TYPE") {
+        // get concert venue, date, and time
+        venue = document.getElementsByClassName("arena-link")[0].innerText;
+        venue_date = document.getElementsByClassName("venue-date")[0].innerText;
+    } 
+
     for (var i = 0; i < cartRows.length; i++) {
         // get item price
         var cartRow = cartRows[i];
@@ -161,7 +169,8 @@ function updateCartTotal() {
             var prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText;
         }
 
-        var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount };
+        //var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount };
+        var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
         json_cart.push(new_row);
     }
 

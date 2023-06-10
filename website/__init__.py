@@ -36,8 +36,14 @@ def create_database(app):
             # Insert store merch
             merch_titles = ["Young Forever", "WINGS", "You Never Walk Alone", "Love Yourself: HER", "Love Yourself: Black Hoodie", "Love Yourself: White Hoodie"]
             merch_prices = [19.99, 21.99, 28.25, 28.99, 31.99, 31.99]
-            for title, price in zip(merch_titles, merch_prices):
-                new_product = Product(prod_title=title, unit_price=price)
+            img_urls = ["https://live.staticflickr.com/65535/52726666648_ba2e880a99_w.jpg", 
+                        "https://live.staticflickr.com/65535/52726666373_7da75acb45_w.jpg", 
+                        "https://live.staticflickr.com/65535/52726600750_3946190a20_w.jpg", 
+                        "https://live.staticflickr.com/65535/52726186301_80d0c6f6c5_n.jpg", 
+                        "https://live.staticflickr.com/65535/52726627658_dc143b07b2_o.jpg", 
+                        "https://live.staticflickr.com/65535/52726147106_704a98479e_o.jpg"]
+            for title, price, img_src in zip(merch_titles, merch_prices, img_urls):
+                new_product = Product(prod_title=title, unit_price=price, img_src=img_src)
                 db.session.add(new_product)
                 db.session.commit()
 

@@ -10,11 +10,28 @@
         Thank you for your purchase
         {% if txnType == 'tickets' %}
         <br>
+        <br>
         <h4 class="sub-header">See you at the concert!</h4>
+        <br>
+        <div class="venue-details">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+            </span>
+            <span><a class="arena-link" href="https://www.google.com/maps/place/Olympic+Stadium/@37.5158376,127.0702237,17z/data=!3m1!4b1!4m6!3m5!1s0x357ca450879adccd:0x7701bd84f28c7f68!8m2!3d37.5158376!4d127.0727986!16zL20vMDU3bGsz?entry=ttu" target="_blank">{{ order.items_sold[0].venue }}</a></span>
+            <div>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    </svg>
+                </span>
+                <span class="venue-date">{{ order.items_sold[0].venue_date }}</span>
+            </div>
+        </div>
+
         {% endif %}
         <br>
-        <br>
-
         <h4 class="sub-header">Order Summary</h4>
 
         <div class="receipt-section">
@@ -28,9 +45,15 @@
 
         <div class="receipt-section">
             <div class="receipt-title">{{ txnType }} details</div>
+            <br>
             {% for row, product in zip %}
-                <span class="receipt-product">{{ product.prod_title }}</span> x {{ row.qty_sold }} / ${{ product.unit_price }} each 
-                <br>          
+            <div class="receipt-row">
+                {% if txnType == "merch" %}
+                <img class="cart-item-image" src={{product.img_src}}>
+                {% endif %}
+                <span class="cart-item-title">{{ product.prod_title }}</span> x {{ row.qty_sold }} / ${{ product.unit_price }} each 
+                <br>  
+            </div>       
             {% endfor %}
         </div>
 
