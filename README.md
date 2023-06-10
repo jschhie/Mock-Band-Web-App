@@ -25,7 +25,7 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated-checkout-2.png">
 
 ### Order Confirmation
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/thank-you.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated%20thank%20you.png">
 
 
 ### Home / Tours
