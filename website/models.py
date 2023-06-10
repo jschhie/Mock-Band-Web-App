@@ -34,12 +34,14 @@ class Order(db.Model):
     total_price = db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
 
 
-
 class ItemSold(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     qty_sold = db.Column(db.Integer) # at least 1
     order_id = db.Column(db.Integer, db.ForeignKey('order.id')) # foreign key
     product_id = db.Column(db.Integer, db.ForeignKey('product.id')) # foreign key
+    # TODO Connect venue, venue date to Order instead
+    venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue
+    venue_date = db.Column(db.String(30), default="None") # date and time (ex: AUG 25, TUES, at 8 PM)
 
 
 
@@ -47,9 +49,6 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     prod_title = db.Column(db.String(50))
     unit_price = db.Column(db.Numeric(precision=10, scale=2))
-    #img_src = db.Column(db.String(100)) # image url for merch
+    img_src = db.Column(db.String(100), default="None") # image url for merch
     
     #prod_type = db.Column(db.String(30), default="Merch") # either Merch or Ticket type
-    #venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue String
-    #venue_date = db.Column(db.String(20)) # YYYY-MM-DD 
-    #venue_time = db.Column(db.String(20)) # Hour PM
