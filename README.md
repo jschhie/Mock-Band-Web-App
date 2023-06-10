@@ -25,8 +25,11 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated-checkout-2.png">
 
 ### Order Confirmation
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated%20thank%20you.png">
+> Receipt for Store Merch, Albums
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/merch%20receipt.png">
 
+> Receipt for Ticket with Concert Info
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/ticket%20info%20receipt.png">
 
 ### Home / Tours
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtours.png">
