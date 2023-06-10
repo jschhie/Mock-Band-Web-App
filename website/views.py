@@ -1,9 +1,13 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
-from .models import Customer, Order
+from .models import Customer, Order, ItemSold, Product
 from datetime import datetime
 
+import json
+
 views = Blueprint('views', __name__)
+
+
 
 @views.route('/')
 @views.route('/index')
@@ -24,7 +28,7 @@ def store():
 
 
 
-@views.route('/buy-tix/<string:arena>')
+@views.route('/buy-tix/<string:arena>', methods=['GET', 'POST'])
 def buy_tix(arena):
     return render_template('buy-tix.html', arena=arena)
 
@@ -69,12 +73,18 @@ def checkout(txnType):
         # Store new Order into DB
         db.session.add(new_order)
         db.session.commit()
-        
-        #all_customers, all_orders = Customer.query.all(), Order.query.all()
-        #for customer, order in zip(all_customers, all_orders):
-        #    print(customer.id, customer.bill_name, order.id, order.customer_id, order.subtotal, order.delivery_fee, order.total_price)        
 
-        #return redirect('/thank-you' + '/' + txnType + '/' + str(new_order.id))
+        json_cart = json.loads(request.form['jsonCart']) # [{'prod_title': '', 'qty_sold': #, 'unit_price': '$00.00'}, {}, {}]  
+        for dictionary in json_cart:
+            prod_title = dictionary['prod_title']
+            qty_sold = dictionary['qty_sold']
+            # Find matching Product with prod_title
+            product = Product.query.filter_by(prod_title=prod_title).one()
+            # Create ItemSold object
+            new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id)
+            db.session.add(new_item_sold)
+            db.session.commit()
+
         return redirect(url_for('views.thankYou', txnType=txnType, orderId=new_order.id))
 
     return render_template('checkout.html', txnType=txnType)
@@ -85,7 +95,18 @@ def checkout(txnType):
 def thankYou(txnType, orderId):
     # DISPLAY CUSTOMER INFO FROM DATABASE
     # DISPLAY VENUE MAP AND TIME/DATE/LOCATION
+    
     # Get Customer and Order instance from orderId
     order = Order.query.filter_by(id=orderId).one()
+    items_sold = order.items_sold
+    
+    product_ids = []
+    num_items_sold = 0
+    for item in items_sold:
+        product_ids.append(item.product_id)
+        num_items_sold += item.qty_sold
+
+    matching_products = Product.query.filter(Product.id.in_(product_ids)).all()
     customer = Customer.query.filter_by(id=order.customer_id).one()
-    return render_template('thank-you.html', txnType=txnType, order=order, customer=customer)
+
+    return render_template('thank-you.html', txnType=txnType, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))

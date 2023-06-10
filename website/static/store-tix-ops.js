@@ -72,6 +72,7 @@ function startCheckout(event, txnType) {
         sessionStorage.setItem("subtotal", totalPrice);
         temp = parseFloat(totalPrice.replace('$','')) + 5.99;
         sessionStorage.setItem("predictedTotal", temp.toFixed(2)) // with $5.99 shipping fee
+        
         // redirect to Checkout Page for store merch or tour tickets
         document.location.href = '/checkout/' + txnType;
     }
@@ -129,10 +130,14 @@ function removeCartItems(event) {
 
 /* UPDATE CART TOTAL */
 function updateCartTotal() {
+    // Update cart total and also create dictionary of items in cart 
     var cartItemContainer = document.getElementsByClassName("cart-items-all")[0]; // [0]: get the container element itself
     var cartRows = cartItemContainer.getElementsByClassName("cart-row"); // get array of all elements with class="cart-row"
     
     var total = 0;
+    var json_cart = []; // list of dictionaries
+    var header = document.getElementsByClassName("cart-type-header")[0].innerText; // either "TICKET TYPE" (tickets) OR "ITEM" (merch)
+    
     for (var i = 0; i < cartRows.length; i++) {
         // get item price
         var cartRow = cartRows[i];
@@ -148,12 +153,26 @@ function updateCartTotal() {
         
         // add up total price 
         total = total + (price * amount);
+
+        // get product title or ticket type name
+        if (header == "TICKET TYPE") {
+            var prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText;
+        } else {
+            var prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText;
+        }
+
+        var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount };
+        json_cart.push(new_row);
     }
 
     // format total value by rounding two decimal places
     total = Math.round(total * 100) / 100;
     var totalPriceElement = document.getElementsByClassName("cart-total-price")[0];
     formatPrice(total, totalPriceElement);
+    
+    sessionStorage.setItem("shoppingCart", JSON.stringify(json_cart));
+
+    alert(sessionStorage.getItem("shoppingCart"));
 }
 
 
