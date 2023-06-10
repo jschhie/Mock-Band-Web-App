@@ -79,7 +79,7 @@ def checkout(txnType):
             prod_title = dictionary['prod_title']
             qty_sold = dictionary['qty_sold']
             # Find matching Product with prod_title
-            product = Product.query.filter_by(prod_title=prod_title).one()
+            product = Product.query.filter_by(prod_title=prod_title).first() # .one() raises exception if MultipleResultsFound
             # Create ItemSold object
             new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id)
             db.session.add(new_item_sold)
@@ -97,7 +97,7 @@ def thankYou(txnType, orderId):
     # DISPLAY VENUE MAP AND TIME/DATE/LOCATION
     
     # Get Customer and Order instance from orderId
-    order = Order.query.filter_by(id=orderId).one()
+    order = Order.query.filter_by(id=orderId).first() #.one()
     items_sold = order.items_sold
     
     product_ids = []
@@ -107,6 +107,6 @@ def thankYou(txnType, orderId):
         num_items_sold += item.qty_sold
 
     matching_products = Product.query.filter(Product.id.in_(product_ids)).all()
-    customer = Customer.query.filter_by(id=order.customer_id).one()
+    customer = Customer.query.filter_by(id=order.customer_id).first() #.one()
 
     return render_template('thank-you.html', txnType=txnType, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))
