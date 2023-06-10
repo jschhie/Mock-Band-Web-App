@@ -1,6 +1,6 @@
 # Music Band E-commerce Store
 
-> Flask, Python, HTML, CSS, Bootstrap, JavaScript, Jinja Templating, SQLite
+> Flask, Python, HTML, CSS, Bootstrap, JavaScript, Jinja Templating, SQLAlchemy
 
 ## Overview
 * Mock e-commerce platform, featuring a store catalog, shopping cart functionality, and customer checkout process for band merch & tour tickets
