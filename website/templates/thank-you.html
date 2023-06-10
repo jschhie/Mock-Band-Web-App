@@ -10,14 +10,65 @@
         Thank you for your purchase
         {% if txnType == 'tickets' %}
         <br>
-        <br>
         <h4 class="sub-header">See you at the concert!</h4>
         {% endif %}
         <br>
         <br>
-        <h4 class="sub-header">Order Summary</h4>
+        <h4 class="sub-header">Order Summary </h4>
         <!-- DISPLAY CUSTOMER INFO -->
+        <div class="receipt-section">
+            <div class="receipt-title">order number #{{ order.id }}</div>
+            purchase date: {{ order.purchase_date }}
+        </div>
+
+        <br>
+
+        <div class="receipt-section">
+            <div class="receipt-title">shipping address</div>
+            <br>
+            {{ customer.rec_name }}
+            <br>
+            {{ customer.rec_address }}, {{ customer.rec_city }}, {{ customer.rec_state }} {{ customer.rec_zip }}
+            <br>
+            {{ customer.rec_email }}
+        </div>
+
+        <br>
+
+        <div class="receipt-section">
+            <div class="receipt-title">billing address</div>
+            <br>
+            {{ customer.bill_name }}
+            <br>
+            {{ customer.bill_address }}, {{ customer.bill_city }}, {{ customer.bill_state }} {{ customer.bill_zip }}
+            <br>
+            {{ customer.bill_email }}
+        </div>
+
+        <br>
+
+        <div class="receipt-section">
+            <div class="receipt-title">order details</div>
+            <br>
+            {{ txnType }} subtotal: ${{ order.subtotal }}
+            <br>
+            delivery fee: ${{ order.delivery_fee }}
+            {% if order.delivery_fee == "5.99" %}
+                with Standard Ground (5-7 biz days)
+            {% elif order.delivery_fee == "12.99" %}
+                with Express Shipping (1-3 biz days)
+            {% else %}
+                with Next-Day Shipping (1 biz day)
+            {% endif %}
+            <br>
+            total: ${{ order.total_price }}
+        </div>
+
     </div>
+
+    <br>
+
+    <a href="/" class="btn general-btn purchase-btn">RETURN HOME</a>
 
 </section>
 

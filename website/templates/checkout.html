@@ -79,19 +79,19 @@
         <div class="checkout-form">
             <div class="form-check shipping-form">
                 <div>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
-                    <label class="form-check-label" for="flexRadioDefault2" value="$5.99">
+                    <input value="$5.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
+                    <label class="form-check-label" for="flexRadioDefault2">
                       <span class="radio-price">$5.99</span><span class="shipping-type"> Standard (5-7 biz days)</span>
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onchange="radioChange(this)">
+                    <input value="$12.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onchange="radioChange(this)">
                     <label class="form-check-label" for="flexRadioDefault1">
                         <span class="radio-price">$12.99</span><span class="shipping-type"> Express (3-5 biz days)</span>
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" onchange="radioChange(this)">
+                    <input value="$15.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" onchange="radioChange(this)">
                     <label class="form-check-label" for="flexRadioDefault3">
                         <span class="radio-price">$15.99</span><span class="shipping-type"> Next Day (1 biz day)</span>
                     </label>
@@ -115,6 +115,13 @@
         </div>
     </div>
 
+    <div class="hidden-div">
+        <!-- Stores subtotal and total price -- to be sent with form -->
+        <input id="hidden-subtotal" type="text" name="subtotal">
+        <input id="hidden-total-price" type="text" name="totalPrice">
+        <input id="hidden-delivery-fee" type="text" name="deliveryFee">
+    </div>
+
     <div class="submit-cart">
         <button type="submit" class="purchase-btn btn" onclick="return purchaseClicked(this)">
             PURCHASE
@@ -128,6 +135,10 @@
     // Populate subtotal and predicted total price with $5.99 shipping fee
     document.getElementById("subtotal").innerText = sessionStorage.getItem("subtotal");
     document.getElementById("total-price").innerText = sessionStorage.getItem("predictedTotal");
+    // Populate hidden div info
+    document.getElementById("hidden-subtotal").value = sessionStorage.getItem("subtotal").replace('$', ''); // remove $
+    document.getElementById("hidden-delivery-fee").value = "5.99";
+    document.getElementById("hidden-total-price").value = sessionStorage.getItem("predictedTotal");
 </script>
 
 {% endblock %}

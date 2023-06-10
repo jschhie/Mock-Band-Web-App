@@ -9,6 +9,11 @@ function addCheckoutPrices() {
     subtotalInteger = parseFloat(document.getElementById("subtotal").innerText.replace('$', ''));
     feeInteger = parseFloat(document.getElementById("shipping-fee").innerText.replace('$', ''));
     document.getElementById("total-price").innerText = (subtotalInteger + feeInteger).toFixed(2); // round to 2 decimal places
+
+    // Hidden div information
+    document.getElementById("hidden-subtotal").value = subtotalInteger;
+    document.getElementById("hidden-delivery-fee").value = feeInteger;
+    document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
 }
 
 function editCheckout(event) {
@@ -87,6 +92,10 @@ function purchaseClicked(event) {
             }
         }
     }
+    // Reset session storage variables
+    document.sessionStorage.setItem("subtotal", "$0.00");
+    document.sessionStorage.setItem("predictedTotal", "$0.00");
+
     // Successful form
     return true;    
 }

@@ -448,3 +448,19 @@ footer {
     background-color: transparent;
     color: teal;
 }
+
+.hidden-div {
+    display: none;
+}
+
+
+/* ===== THANK YOU: RECEIPT SECTION ===== */
+.receipt-section {
+    font-size: large;
+    text-align: left;
+}
+
+.receipt-title {
+    font-size: larger;
+    margin-top: 1%;
+}

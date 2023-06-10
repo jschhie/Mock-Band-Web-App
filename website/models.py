@@ -1,6 +1,6 @@
-# THIS MODELS.PY FILE DOES NOT DO ANYTHING, NOT CONNECTED TO FILES, DATABASE YET
-
 from . import db
+
+
 
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,32 +24,10 @@ class Customer(db.Model):
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    #purchase_date = db.Column(db.String(20)) # YYYY-MM-DD 
+    purchase_date = db.Column(db.String(50)) 
     customer_id = db.Column(db.Integer, db.ForeignKey('customer.id')) # foreign key
     # Monetary Values
     subtotal = db.Column(db.Numeric(precision=10, scale=2))
-    delivery_fee =  db.Column(db.Numeric(precision=10, scale=2), default=5.99) # round 2 places
+    delivery_fee =  db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
     total_price = db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
-    # List of all ItemSold
-    #items_sold = db.relationship('ItemSold')
-
-
-
-"""
-class ItemSold(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    qty_sold = db.Column(db.Integer) # at least 1
-    order_id = db.Column(db.Integer, db.ForeignKey('order.id')) # foreign key
-    product_id = db.Column(db.Integer, db.ForeignKey('product.id')) # foreign key
-
-
-
-class Product(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    prod_title = db.Column(db.String(30))
-    unit_price = db.Column(db.Numeric(precision=10, scale=2))
-    prod_type = db.Column(db.String(30), default="Merch") # either Merch or Ticket type
-    venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue String
-    venue_date = db.Column(db.String(20)) # YYYY-MM-DD 
-    venue_time = db.Column(db.String(20)) # Hour PM
-"""
+    # purchase_date = db.Column(db.String(30))
