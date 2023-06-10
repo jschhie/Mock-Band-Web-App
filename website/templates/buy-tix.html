@@ -114,31 +114,32 @@
 </section>
 
 <!-- TICKETS CART -->
-<section>
-    <h2 class="section-header">cart</h2>
-    <!-- CART HEADER ROW -->
-    <div class="cart-row">
-        <span class="cart-item cart-header cart-column">TICKET TYPE</span>
-        <span class="cart-price cart-header cart-column">PRICE</span>
-        <span class="cart-amount cart-header cart-column">QUANTITY</span>
-    </div>
-    
-    <!-- ALL CART ITEMS -->
-    <div class="cart-items-all">
-        <!-- Ticket Cart inserted interactively here -->
-    </div>
-    
-    <!-- CHECKOUT -->
-    <div class="cart-total">
-        <span class="cart-total-label">TOTAL</span>
-        <span class="cart-total-price">$0.00</span>
-    </div>
-    <div class="submit-cart">
-        <button type="button" class="purchase-btn btn" onclick="startCheckout(this, 'tickets')">
-            CHECKOUT
-        </button>
-    </div>
-
-</section>
+<form method="POST">
+    <section>
+        <h2 class="section-header">cart</h2>
+        <!-- CART HEADER ROW -->
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-type-header cart-column">TICKET TYPE</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-amount cart-header cart-column">QUANTITY</span>
+        </div>
+        
+        <!-- ALL CART ITEMS -->
+        <div class="cart-items-all">
+            <!-- Ticket Cart inserted interactively here -->
+        </div>
+        
+        <!-- CHECKOUT -->
+        <div class="cart-total">
+            <span class="cart-total-label">TOTAL</span>
+            <span class="cart-total-price">$0.00</span>
+        </div>
+        <div class="submit-cart">
+            <button type="button" class="purchase-btn btn" onclick="startCheckout(this, 'tickets')">
+                CHECKOUT
+            </button>
+        </div>
+    </section>
+</form>
 
 {% endblock %}

@@ -115,11 +115,12 @@
         </div>
     </div>
 
-    <div class="hidden-div">
+    <div class="hidden-divdddd">
         <!-- Stores subtotal and total price -- to be sent with form -->
         <input id="hidden-subtotal" type="text" name="subtotal">
         <input id="hidden-total-price" type="text" name="totalPrice">
         <input id="hidden-delivery-fee" type="text" name="deliveryFee">
+        <input id="hidden-json-cart" name="jsonCart">
     </div>
 
     <div class="submit-cart">
@@ -139,6 +140,10 @@
     document.getElementById("hidden-subtotal").value = sessionStorage.getItem("subtotal").replace('$', ''); // remove $
     document.getElementById("hidden-delivery-fee").value = "5.99";
     document.getElementById("hidden-total-price").value = sessionStorage.getItem("predictedTotal");
+    // Retrieve JSON shoppingCart
+    var json_cart = sessionStorage.getItem("shoppingCart");
+    document.getElementById("hidden-json-cart").value = json_cart;
+    
 </script>
 
 {% endblock %}

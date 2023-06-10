@@ -464,3 +464,7 @@ footer {
     font-size: larger;
     margin-top: 1%;
 }
+
+.receipt-product {
+    color: teal;
+}
