@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<section>
+<form method="POST">
     <h2 class="section-header">checkout {{ txnType }} </h2>
 
     <div class="checkout-section">
@@ -12,13 +12,27 @@
         <br>
         <div class="checkout-form">
             <div class="row">
-                <label class="checkout-label col-md-4" id="ship-name-label">Name</label>
-                <input class="col-md-8" placeholder="John Smith" id="shippingName">
+                <label class="col-md-3" id="ship-name-label">Name</label>
+                <input class="form-control col-md-9" placeholder="John Smith" id="shipName" name="shipName">
             </div>
             <br>
             <div class="row">
-                <label class="checkout-label col-md-4">Street Address</label>
-                <input class="col-md-8" placeholder="123 Somewhere Street" id="shippingAddress">
+                <label class="col-md-3">Street Address</label>
+                <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="shipAddress" name="shipAddress">
+            </div>
+            <br>
+            <div class="row">
+                <label class="col-md-3">City</label>
+                <input class="form-control col-md-3" placeholder="City" id="shipCity" name="shipCity">
+                <label class="col-md-3">State</label>
+                <input class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState">
+            </div>
+            <br>
+            <div class="row">
+                <label class="col-md-3">ZIP</label>
+                <input class="form-control col-md-3" placeholder="12345" id="shipZip" name="shipZip">
+                <label class="col-md-3">Email</label>
+                <input type="email" class="form-control col-md-3" placeholder="user@gmail.com" id="shipEmail" name="shipEmail">
             </div>
         </div>
     </div>
@@ -33,14 +47,29 @@
             </div>
             <br>
             <div class="row">
-                <label class="checkout-label col-md-4" id="bill-name-label">Name</label>
-                <input class="col-md-8" placeholder="John Smith" id="billName">
+                <label class="col-md-3" id="bill-name-label">Name</label>
+                <input class="form-control col-md-9" placeholder="John Smith" id="billName" name="billName">
             </div>
             <br>
             <div class="row">
-                <label class="col-md-4 checkout-label">Street Address</label>
-                <input class="col-md-8" placeholder="123 Somewhere Street" id="billAddress">
+                <label class="col-md-3">Street Address</label>
+                <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="billAddress" name="billAddress">
             </div>
+            <br>
+            <div class="row">
+                <label class="col-md-3">City</label>
+                <input class="form-control col-md-3" placeholder="City" id="billCity" name="billCity">
+                <label class="col-md-3">State</label>
+                <input class="form-control col-md-3" placeholder="ST" id="billState" name="billState">
+            </div>
+            <br>
+            <div class="row">
+                <label class="col-md-3">ZIP</label>
+                <input class="form-control col-md-3" placeholder="12345" id="billZip" name="billZip">
+                <label class="col-md-3">Email</label>
+                <input type="form-control email" class="form-control col-md-3" placeholder="user@gmail.com" id="billEmail" name="billEmail">
+            </div>
+        </div>
         </div>
     </div>
 
@@ -50,20 +79,20 @@
         <div class="checkout-form">
             <div class="form-check shipping-form">
                 <div>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
-                    <label class="form-check-label" for="flexRadioDefault2" value="$5.99">
+                    <input value="$5.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
+                    <label class="form-check-label" for="flexRadioDefault2">
                       <span class="radio-price">$5.99</span><span class="shipping-type"> Standard (5-7 biz days)</span>
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onchange="radioChange(this)">
+                    <input value="$12.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onchange="radioChange(this)">
                     <label class="form-check-label" for="flexRadioDefault1">
                         <span class="radio-price">$12.99</span><span class="shipping-type"> Express (3-5 biz days)</span>
                     </label>
                 </div>
                 <div>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onchange="radioChange(this)">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input value="$15.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" onchange="radioChange(this)">
+                    <label class="form-check-label" for="flexRadioDefault3">
                         <span class="radio-price">$15.99</span><span class="shipping-type"> Next Day (1 biz day)</span>
                     </label>
                 </div>
@@ -86,18 +115,30 @@
         </div>
     </div>
 
+    <div class="hidden-div">
+        <!-- Stores subtotal and total price -- to be sent with form -->
+        <input id="hidden-subtotal" type="text" name="subtotal">
+        <input id="hidden-total-price" type="text" name="totalPrice">
+        <input id="hidden-delivery-fee" type="text" name="deliveryFee">
+    </div>
+
     <div class="submit-cart">
-        <button type="button" class="purchase-btn btn" onclick="purchaseClicked(this)">
+        <button type="submit" class="purchase-btn btn" onclick="return purchaseClicked(this)">
             PURCHASE
         </button>
     </div>
+    <br>
 
-</section>
+</form>
 
 <script>
     // Populate subtotal and predicted total price with $5.99 shipping fee
     document.getElementById("subtotal").innerText = sessionStorage.getItem("subtotal");
     document.getElementById("total-price").innerText = sessionStorage.getItem("predictedTotal");
+    // Populate hidden div info
+    document.getElementById("hidden-subtotal").value = sessionStorage.getItem("subtotal").replace('$', ''); // remove $
+    document.getElementById("hidden-delivery-fee").value = "5.99";
+    document.getElementById("hidden-total-price").value = sessionStorage.getItem("predictedTotal");
 </script>
 
 {% endblock %}
