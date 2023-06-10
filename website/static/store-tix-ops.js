@@ -172,7 +172,7 @@ function updateCartTotal() {
     
     sessionStorage.setItem("shoppingCart", JSON.stringify(json_cart));
 
-    alert(sessionStorage.getItem("shoppingCart"));
+    // alert(sessionStorage.getItem("shoppingCart"));
 }
 
 
