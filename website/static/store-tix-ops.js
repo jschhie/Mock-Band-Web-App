@@ -163,9 +163,9 @@ function updateCartTotal() {
 
         // get product title or ticket type name
         if (header == "TICKET TYPE") {
-            var prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText;
+            var prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText.replace(/\n/g, ''); // remove any '/n' characters;
         } else {
-            var prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText;
+            var prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replace(/\n/g, ''); // remove any '/n' characters
         }
 
         var new_row = { "prod_title": prod_title, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
