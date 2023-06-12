@@ -29,9 +29,9 @@ class Order(db.Model):
     # List of all ItemSold
     items_sold = db.relationship('ItemSold')
     # Monetary Values
-    subtotal = db.Column(db.Numeric(precision=10, scale=2))
-    delivery_fee =  db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
-    total_price = db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
+    subtotal = db.Column(db.String(50)) #db.Column(db.Numeric(precision=10, scale=2))
+    delivery_fee = db.Column(db.String(50)) #db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
+    total_price = db.Column(db.String(50)) #db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
 
 
 class ItemSold(db.Model):
@@ -47,8 +47,6 @@ class ItemSold(db.Model):
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    prod_title = db.Column(db.String(50))
-    unit_price = db.Column(db.Numeric(precision=10, scale=2))
-    img_src = db.Column(db.String(100), default="None") # image url for merch
-    
-    #prod_type = db.Column(db.String(30), default="Merch") # either Merch or Ticket type
+    prod_title = db.Column(db.String(50), unique=True)
+    unit_price = db.Column(db.String(50)) #db.Column(db.Numeric(precision=10, scale=2))
+    img_src = db.Column(db.String(100), default="None") # image url for merch, "None" for tickets

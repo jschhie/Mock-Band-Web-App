@@ -6,13 +6,13 @@ function radioChange(event) {
 }
 
 function addCheckoutPrices() {
-    subtotalInteger = parseFloat(document.getElementById("subtotal").innerText.replace('$', ''));
-    feeInteger = parseFloat(document.getElementById("shipping-fee").innerText.replace('$', ''));
-    document.getElementById("total-price").innerText = (subtotalInteger + feeInteger).toFixed(2); // round to 2 decimal places
+    subtotalStr = document.getElementById("subtotal").innerText.replace('$', '');
+    feeStr = document.getElementById("shipping-fee").innerText.replace('$', '');
+    document.getElementById("total-price").innerText = (parseFloat(subtotalStr) + parseFloat(feeStr)).toFixed(2);
 
     // Hidden div information
-    document.getElementById("hidden-subtotal").value = subtotalInteger;
-    document.getElementById("hidden-delivery-fee").value = feeInteger;
+    document.getElementById("hidden-subtotal").value = subtotalStr;
+    document.getElementById("hidden-delivery-fee").value = feeStr;
     document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
 }
 
@@ -68,11 +68,10 @@ function startCheckout(event, txnType) {
         // return to top of page
         document.location.href = '#';
     }  else {
-        // save session's totalPrice
+        // save session's totalPrice, predictedTotal
         sessionStorage.setItem("subtotal", totalPrice);
-        temp = parseFloat(totalPrice.replace('$','')) + 5.99;
-        sessionStorage.setItem("predictedTotal", temp.toFixed(2)) // with $5.99 shipping fee
-        
+        temp = parseFloat(totalPrice.replace('$','')) + 5.99; // Standard $5.99 shipping fee
+        sessionStorage.setItem("predictedTotal", temp.toFixed(2))
         // redirect to Checkout Page for store merch or tour tickets
         document.location.href = '/checkout/' + txnType;
     }
@@ -101,8 +100,8 @@ function purchaseClicked(event) {
         }
     }
     // Reset session storage variables
-    document.sessionStorage.setItem("subtotal", "$0.00");
-    document.sessionStorage.setItem("predictedTotal", "$0.00");
+    sessionStorage.setItem("subtotal", "$0.00");
+    sessionStorage.setItem("predictedTotal", "$0.00");
 
     // Successful form
     return true;    
@@ -169,8 +168,7 @@ function updateCartTotal() {
             var prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText;
         }
 
-        //var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount };
-        var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
+        var new_row = { "prod_title": prod_title, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
         json_cart.push(new_row);
     }
 
@@ -180,8 +178,6 @@ function updateCartTotal() {
     formatPrice(total, totalPriceElement);
     
     sessionStorage.setItem("shoppingCart", JSON.stringify(json_cart));
-
-    // alert(sessionStorage.getItem("shoppingCart"));
 }
 
 
