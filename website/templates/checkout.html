@@ -115,7 +115,7 @@
         </div>
     </div>
 
-    <div class="hidden-divAAAAAAAAAAAAAAAAA">
+    <div class="hidden-div">
         <!-- Stores subtotal and total price -- to be sent with form -->
         <input id="hidden-subtotal" type="text" name="subtotal">
         <input id="hidden-total-price" type="text" name="totalPrice">
@@ -143,7 +143,7 @@
     // Retrieve JSON shoppingCart
     var json_cart = sessionStorage.getItem("shoppingCart");
     document.getElementById("hidden-json-cart").value = json_cart;
-    
+
 </script>
 
 {% endblock %}
