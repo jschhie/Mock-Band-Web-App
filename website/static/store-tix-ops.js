@@ -6,13 +6,13 @@ function radioChange(event) {
 }
 
 function addCheckoutPrices() {
-    subtotalInteger = parseFloat(document.getElementById("subtotal").innerText.replace('$', ''));
-    feeInteger = parseFloat(document.getElementById("shipping-fee").innerText.replace('$', ''));
-    document.getElementById("total-price").innerText = (subtotalInteger + feeInteger).toFixed(2); // round to 2 decimal places
+    subtotalStr = document.getElementById("subtotal").innerText.replace('$', '');
+    feeStr = document.getElementById("shipping-fee").innerText.replace('$', '');
+    document.getElementById("total-price").innerText = (parseFloat(subtotalStr) + parseFloat(feeStr)).toFixed(2);
 
     // Hidden div information
-    document.getElementById("hidden-subtotal").value = subtotalInteger;
-    document.getElementById("hidden-delivery-fee").value = feeInteger;
+    document.getElementById("hidden-subtotal").value = subtotalStr;
+    document.getElementById("hidden-delivery-fee").value = feeStr;
     document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
 }
 
@@ -40,7 +40,7 @@ function purchaseClicked(event) {
     var cartElement = event.parentElement.parentElement;
     var cartTotalElement = cartElement.getElementsByClassName("cart-total")[0];
     var totalPrice = cartTotalElement.getElementsByClassName("cart-total-price")[0].innerText;
-    
+
     if (totalPrice == "$0.00") {
         alert("Empty cart! Please add items to cart before purchase.");
     }  else {
@@ -62,24 +62,23 @@ function startCheckout(event, txnType) {
     var cartElement = event.parentElement.parentElement;
     var cartTotalElement = cartElement.getElementsByClassName("cart-total")[0];
     var totalPrice = cartTotalElement.getElementsByClassName("cart-total-price")[0].innerText;
-    
+
     if (totalPrice == "$0.00") {
         alert("Empty cart! Please add items to cart before purchase.");
         // return to top of page
         document.location.href = '#';
     }  else {
-        // save session's totalPrice
+        // save session's totalPrice, predictedTotal
         sessionStorage.setItem("subtotal", totalPrice);
-        temp = parseFloat(totalPrice.replace('$','')) + 5.99;
-        sessionStorage.setItem("predictedTotal", temp.toFixed(2)) // with $5.99 shipping fee
-        
+        temp = parseFloat(totalPrice.replace('$','')) + 5.99; // Standard $5.99 shipping fee
+        sessionStorage.setItem("predictedTotal", temp.toFixed(2))
         // redirect to Checkout Page for store merch or tour tickets
         document.location.href = '/checkout/' + txnType;
     }
 }
 
 
-function purchaseClicked(event) {    
+function purchaseClicked(event) {
     // check if invalid page visit or user already purchased but clicked 'Back' Page
     if (document.getElementById("subtotal").innerText == "$0.00") {
         alert('Invalid checkout page. Returning Home!');
@@ -101,11 +100,11 @@ function purchaseClicked(event) {
         }
     }
     // Reset session storage variables
-    document.sessionStorage.setItem("subtotal", "$0.00");
-    document.sessionStorage.setItem("predictedTotal", "$0.00");
+    sessionStorage.setItem("subtotal", "$0.00");
+    sessionStorage.setItem("predictedTotal", "$0.00");
 
     // Successful form
-    return true;    
+    return true;
 }
 
 function checkFormFields(idType, idName) {
@@ -121,8 +120,8 @@ function checkFormFields(idType, idName) {
 /* REMOVE CART ITEMS */
 function removeCartItems(event) {
     var buttonClicked = event;
-    // removes "cart-row" element that the button is inside of 
-    buttonClicked.parentElement.parentElement.remove(); 
+    // removes "cart-row" element that the button is inside of
+    buttonClicked.parentElement.parentElement.remove();
     updateCartTotal();
 }
 
@@ -130,10 +129,10 @@ function removeCartItems(event) {
 
 /* UPDATE CART TOTAL */
 function updateCartTotal() {
-    // Update cart total and also create dictionary of items in cart 
+    // Update cart total and also create dictionary of items in cart
     var cartItemContainer = document.getElementsByClassName("cart-items-all")[0]; // [0]: get the container element itself
     var cartRows = cartItemContainer.getElementsByClassName("cart-row"); // get array of all elements with class="cart-row"
-    
+
     var total = 0;
     var json_cart = []; // list of dictionaries
     var header = document.getElementsByClassName("cart-type-header")[0].innerText; // either "TICKET TYPE" (tickets) OR "ITEM" (merch)
@@ -144,33 +143,33 @@ function updateCartTotal() {
         // get concert venue, date, and time
         venue = document.getElementsByClassName("arena-link")[0].innerText;
         venue_date = document.getElementsByClassName("venue-date")[0].innerText;
-    } 
+    }
 
     for (var i = 0; i < cartRows.length; i++) {
         // get item price
         var cartRow = cartRows[i];
         var priceElement = cartRow.getElementsByClassName("cart-price")[0];
-        
+
         // remove '$' and convert string to float
-        var price = parseFloat(priceElement.innerText.replace('$', '')); 
-        
+        var price = parseFloat(priceElement.innerText.replace('$', ''));
+
         // get input item quantity
         var amountContainer = cartRow.getElementsByClassName("cart-amount")[0];
         var amountElement = amountContainer.getElementsByClassName("cart-input")[0];
         var amount = amountElement.value;
-        
-        // add up total price 
+
+        // add up total price
         total = total + (price * amount);
+        var prod_title = "";
 
         // get product title or ticket type name
         if (header == "TICKET TYPE") {
-            var prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText;
+            prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
         } else {
-            var prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText;
+            prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
         }
 
-        //var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount };
-        var new_row = { "prod_title": prod_title, "unit_price": price, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
+        var new_row = { "prod_title": prod_title, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
         json_cart.push(new_row);
     }
 
@@ -178,10 +177,8 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100;
     var totalPriceElement = document.getElementsByClassName("cart-total-price")[0];
     formatPrice(total, totalPriceElement);
-    
-    sessionStorage.setItem("shoppingCart", JSON.stringify(json_cart));
 
-    // alert(sessionStorage.getItem("shoppingCart"));
+    sessionStorage.setItem("shoppingCart", JSON.stringify(json_cart));
 }
 
 
@@ -199,15 +196,15 @@ function quantityChanged(event) {
 
 
 
-function formatPrice(total, element) {    
+function formatPrice(total, element) {
     // check if need to add any '0'(s) at the end of decimal
     var newPriceString = '$' + total;
 
     // string 3 5 . 9 8
     // index  0 1 2 3 4
     var totalString = total.toString();
-    var startIndex = totalString.indexOf("."); 
-    
+    var startIndex = totalString.indexOf(".");
+
     if (startIndex == -1) {
         // whole integer value, without decimals
         element.innerHTML = newPriceString + ".00";
@@ -236,11 +233,11 @@ function formatPrice(total, element) {
 function addToCart(event) {
     var addToCartBtn = event;
     var itemRow = addToCartBtn.parentElement.parentElement;
-    
+
     // Get item's title, price, and image source
     var title = itemRow.getElementsByClassName("shop-item-title")[0].innerText;
     var price = itemRow.getElementsByClassName("shop-item-price")[0].innerText;
-    var imageSrc = itemRow.getElementsByClassName("shop-item-image")[0].src; 
+    var imageSrc = itemRow.getElementsByClassName("shop-item-image")[0].src;
 
     // Create new cart row with selected item if not already in cart
     addRowToCart(title, price, imageSrc);
@@ -264,7 +261,7 @@ function addRowToCart(title, price, imageSrc) {
         }
     }
 
-    var cartRowContents = `       
+    var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-item-image" src="${imageSrc}" width="100px">
             <span class="cart-item-title">${title}</span>
@@ -273,12 +270,12 @@ function addRowToCart(title, price, imageSrc) {
         <div class="cart-amount cart-column">
             <input type="number" value="1" class="cart-input" onchange="quantityChanged(this)">
             <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">REMOVE</button>
-        </div>`; 
+        </div>`;
     // backticks to use on multiple lines and can directly add variables with ${varName}
     cartRow.innerHTML = cartRowContents;
 
     // Add new cartRow to end of cartItemsAll
-    cartItemsAll.append(cartRow); 
+    cartItemsAll.append(cartRow);
 }
 
 
@@ -287,7 +284,7 @@ function addRowToCart(title, price, imageSrc) {
 
 function addTixToCart(event) {
     var tixBtn = event;
-    
+
     // Get ticket type, price, and icon
     var tixType = tixBtn.getElementsByClassName("tix-type")[0].innerText;
     var tixPrice = tixBtn.getElementsByClassName("tix-price")[0].innerText;
@@ -307,15 +304,15 @@ function addTixRowToCart(tixType, price) {
     // Check if duplicate ticket
     var cartItemsAll = document.getElementsByClassName("cart-items-all")[0];
     var cartTixTypes = document.getElementsByClassName("cart-type");
-    
+
     for (var i = 0; i < cartTixTypes.length; i++) {
         if (cartTixTypes[i].innerText == tixType) {
             alert('This item is already added to cart.');
             return; // skip below code
         }
     }
-    
-    var cartRowContents = `       
+
+    var cartRowContents = `
         <div class="cart-item cart-column">
             <span class="cart-type">${tixType}</span>
         </div>
@@ -323,10 +320,10 @@ function addTixRowToCart(tixType, price) {
         <div class="cart-amount cart-column">
             <input type="number" value="1" class="cart-input" onchange="quantityChanged(this)">
             <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">REMOVE</button>
-        </div>`; 
+        </div>`;
     cartRow.innerHTML = cartRowContents;
 
     // Add new cartRow to end of cartItemsAll
-    cartItemsAll.append(cartRow); 
+    cartItemsAll.append(cartRow);
 
 }

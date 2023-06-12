@@ -5,7 +5,7 @@ from . import db
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     orders = db.relationship('Order')
-    # Customer = Name on Billing 
+    # Customer = Name on Billing
     bill_name = db.Column(db.String(30))
     bill_address = db.Column(db.String(30))
     bill_city = db.Column(db.String(30))
@@ -24,14 +24,14 @@ class Customer(db.Model):
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    purchase_date = db.Column(db.String(50)) 
+    purchase_date = db.Column(db.String(50))
     customer_id = db.Column(db.Integer, db.ForeignKey('customer.id')) # foreign key
     # List of all ItemSold
     items_sold = db.relationship('ItemSold')
     # Monetary Values
-    subtotal = db.Column(db.Numeric(precision=10, scale=2))
-    delivery_fee =  db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
-    total_price = db.Column(db.Numeric(precision=10, scale=2)) # round 2 places
+    subtotal = db.Column(db.String(50))
+    delivery_fee = db.Column(db.String(50))
+    total_price = db.Column(db.String(50))
 
 
 class ItemSold(db.Model):
@@ -47,8 +47,6 @@ class ItemSold(db.Model):
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    prod_title = db.Column(db.String(50))
-    unit_price = db.Column(db.Numeric(precision=10, scale=2))
-    img_src = db.Column(db.String(100), default="None") # image url for merch
-    
-    #prod_type = db.Column(db.String(30), default="Merch") # either Merch or Ticket type
+    prod_title = db.Column(db.String(50), unique=True)
+    unit_price = db.Column(db.String(50))
+    img_src = db.Column(db.String(100), default="None") # image url for merch, "None" for tickets

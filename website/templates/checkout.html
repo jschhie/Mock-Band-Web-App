@@ -137,13 +137,13 @@
     document.getElementById("subtotal").innerText = sessionStorage.getItem("subtotal");
     document.getElementById("total-price").innerText = sessionStorage.getItem("predictedTotal");
     // Populate hidden div info
-    document.getElementById("hidden-subtotal").value = sessionStorage.getItem("subtotal").replace('$', ''); // remove $
-    document.getElementById("hidden-delivery-fee").value = "5.99";
-    document.getElementById("hidden-total-price").value = sessionStorage.getItem("predictedTotal");
+    document.getElementById("hidden-subtotal").value = sessionStorage.getItem("subtotal").replace('$', '').toString();
+    document.getElementById("hidden-delivery-fee").value = "5.99"; // string
+    document.getElementById("hidden-total-price").value = sessionStorage.getItem("predictedTotal").toString();
     // Retrieve JSON shoppingCart
     var json_cart = sessionStorage.getItem("shoppingCart");
     document.getElementById("hidden-json-cart").value = json_cart;
-    
+
 </script>
 
 {% endblock %}

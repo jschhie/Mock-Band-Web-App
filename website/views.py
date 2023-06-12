@@ -75,9 +75,8 @@ def checkout(txnType):
         db.session.commit()
 
         json_cart = json.loads(request.form['jsonCart']) 
-        # [{'prod_title': '', 'qty_sold': #, 'unit_price': '$00.00', 'venue': 'None', 'venue_date': 'None'}, {}, {}]  
-        # where venue and venue_date applicable to tickets only; else None value
-
+        # [{'prod_title': '', 'qty_sold': #, 'venue': 'None', 'venue_date': 'None'}, {}, {}]  
+        # where venue and venue_date applicable to tickets only
         for dictionary in json_cart:
             prod_title = dictionary['prod_title']
             qty_sold = dictionary['qty_sold']
@@ -89,9 +88,7 @@ def checkout(txnType):
             new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id, venue=venue, venue_date=venue_date)
             db.session.add(new_item_sold)
             db.session.commit()
-
         return redirect(url_for('views.thankYou', txnType=txnType, orderId=new_order.id))
-
     return render_template('checkout.html', txnType=txnType)
 
 
@@ -113,5 +110,7 @@ def thankYou(txnType, orderId):
 
     matching_products = Product.query.filter(Product.id.in_(product_ids)).all()
     customer = Customer.query.filter_by(id=order.customer_id).first() #.one()
+    if (customer == None):
+        print('error no customers with that id: ', order.customer_id)
 
     return render_template('thank-you.html', txnType=txnType, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))
