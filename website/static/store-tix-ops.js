@@ -160,12 +160,13 @@ function updateCartTotal() {
         
         // add up total price 
         total = total + (price * amount);
+        var prod_title = "";
 
         // get product title or ticket type name
         if (header == "TICKET TYPE") {
-            var prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText.replace(/\n/g, ''); // remove any '/n' characters;
+            prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText.replaceAll('\n', '');
         } else {
-            var prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replace(/\n/g, ''); // remove any '/n' characters
+            prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replaceAll('\n', '');
         }
 
         var new_row = { "prod_title": prod_title, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
