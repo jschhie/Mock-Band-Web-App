@@ -32,6 +32,9 @@ class Order(db.Model):
     subtotal = db.Column(db.String(50))
     delivery_fee = db.Column(db.String(50))
     total_price = db.Column(db.String(50))
+    # Applicable to Ticket Orders
+    venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue
+    venue_date = db.Column(db.String(30), default="None") # date and time (ex: AUG 25, TUES, at 8 PM)
 
 
 class ItemSold(db.Model):
@@ -39,9 +42,6 @@ class ItemSold(db.Model):
     qty_sold = db.Column(db.Integer) # at least 1
     order_id = db.Column(db.Integer, db.ForeignKey('order.id')) # foreign key
     product_id = db.Column(db.Integer, db.ForeignKey('product.id')) # foreign key
-    # TODO Connect venue, venue date to Order instead
-    venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue
-    venue_date = db.Column(db.String(30), default="None") # date and time (ex: AUG 25, TUES, at 8 PM)
 
 
 

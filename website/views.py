@@ -68,24 +68,28 @@ def checkout(txnType):
         total_price = request.form['totalPrice']
         now = datetime.now()
         purchase_date = now.strftime("%m/%d/%Y")
-        new_order = Order(purchase_date=purchase_date, customer_id=new_customer.id, subtotal=subtotal, delivery_fee=delivery_fee, total_price=total_price)
+        
+        # Fetch JSON cart
+        json_cart = json.loads(request.form['jsonCart']) 
+        venue_info = json_cart[-1] # Last dictionary, reserved for venue info
+        venue = venue_info['venue']
+        venue_date = venue_info['venue_date']
+
+        new_order = Order(purchase_date=purchase_date, customer_id=new_customer.id, subtotal=subtotal, 
+                          delivery_fee=delivery_fee, total_price=total_price, venue=venue, venue_date=venue_date)
 
         # Store new Order into DB
         db.session.add(new_order)
         db.session.commit()
 
-        json_cart = json.loads(request.form['jsonCart']) 
-        # [{'prod_title': '', 'qty_sold': #, 'venue': 'None', 'venue_date': 'None'}, {}, {}]  
-        # where venue and venue_date applicable to tickets only
-        for dictionary in json_cart:
+        # [ {'prod_title': '____', 'qty_sold': ___}, {}, ..., {'venue': 'None', 'venue_date': 'None'} ]  
+        for dictionary in json_cart[:-1]: # all except last dictionary
             prod_title = dictionary['prod_title']
             qty_sold = dictionary['qty_sold']
-            venue = dictionary['venue']
-            venue_date = dictionary['venue_date']
             # Find matching Product with prod_title
             product = Product.query.filter_by(prod_title=prod_title).first() # .one() raises exception if MultipleResultsFound
             # Create ItemSold object
-            new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id, venue=venue, venue_date=venue_date)
+            new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id)
             db.session.add(new_item_sold)
             db.session.commit()
         return redirect(url_for('views.thankYou', txnType=txnType, orderId=new_order.id))
@@ -94,10 +98,7 @@ def checkout(txnType):
 
 
 @views.route('/thank-you/<string:txnType>%3D<int:orderId>') 
-def thankYou(txnType, orderId):
-    # DISPLAY CUSTOMER INFO FROM DATABASE
-    # DISPLAY VENUE MAP AND TIME/DATE/LOCATION
-    
+def thankYou(txnType, orderId):    
     # Get Customer and Order instance from orderId
     order = Order.query.filter_by(id=orderId).first() #.one()
     items_sold = order.items_sold
