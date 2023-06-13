@@ -26,7 +26,7 @@
 
 ### Order Confirmation
 > Receipt for Store Merch, Albums
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/formatted%20%merch20receipt%202.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/formatted%20%merch20receipt%202.png">
 
 > Receipt for Ticket with Concert Info
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/formatted%20tix%20receipt.png">
