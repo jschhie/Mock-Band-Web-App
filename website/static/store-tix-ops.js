@@ -137,14 +137,6 @@ function updateCartTotal() {
     var json_cart = []; // list of dictionaries
     var header = document.getElementsByClassName("cart-type-header")[0].innerText; // either "TICKET TYPE" (tickets) OR "ITEM" (merch)
 
-    var venue = "None";
-    var venue_date = "None";
-    if (header == "TICKET TYPE") {
-        // get concert venue, date, and time
-        venue = document.getElementsByClassName("arena-link")[0].innerText;
-        venue_date = document.getElementsByClassName("venue-date")[0].innerText;
-    }
-
     for (var i = 0; i < cartRows.length; i++) {
         // get item price
         var cartRow = cartRows[i];
@@ -168,10 +160,20 @@ function updateCartTotal() {
         } else {
             prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
         }
-
-        var new_row = { "prod_title": prod_title, "qty_sold": amount, "venue": venue, "venue_date": venue_date };
+        var new_row = { "prod_title": prod_title, "qty_sold": amount };
+        
         json_cart.push(new_row);
     }
+
+    // Outside for loop: init venue and venue_date once 
+    var venue = "None";
+    var venue_date = "None";
+    if (header == "TICKET TYPE") {
+        // get concert venue, date, and time
+        venue = document.getElementsByClassName("arena-link")[0].innerText;
+        venue_date = document.getElementsByClassName("venue-date")[0].innerText;
+    }
+    json_cart.push({ "venue": venue, "venue_date": venue_date }); // Append to end of list
 
     // format total value by rounding two decimal places
     total = Math.round(total * 100) / 100;
