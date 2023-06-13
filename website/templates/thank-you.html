@@ -46,14 +46,49 @@
         <div class="receipt-section">
             <div class="receipt-title">{{ txnType }} details</div>
             <br>
-            {% for row, product in zip %}
-            <div class="receipt-row">
+            <div class="receipt-cart-row">
+                <div class="receipt-column receipt-column-title">
+                    {% if txnType == 'tickets' %}
+                    TICKET TYPE
+                    {% else %}
+                    ITEM
+                    {% endif %}
+                </div>
+                <div class="receipt-column receipt-column-title">
+                    QTY
+                </div>
+                <div class="receipt-column receipt-column-title">
+                    UNIT PRICE
+                </div>
+            </div>
+            {% for row, product in zip %}            
                 {% if txnType == "merch" %}
-                <img class="cart-item-image" src={{product.img_src}}>
-                {% endif %}
-                <span class="cart-item-title">{{ product.prod_title }}</span> x {{ row.qty_sold }} / ${{ product.unit_price }} each 
-                <br>  
-            </div>       
+                <div class="receipt-cart-row">
+                    <div class="receipt-column">
+                        <img class="cart-item-image" src={{product.img_src}}>
+                        <span class="cart-item-title receipt-item-title">{{ product.prod_title }}</span>
+                    </div>
+                    <div class="receipt-column">
+                        {{ row.qty_sold }}
+                    </div>
+                    <div class="receipt-column">
+                        ${{ product.unit_price }}
+                    </div>
+                </div>
+                {% else %}
+                <div class="receipt-cart-row">
+                    <div class="receipt-column">
+                        <span class="cart-item-title receipt-item-title">{{ product.prod_title }}</span>
+                    </div>
+                    <div class="receipt-column">
+                        {{ row.qty_sold }}
+                    </div>
+                    <div class="receipt-column">
+                        ${{ product.unit_price }}
+                    </div>
+                    <br>
+                </div>       
+                {% endif %} 
             {% endfor %}
         </div>
 

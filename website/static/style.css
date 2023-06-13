@@ -465,14 +465,36 @@ footer {
     margin-top: 1%;
 }
 
-.receipt-row {
-    padding-top: 10px;
-    border-bottom: 1px black solid;
-    padding-bottom: 10px;
+.receipt-cart-row {
+    display: flex;
+    border-bottom: 1px solid black;
+    align-items: center;
 }
 
-.receipt-row:last-child {
+.receipt-cart-row:last-child {
     border-bottom: none;
+}
+
+.receipt-column {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-left: auto;
+    width: 20%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.receipt-column:last-of-type {
+    margin-right: auto;
+}
+
+.receipt-column:first-of-type {
+    text-align: left;
+    width: 35%;
+}
+
+.receipt-column-title {
+    padding-bottom: 0;
 }
 
 .venue-details {
