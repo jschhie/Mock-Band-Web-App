@@ -32,13 +32,13 @@
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/formatted%20tix%20receipt.png">
 
 ### Home / Tours
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/newtours.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20index.png">
 
 ### Concert Stadium / Tickets
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-stadium.png">
 
 ### About Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/about.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20about.png">
 
 <hr>
 
