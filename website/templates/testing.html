@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}testing{% endblock %}
+
+{% block content %}
+
+    {% if products|length == 0 %}
+        No Products in database!
+    {% else %}
+    <section>
+        {% for product in products %}
+            {{ product.id }}
+            <br>
+            {{ product.prod_title }}
+            <br>
+            {{ product.unit_price }}
+            <br>
+            {% if product.img_src != "None" %}
+                MERCH: <img class="cart-item-image" src={{product.img_src}}>
+            {% else %}
+                TICKET: {{ product.img_src }}
+            {% endif %}
+            <hr>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+{% endblock %}
