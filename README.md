@@ -1,9 +1,9 @@
 # Music Band E-commerce Store
 
-> Flask, Python, HTML, CSS, Bootstrap, JavaScript, Jinja Templating, SQLAlchemy
+> Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
-* Mock e-commerce platform, featuring a store catalog, shopping cart functionality, and customer checkout process for band merch & tour tickets
+* Mock e-commerce platform, featuring a store catalog, shopping cart functionality, and customer checkout system for band merchandise & concert tickets
 * Hosted on PythonAnywhere; you may interact with the website at: https://bandstore.pythonanywhere.com/
 
 ## Table of Contents
@@ -21,15 +21,15 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-merch-cart.png">
 
 ### Customer Checkout
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated-checkout.png">
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated-checkout-2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20ship%20bill.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20payment.png">
 
 ### Order Confirmation
 > Receipt for Store Merch, Albums
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/formatted%20merch%20receipt%202.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated%20merch%20receipt.png">
 
 > Receipt for Ticket with Concert Info
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/formatted%20tix%20receipt.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated%20tickets%20receipt.png">
 
 ### Home / Tours
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20index.png">
