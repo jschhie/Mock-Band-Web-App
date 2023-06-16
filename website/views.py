@@ -8,12 +8,12 @@ import json
 views = Blueprint('views', __name__)
 
 
-
+"""
 @views.route('/testing')
 def testing():
     products = Product.query.all()
     return render_template('testing.html', products=products)
-
+"""
 
 
 @views.route('/')
