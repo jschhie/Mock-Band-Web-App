@@ -9,15 +9,15 @@ class Customer(db.Model):
     bill_name = db.Column(db.String(30))
     bill_address = db.Column(db.String(30))
     bill_city = db.Column(db.String(30))
-    bill_state = db.Column(db.String(30))
-    bill_zip = db.Column(db.String(30))
+    bill_state = db.Column(db.String(2)) # State Abbreviation
+    bill_zip = db.Column(db.String(5))
     bill_email = db.Column(db.String(30)) # used for searching orders
     # Recipient = Name on Shipping
     rec_name = db.Column(db.String(30))
     rec_address = db.Column(db.String(30))
     rec_city = db.Column(db.String(30))
-    rec_state = db.Column(db.String(30))
-    rec_zip = db.Column(db.String(30)) # TODO MAX LENGTH: INPUT IS 5 DIGITS
+    rec_state = db.Column(db.String(2)) # State Abbreviation
+    rec_zip = db.Column(db.String(5))
     rec_email = db.Column(db.String(30))
 
 
