@@ -73,6 +73,8 @@ Finally, enter:
 python3 main.py
 ```
 
+The application will then automatically generate a ```band_store_database.db``` database, using SQLAlchemy, in the ```website``` directory.
+
 <hr>
 
 The user can then access and interact with the website at http://127.0.0.1:5000/ via any web browser. 
