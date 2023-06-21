@@ -1,3 +1,18 @@
+/* * * * * ABOUT GALLERY * * * * * */
+function upDate(previewPic) {
+    var image = document.getElementById("selected-img");
+    image.src = previewPic.src;
+}
+
+
+
+function unDo() {
+    var image = document.getElementById("selected-img");
+    image.src = "https://live.staticflickr.com/65535/52726177441_42743d38ed_o.png";
+}
+
+
+
 /* * * * * GENERAL PURCHASING OPERATIONS * * * * * */
 function radioChange(event) {
     shippingFee = event.parentElement.getElementsByClassName("form-check-label")[0].getElementsByClassName("radio-price")[0].innerText;

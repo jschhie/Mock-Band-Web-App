@@ -296,23 +296,54 @@ footer {
 
 
 /* ===== ABOUT SECTION ===== */
-.about-img {
-    float: left;
-    margin: 2.5% 5% 2.5% 2.5%; /* top right bottom left */
-    border-radius: 15px;
-    width: 50%;
+#gallery {
+    text-align: center;
+}
+
+#selected-img {
+    width: 200px;
+    height: 100px;
+    margin-bottom: 2.5%;
+    margin-top: 2.5%;
+    border-radius: 5px;
+    border: 0.5px black solid;
+}
+
+.preview-img {
+    width: 100px;
+    height: 50px;
+    margin: auto;
+    margin-bottom: 2.5%;
+    border: 0.5px grey solid;
+}
+
+.preview-img:hover, .preview-img:active {
+    border: 0.9px black solid;
 }
 
 @media all and (min-width:550px) {
-    .about-img {
-        width: 300px;
+    #selected-img {
+        width: 325px;
+        height: 200px;
+    }
+
+    .preview-img {
+        width: 90px;
+        height: 70px;
     }
 }
 
-@media all and (min-width:650px) {
-    .about-img {
-        width: 400px;
+@media all and (min-width:690px) {
+    #selected-img {
+        width: 500px;
+        height: 270px;
     }
+
+    .preview-img {
+        width: 80px;
+        height: 100px;
+    }
+    
 }
 
 .about-text {
