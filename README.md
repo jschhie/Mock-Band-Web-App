@@ -1,4 +1,4 @@
-# Music Band E-commerce Store
+# Online Music Band Store ♩♪♫
 
 > Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
 
@@ -6,38 +6,38 @@
 * Mock e-commerce platform, featuring a store catalog, photo gallery, shopping cart functionality, and customer checkout system for band merchandise & concert tickets
 * Hosted on PythonAnywhere; you may interact with the website at: https://bandstore.pythonanywhere.com/
 
-## Table of Contents
+## 🔖 Table of Contents
 * [Website Demo](https://github.com/jschhie/band-web-app/blob/main/README.md#website-demo)
 * [Running the Website Manually](https://github.com/jschhie/band-web-app/blob/main/README.md#running-the-site-manually)
 
 ## Website Demo
 
-### Main Store Page
+### 💿 Main Store Page
 > Sample Merch and Albums for Sale
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-merch.png">
 
-### Main Store Sample Cart
+### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-merch-cart.png">
 
-### Customer Checkout
+### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20ship%20bill.png">
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20payment.png">
 
-### Order Confirmation
+### 🧾 Order Confirmation
 > Receipt for Store Merch, Albums
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated%20merch%20receipt.png">
 
 > Receipt for Ticket with Concert Info
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated%20tickets%20receipt.png">
 
-### Home / Tours
+### 🎤 Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20index.png">
 
-### Concert Stadium / Tickets
+### 🎫 Concert Tickets
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-stadium.png">
 
-### Photo Gallery
+### 📷 Photo Gallery
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/about-gallery.png">
 
 <hr>
