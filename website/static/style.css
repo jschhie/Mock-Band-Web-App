@@ -321,7 +321,7 @@ footer {
     border: 0.9px black solid;
 }
 
-@media all and (min-width:550px) {
+@media all and (min-width:580px) {
     #selected-img {
         width: 325px;
         height: 200px;
@@ -335,7 +335,7 @@ footer {
 
 @media all and (min-width:690px) {
     #selected-img {
-        width: 500px;
+        width: 450px;
         height: 270px;
     }
 
