@@ -38,7 +38,7 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-stadium.png">
 
 ### About Page
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20about.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/about-gallery.png">
 
 <hr>
 
