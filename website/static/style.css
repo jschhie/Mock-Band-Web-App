@@ -297,14 +297,25 @@ footer {
 
 /* ===== ABOUT SECTION ===== */
 #gallery {
+    margin-left: 3%;
     text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+#gallery-caption {
+    margin-bottom: 2.5%;
+    font-weight: bolder;
+    font-size: 1.08em;
+    font-style: italic;
 }
 
 #selected-img {
     width: 200px;
     height: 100px;
     margin-bottom: 2.5%;
-    margin-top: 2.5%;
     border-radius: 5px;
     border: 0.5px black solid;
 }
@@ -313,7 +324,6 @@ footer {
     width: 100px;
     height: 50px;
     margin: auto;
-    margin-bottom: 2.5%;
     border: 0.5px grey solid;
 }
 
@@ -333,17 +343,16 @@ footer {
     }
 }
 
-@media all and (min-width:690px) {
+@media all and (min-width:700px) {
     #selected-img {
         width: 450px;
-        height: 270px;
+        height: 250px;
     }
 
     .preview-img {
         width: 80px;
-        height: 100px;
-    }
-    
+        height: 95px;
+    }   
 }
 
 .about-text {

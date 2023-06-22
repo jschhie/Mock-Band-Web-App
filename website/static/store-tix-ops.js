@@ -2,6 +2,8 @@
 function upDate(previewPic) {
     var image = document.getElementById("selected-img");
     image.src = previewPic.src;
+    var caption = document.getElementById("gallery-caption");
+    caption.innerText = previewPic.alt;
 }
 
 
@@ -9,6 +11,8 @@ function upDate(previewPic) {
 function unDo() {
     var image = document.getElementById("selected-img");
     image.src = "https://live.staticflickr.com/65535/52726177441_42743d38ed_o.png";
+    var caption = document.getElementById("gallery-caption");
+    caption.innerText = image.alt;
 }
 
 
