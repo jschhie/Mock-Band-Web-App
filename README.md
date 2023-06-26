@@ -26,9 +26,9 @@
 
 ### 🧾 Order Confirmation
 > Sample Receipt for Main Store Merch
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/thankyou-1.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/edit-receipt1.png">
 
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/thankyou-2.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/edit-receipt2.png">
 
 ### 🎤 Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20index.png">
