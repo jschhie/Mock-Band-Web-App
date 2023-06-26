@@ -550,6 +550,19 @@ footer {
 
 
 /* ===== THANK YOU: RECEIPT SECTION ===== */
+#receipt-banner {
+    animation: 1s ease-out 0s 1 slideInLeft;
+}
+
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
 .receipt-section {
     font-size: large;
     text-align: center;
