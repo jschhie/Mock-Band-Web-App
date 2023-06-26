@@ -25,11 +25,10 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20payment.png">
 
 ### 🧾 Order Confirmation
-> Receipt for Store Merch, Albums
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated%20merch%20receipt.png">
+> Sample Receipt for Main Store Merch
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/thankyou-1.png">
 
-> Receipt for Ticket with Concert Info
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated%20tickets%20receipt.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/thankyou-2.png">
 
 ### 🎤 Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20index.png">
