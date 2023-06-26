@@ -18,16 +18,13 @@
             <br>
             <div class="row">
                 <label class="col-md-3">Street Address</label>
-                <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="shipAddress" name="shipAddress" maxlength="30">
+                <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="shipAddress" name="shipAddress" minlength="3" maxlength="30">
             </div>
             <br>
             <div class="row">
                 <label class="col-md-3">City</label>
-                <input class="form-control col-md-3" placeholder="City" id="shipCity" name="shipCity" maxlength="30">
+                <input class="form-control col-md-3" placeholder="City" id="shipCity" name="shipCity" minlength="3" maxlength="30">
                 <label class="col-md-3">State</label>
-                <!-- 
-                    <input class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState" maxlength="30">
-                -->
                 <select class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState">
                     <option value="AL" selected>Alabama</option>
                     <option value="AK">Alaska</option>
@@ -89,7 +86,7 @@
                 <label class="col-md-3">ZIP</label>
                 <input class="form-control col-md-3" placeholder="12345" id="shipZip" name="shipZip" minlength="5" maxlength="5">
                 <label class="col-md-3">Email</label>
-                <input type="email" class="form-control col-md-3" placeholder="user@gmail.com" id="shipEmail" name="shipEmail" maxlength="30">
+                <input type="email" class="form-control col-md-3" placeholder="user@gmail.com" id="shipEmail" name="shipEmail" minlength="3" maxlength="30">
             </div>
         </div>
     </div>
@@ -110,16 +107,13 @@
             <br>
             <div class="row">
                 <label class="col-md-3">Street Address</label>
-                <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="billAddress" name="billAddress" maxlength="30">
+                <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="billAddress" name="billAddress" minlength="3" maxlength="30">
             </div>
             <br>
             <div class="row">
                 <label class="col-md-3">City</label>
-                <input class="form-control col-md-3" placeholder="City" id="billCity" name="billCity" maxlength="30">
+                <input class="form-control col-md-3" placeholder="City" id="billCity" name="billCity" minlength="3" maxlength="30">
                 <label class="col-md-3">State</label>
-                <!-- 
-                    <input class="form-control col-md-3" placeholder="ST" id="billState" name="billState" maxlength="30">
-                -->
                 <select class="form-control col-md-3" placeholder="ST" id="billState" name="billState">
                     <option value="AL" selected>Alabama</option>
                     <option value="AK">Alaska</option>
@@ -181,7 +175,7 @@
                 <label class="col-md-3">ZIP</label>
                 <input class="form-control col-md-3" placeholder="12345" id="billZip" name="billZip" minlength="5" maxlength="5">
                 <label class="col-md-3">Email</label>
-                <input type="form-control email" class="form-control col-md-3" placeholder="user@gmail.com" id="billEmail" name="billEmail" maxlength="30">
+                <input type="form-control email" class="form-control col-md-3" placeholder="user@gmail.com" id="billEmail" name="billEmail" minlength="3" maxlength="30">
             </div>
         </div>
         </div>
@@ -193,12 +187,12 @@
         <div class="checkout-form">
             <div class="row">
                 <label class="col-md-3">Credit Card Number</label>
-                <input class="form-control col-md-9" type="text" minlength="15" maxlength="15" placeholder="414141414141414" autocomplete="off">
+                <input class="form-control col-md-9" type="text" minlength="15" maxlength="15" placeholder="414141414141414" autocomplete="off" id="ccn">
             </div>
             <br>
             <div class="row">
                 <label class="col-md-3">CVC Number</label>
-                <input class="form-control col-md-9" type="password" minlength="3" maxlength="3" placeholder="123" autocomplete="off">
+                <input class="form-control col-md-9" type="password" minlength="3" maxlength="3" placeholder="123" autocomplete="off" id="cvc">
             </div>
             <br>
             <div class="row">
@@ -237,7 +231,7 @@
         <h4 class="sub-header">delivery method</h4>
         <br>
         <div class="checkout-form">
-            <div class="form-check shipping-form">
+            <div class="form-check shipping-form" id="delivery-form">
                 <div>
                     <input value="$5.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
                     <label class="form-check-label" for="flexRadioDefault2">

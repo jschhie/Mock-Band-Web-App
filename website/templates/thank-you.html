@@ -11,7 +11,7 @@
         {% if txnType == 'tickets' %}
         <br>
         <br>
-        <h4 class="sub-header">See you at the concert!</h4>
+        <h4 class="sub-header">see you at the concert!</h4>
         <br>
         <div class="venue-details">
             <span>
@@ -30,21 +30,54 @@
             </div>
         </div>
 
-        {% endif %}
+        {% else %}
         <br>
-        <h4 class="sub-header">Order Summary</h4>
+        {% endif %}
 
-        <div class="receipt-section">
-            <div class="receipt-title">order number #{{ order.id }}</div>
-            purchase date: {{ order.purchase_date }}
+        <br>
+        <h4 class="sub-header">order summary</h4>
+
+        <div class="receipt-section center-receipt">
+            <div class="receipt-summary-row row">
+                <span class="col-md-6 receipt-label">order number: </span>
+                <span class="col-md-6 receipt-value">#{{ order.id }}</span>
+            </div>
+            <div class="receipt-summary-row row">
+                <span class="col-md-6 receipt-label">purchase date: </span>
+                <span class="col-md-6 receipt-value">{{ order.purchase_date }}</span>
+            </div>
+            <div class="receipt-summary-row row">
+                <span class="col-md-6 receipt-label">
+                    total {% if txnType == 'tickets'%}{{txnType}}{% else %}items{% endif %} purchased: 
+                </span>
+                <span class="col-md-6 receipt-value">{{ num_items_sold }}</span>
+            </div>
+            <div class="receipt-summary-row row">
+                <span class="col-md-6 receipt-label">{{ txnType }} subtotal: </span>
+                <span class="col-md-6 receipt-value">${{ order.subtotal }}</span>
+            </div>
+            <div class="receipt-summary-row row">
+                <span class="col-md-6 receipt-label">delivery fee: </span>
+                <span class="col-md-6 receipt-value">
+                    ${{ order.delivery_fee }}
+                </span>
+            </div>
             <br>
-            total {% if txnType == 'tickets'%}{{txnType}}{% else %}items{% endif %} purchased: {{ num_items_sold }}
+            {% if order.delivery_fee == "5.99" %}
+                with Standard Ground (5-7 biz days)
+            {% elif order.delivery_fee == "12.99" %}
+                with Express Shipping (1-3 biz days)
+            {% else %}
+                with Next-Day Shipping (1 biz day)
+            {% endif %}
+            <br>
+            total amount: ${{ order.total_price }}
         </div>
 
         <br>
 
         <div class="receipt-section">
-            <div class="receipt-title">{{ txnType }} details</div>
+            <h4 class="sub-header">{{ txnType }} details</h4>
             <br>
             <div class="receipt-cart-row">
                 <div class="receipt-column receipt-column-title">
@@ -95,26 +128,7 @@
         <br>
 
         <div class="receipt-section">
-            <div class="receipt-title">order details</div>
-            <br>
-            {{ txnType }} subtotal: ${{ order.subtotal }}
-            <br>
-            delivery fee: ${{ order.delivery_fee }}
-            {% if order.delivery_fee == "5.99" %}
-                with Standard Ground (5-7 biz days)
-            {% elif order.delivery_fee == "12.99" %}
-                with Express Shipping (1-3 biz days)
-            {% else %}
-                with Next-Day Shipping (1 biz day)
-            {% endif %}
-            <br>
-            total: ${{ order.total_price }}
-        </div>
-
-        <br>
-
-        <div class="receipt-section">
-            <div class="receipt-title">shipping address</div>
+            <h4 class="sub-header">shipping address</h4>
             <br>
             {{ customer.rec_name }}
             <br>
@@ -126,7 +140,7 @@
         <br>
 
         <div class="receipt-section">
-            <div class="receipt-title">billing address</div>
+            <h4 class="sub-header">billing address</h4>
             <br>
             {{ customer.bill_name }}
             <br>
@@ -139,7 +153,9 @@
 
     <br>
 
-    <a href="/" class="btn general-btn purchase-btn">RETURN HOME</a>
+    <div class="home-btn">
+        <a href="/" class="btn general-btn purchase-btn">RETURN HOME</a>
+    </div>
 
 </section>
 

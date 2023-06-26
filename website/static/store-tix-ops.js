@@ -113,11 +113,16 @@ function purchaseClicked(event) {
         for (j = 0; j < idNames.length; j++) {
             idName = idNames[j];
             if (checkFormFields(idType, idName) == false) {
-                alert('Please fill out missing fields!');
                 return false;
             }
         }
     }
+
+    // check payment information
+    if (checkFormFields("", "ccn") == false || checkFormFields("", "cvc") == false) {
+        return false;
+    }
+
     // Reset session storage variables
     sessionStorage.setItem("subtotal", "$0.00");
     sessionStorage.setItem("predictedTotal", "$0.00");
@@ -128,8 +133,15 @@ function purchaseClicked(event) {
 
 function checkFormFields(idType, idName) {
     idString = idType + idName;
-    element = document.getElementById(idString).value;
-    if (element == '') {
+    elementValue = document.getElementById(idString).value;
+    if (elementValue == '') {
+        alert('Please fill out missing form fields!');
+        return false;
+    } else if (idName == "Zip" && /^\d+$/.test(elementValue) == false) {
+        alert('Please provide a valid Zipcode (only digits).');
+        return false;
+    } else if ((idName == "ccn" || idName == "cvc") && /^\d+$/.test(elementValue) == false) {
+        alert('Invalid Credit Card Information.');
         return false;
     } else {
         return true;

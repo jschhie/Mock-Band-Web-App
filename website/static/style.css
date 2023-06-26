@@ -216,6 +216,10 @@ footer {
     margin: auto;
 }
 
+#delivery-form {
+    text-align: left;
+}
+
 #ship-handle-label, #subtotal-label {
     font-weight: bolder;
     font-size: 1.1em;
@@ -548,12 +552,31 @@ footer {
 /* ===== THANK YOU: RECEIPT SECTION ===== */
 .receipt-section {
     font-size: large;
-    text-align: left;
+    text-align: center;
 }
 
-.receipt-title {
-    font-size: larger;
-    margin-top: 1%;
+.center-receipt {
+    width: 45%;
+    margin: auto;
+}
+
+.receipt-summary-row {
+    margin-top: 10%;
+}
+
+@media all and (min-width:768px) {
+    /* medium, large, xlarge */
+    .receipt-label {
+        text-align: left;
+    }
+    
+    .receipt-value {
+        text-align: right;
+    }
+
+    .receipt-summary-row {
+        margin-top: 0.8%;
+    }
 }
 
 .receipt-cart-row {
@@ -590,4 +613,8 @@ footer {
 
 .venue-details {
     font-size: large;
+}
+
+.home-btn {
+    text-align: center;
 }
