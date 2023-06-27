@@ -12,6 +12,14 @@
     font-size: 1em;
 }
 
+#topButton {
+    display: none;
+    bottom: 50%;
+    right: 30px;
+    z-index: 99;
+    position: fixed;
+}
+
 #flashed-div {
     text-align: center;
     width: 75%;

@@ -90,6 +90,13 @@
                 {% endwith %}
             </div>
 
+            <button class="btn general-btn" id="topButton" title="Back to Top" onclick="topFunction()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                </svg>
+                <br>
+                TOP
+            </button>
             
             {% block content %} {% endblock %}
         
@@ -145,5 +152,28 @@
         <!-- JS for store operations -->
         <script src="../static/store-tix-ops.js"></script>
         
+        <!-- BACK TO TOP BUTTON JS -->
+        <script>
+            // Get the button
+            let mybutton = document.getElementById("topButton");
+            
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                mybutton.style.display = "block";
+              } else {
+                mybutton.style.display = "none";
+              }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }
+        </script>
+
     </body>    
 </html>
