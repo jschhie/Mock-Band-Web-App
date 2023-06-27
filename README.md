@@ -18,7 +18,7 @@
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-merch-cart.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-cart2.png">
 
 ### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20ship%20bill.png">
