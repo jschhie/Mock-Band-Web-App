@@ -1,10 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 
 db = SQLAlchemy()
 DB_NAME = "band_store_database.db"
 
+
+def page_not_found(e):
+    return render_template('error.html'), 404
 
 
 def create_app():
@@ -13,9 +16,9 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    db.init_app(app)
+    app.register_error_handler(404, page_not_found)
 
-    #with app.app_context():
+    db.init_app(app)
 
     # register blueprints and views into app
     from .views import views
