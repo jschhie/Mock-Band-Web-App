@@ -132,6 +132,20 @@ function purchaseClicked(event) {
 }
 
 function checkFormFields(idType, idName) {
+    if (idType == "findOrder") {
+        orderID = document.getElementById("orderID").value;
+        lastName = document.getElementById("fullName").value;
+        if (orderID == '' || lastName == '') {
+            alert('Please fill out missing form fields!');
+            return false;
+        } else if (/^\d+$/.test(orderID) == false) {
+            alert('Please provide a valid Order Number.');
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     idString = idType + idName;
     elementValue = document.getElementById(idString).value;
     if (elementValue == '') {

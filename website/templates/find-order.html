@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Unofficial BTS | Find My Order {% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    <div class="lookup-card">
+        <h4 class="sub-header lookup-header">
+            find order
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </span>
+        </h4>
+        <br>
+        <div class="row">
+            <label class="col-md-3">Order Number</label>
+            <input class="form-control col-md-8" placeholder="Order Number" id="orderID" name="orderID" maxlength="10"/>
+        </div>
+        <br>
+        <div class="row">
+            <label class="col-md-3">Billing Name</label>
+            <input class="form-control col-md-8" placeholder="John Smith" id="fullName" name="fullName" maxlength="30"/>
+        </div>
+        <br>
+    </div>
+
+    <div class="center-btn">
+        <button type="submit" class="btn" onclick="return checkFormFields('findOrder', '')">
+            FIND MY ORDER
+        </button>
+    </div>
+
+    <br>
+
+</form>
+
+{% endblock %}

@@ -124,3 +124,26 @@ def thankYou(txnType, orderId):
         print('error no customers with that id: ', order.customer_id)
 
     return render_template('thank-you.html', txnType=txnType, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))
+
+
+@views.route('/find-order/', methods=['GET', 'POST'])
+def findOrder():
+    if request.method == 'POST':
+        order_id = request.form['orderID']
+        full_name = request.form['fullName']
+
+        # Check if matching Order exists 
+        matching_order = Order.query.filter_by(id=order_id).first()
+        if (matching_order):
+            # Check if matching Customer Info
+            matching_customer = Customer.query.filter_by(id=matching_order.customer_id).first()
+            if (matching_customer and matching_customer.bill_name == full_name):
+                # Check if Order is Tickets or Merch Type
+                if (matching_order.venue == "None"):
+                    txnType = "merch"
+                else:
+                    txnType = "tickets"
+                return redirect(url_for('views.thankYou', txnType=txnType, orderId=order_id))
+        flash('Sorry, no matching Orders. Please try again.', category="error")     
+        
+    return render_template('find-order.html')
