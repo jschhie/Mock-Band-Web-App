@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+<section id="error-page">
+  <h2 class="section-header">Page Not Found</h2>
+  <p class="about-text">What you were looking for is just not there.</p>
+  <br>
+  <a class="btn general-btn" href="{{ url_for('views.index') }}">Return Home</a>
+</section>
+{% endblock %}

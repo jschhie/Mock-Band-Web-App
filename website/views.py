@@ -23,8 +23,6 @@ def index():
 
 
 
-
-
 @views.route('/about')
 def about():
     return render_template('about.html')
@@ -39,12 +37,18 @@ def store():
 
 @views.route('/buy-tix/<string:arena>', methods=['GET', 'POST'])
 def buy_tix(arena):
+    if (arena not in ["seoul", "oakland", "la", "chicago"]):
+        return render_template('error.html'), 404
+    
     return render_template('buy-tix.html', arena=arena)
 
 
 
 @views.route('/checkout/<string:txnType>', methods=['GET', 'POST'])
 def checkout(txnType):
+    if (txnType not in ["tickets", "merch"]):
+        return render_template('error.html'), 404
+
     # where txnType is either "merch" or "tickets"
     if request.method == 'POST':
         # purchaseClicked(event): returns true or false, if successful form submission
@@ -109,7 +113,10 @@ def checkout(txnType):
 @views.route('/thank-you/<string:txnType>%3D<int:orderId>')
 def thankYou(txnType, orderId):
     # Get Customer and Order instance from orderId
-    order = Order.query.filter_by(id=orderId).first() #.one()
+    order = Order.query.filter_by(id=orderId).first()
+    if (order == None):
+        return render_template('error.html'), 404
+    
     items_sold = order.items_sold
 
     product_ids = []
@@ -121,7 +128,7 @@ def thankYou(txnType, orderId):
     matching_products = Product.query.filter(Product.id.in_(product_ids)).all()
     customer = Customer.query.filter_by(id=order.customer_id).first()
     if (customer == None):
-        print('error no customers with that id: ', order.customer_id)
+        return render_template('error.html'), 404
 
     return render_template('thank-you.html', txnType=txnType, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))
 

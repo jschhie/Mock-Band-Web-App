@@ -12,6 +12,11 @@
     font-size: 1em;
 }
 
+#error-page {
+    text-align: center;
+}
+
+
 #topButton {
     display: none;
     bottom: 50%;
