@@ -3,7 +3,7 @@
 > Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
-* Mock e-commerce platform, featuring a store catalog, photo gallery, shopping cart functionality, and customer checkout system for band merchandise & concert tickets
+* Mock e-commerce platform, featuring a store catalog, order lookup, shopping cart functionality, and customer checkout system for band merchandise & concert tickets
 * Hosted on PythonAnywhere; you may interact with the website at: https://bandstore.pythonanywhere.com/
 
 ## 🔖 Table of Contents
@@ -22,7 +22,7 @@
 
 ### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20ship%20bill.png">
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20payment.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-checkout-form.png">
 
 ### 🧾 Order Confirmation
 > Sample Receipt for Main Store Merch
@@ -30,8 +30,11 @@
 
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/edit-receipt2.png">
 
+### 🔍 Order Lookup
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/lookup-order.png">
+
 ### 🎤 Tour Dates
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new%20index.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-tours-page.png">
 
 ### 🎫 Concert Tickets
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-stadium.png">
