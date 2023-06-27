@@ -12,6 +12,13 @@
     font-size: 1em;
 }
 
+#flashed-div {
+    text-align: center;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 body {
     display: flex;
     min-height: 100vh;
@@ -73,6 +80,29 @@ footer {
     width: 100%;
     background-color: black;
     position: sticky;
+}
+
+.footer-center {
+    width: 68%;
+    text-align: center;
+    margin: auto;
+    padding-left: 5%;
+}
+
+.footer-text {
+    color: white;
+    text-align: center;
+}
+
+.footer-link {
+    color: grey;
+    margin-left: 2%; /* space in between */
+    margin-right: 2%;
+}
+
+.footer-link:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .flex-footer {
@@ -217,7 +247,7 @@ footer {
 }
 
 #delivery-form {
-    text-align: left;
+    text-align: center;
 }
 
 #ship-handle-label, #subtotal-label {
@@ -628,6 +658,16 @@ footer {
     font-size: large;
 }
 
-.home-btn {
+.center-btn {
     text-align: center;
+}
+
+/* ORDER LOOKUP */
+.lookup-card {
+    width: 80%;
+    margin: auto;
+}
+
+.lookup-header {
+    margin-top: 1%;
 }
