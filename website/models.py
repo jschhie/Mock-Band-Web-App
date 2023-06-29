@@ -42,7 +42,7 @@ class ItemSold(db.Model):
     qty_sold = db.Column(db.Integer) # at least 1
     order_id = db.Column(db.Integer, db.ForeignKey('order.id')) # foreign key
     product_id = db.Column(db.Integer, db.ForeignKey('product.id')) # foreign key
-    merch_size = db.Column(db.String(10), default="None") # (Small, Medium, or Large) for Merch. "None" for Albums, Tickets
+    merch_size = db.Column(db.String(10), default="") # (Small, Medium, or Large) for Merch. Empty "" for Albums, Tickets
 
 
 class Product(db.Model):

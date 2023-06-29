@@ -99,22 +99,22 @@
                     PRICE
                 </div>
             </div>
-            {% for row, product in zip %}            
+            {% for item_sold, product in zip %}            
                 {% if txnType == "merch" %}
                 <div class="receipt-cart-row">
                     <div class="receipt-column">
                         <img class="cart-item-image" src={{product.img_src}}>
                         <span class="cart-item-title receipt-item-title">
                             {{ product.prod_title }}
-                            {% if row.merch_size != "" %}
+                            {% if item_sold.merch_size != "" %}
                                 <span class="cart-item-size">
-                                    {{ row.merch_size }}
+                                    {{ item_sold.merch_size }}
                                 </span>
                             {% endif %}
                         </span>
                     </div>
                     <div class="receipt-column">
-                        {{ row.qty_sold }}
+                        {{ item_sold.qty_sold }}
                     </div>
                     <div class="receipt-column">
                         ${{ product.unit_price }}
@@ -128,7 +128,7 @@
                         </span>
                     </div>
                     <div class="receipt-column">
-                        {{ row.qty_sold }}
+                        {{ item_sold.qty_sold }}
                     </div>
                     <div class="receipt-column">
                         ${{ product.unit_price }}

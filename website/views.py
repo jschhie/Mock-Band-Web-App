@@ -8,12 +8,12 @@ import json
 views = Blueprint('views', __name__)
 
 
-"""
+
 @views.route('/testing')
 def testing():
     products = Product.query.all()
     return render_template('testing.html', products=products)
-"""
+
 
 
 @views.route('/')
@@ -109,6 +109,9 @@ def checkout(txnType):
             # Create ItemSold object
             new_item_sold = ItemSold(qty_sold=qty_sold, merch_size=merch_size, order_id=new_order.id, product_id=product.id)
             db.session.add(new_item_sold)
+            
+            print('MERCH SIZE: ', new_item_sold.merch_size, 'TITLE: ', prod_title)
+
             db.session.commit()
         return redirect(url_for('views.thankYou', txnType=txnType, orderId=new_order.id))
     return render_template('checkout.html', txnType=txnType)
@@ -130,9 +133,10 @@ def thankYou(txnType, orderId):
         product_ids.append(item.product_id)
         num_items_sold += item.qty_sold
 
-    matching_products = Product.query.filter(Product.id.in_(product_ids)).all()
-    #selected_sizes = ItemSold.query.filter_by(order_id=orderId).with_entities(ItemSold.merch_size).all()
-    #print(selected_sizes)
+    matching_products = []
+    for prod_id in product_ids:
+        match = Product.query.filter_by(id=prod_id).first()
+        matching_products.append(match)
 
     customer = Customer.query.filter_by(id=order.customer_id).first()
     if (customer == None):
