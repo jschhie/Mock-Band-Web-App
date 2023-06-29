@@ -478,6 +478,32 @@ footer {
     /* adds even amount of space around (top bottom left right) */
 }
 
+.cart-item-size {
+    width: 20%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    color: black;
+}
+
+.size-option {
+    /* small view */
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+@media all and (min-width:768px) {
+    /* medium, large, xlarge */
+    .size-option {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 10%;
+        margin-right: 3%;
+    }
+
+}
 
 
 /* ===== TOUR TICKETS + STORE: CART SECTION ====== */

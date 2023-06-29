@@ -104,7 +104,14 @@
                 <div class="receipt-cart-row">
                     <div class="receipt-column">
                         <img class="cart-item-image" src={{product.img_src}}>
-                        <span class="cart-item-title receipt-item-title">{{ product.prod_title }}</span>
+                        <span class="cart-item-title receipt-item-title">
+                            {{ product.prod_title }}
+                            {% if row.merch_size != "" %}
+                                <span class="cart-item-size">
+                                    {{ row.merch_size }}
+                                </span>
+                            {% endif %}
+                        </span>
                     </div>
                     <div class="receipt-column">
                         {{ row.qty_sold }}
@@ -116,7 +123,9 @@
                 {% else %}
                 <div class="receipt-cart-row">
                     <div class="receipt-column">
-                        <span class="cart-item-title receipt-item-title">{{ product.prod_title }}</span>
+                        <span class="cart-item-title receipt-item-title">
+                            {{ product.prod_title }}
+                        </span>
                     </div>
                     <div class="receipt-column">
                         {{ row.qty_sold }}

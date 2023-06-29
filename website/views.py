@@ -97,12 +97,17 @@ def checkout(txnType):
 
         # [ {'prod_title': '____', 'qty_sold': ___}, {}, ..., {'venue': 'None', 'venue_date': 'None'} ]
         for dictionary in json_cart[:-1]: # all except last dictionary
+            merch_size = dictionary['merch_size']
             prod_title = dictionary['prod_title']
+            if (merch_size != ""):
+                prod_title = prod_title[:-1] # remove extra space character at end of string
             qty_sold = dictionary['qty_sold']
+            
             # Find matching Product with prod_title
             product = Product.query.filter_by(prod_title=prod_title).first()
+            
             # Create ItemSold object
-            new_item_sold = ItemSold(qty_sold=qty_sold, order_id=new_order.id, product_id=product.id)
+            new_item_sold = ItemSold(qty_sold=qty_sold, merch_size=merch_size, order_id=new_order.id, product_id=product.id)
             db.session.add(new_item_sold)
             db.session.commit()
         return redirect(url_for('views.thankYou', txnType=txnType, orderId=new_order.id))
@@ -126,6 +131,9 @@ def thankYou(txnType, orderId):
         num_items_sold += item.qty_sold
 
     matching_products = Product.query.filter(Product.id.in_(product_ids)).all()
+    #selected_sizes = ItemSold.query.filter_by(order_id=orderId).with_entities(ItemSold.merch_size).all()
+    #print(selected_sizes)
+
     customer = Customer.query.filter_by(id=order.customer_id).first()
     if (customer == None):
         return render_template('error.html'), 404
