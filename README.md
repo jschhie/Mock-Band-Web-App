@@ -18,7 +18,7 @@
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-cart2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart-size.png">
 
 ### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20ship%20bill.png">
@@ -26,9 +26,9 @@
 
 ### 🧾 Order Confirmation
 > Sample Receipt for Main Store Merch
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/edit-receipt1.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/receipt-size2.png">
 
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/edit-receipt2.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/receipt-size.png">
 
 ### 🔍 Order Lookup
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/lookup-order.png">
