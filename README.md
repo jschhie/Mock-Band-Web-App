@@ -14,7 +14,7 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-merch.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/main-store-size.png">
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
