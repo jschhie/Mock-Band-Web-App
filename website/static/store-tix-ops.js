@@ -198,14 +198,20 @@ function updateCartTotal() {
         // add up total price
         total = total + (price * amount);
         var prod_title = "";
+        var merch_size = "";
 
         // get product title or ticket type name
         if (header == "TICKET TYPE") {
             prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
         } else {
             prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
+            var trimIndex = prod_title.indexOf('(');
+            if (trimIndex != -1) {
+                merch_size = prod_title.substring(trimIndex);
+                prod_title = prod_title.substring(0,trimIndex);
+            }
         }
-        var new_row = { "prod_title": prod_title, "qty_sold": amount };
+        var new_row = { "prod_title": prod_title, "qty_sold": amount, "merch_size": merch_size };
         
         json_cart.push(new_row);
     }
@@ -298,20 +304,44 @@ function addRowToCart(title, price, imageSrc) {
     var cartRow = document.createElement('div');
     cartRow.classList.add('cart-row');
 
+    // Check if merch size applicable
+    var sizeOption = "";
+    if (title.includes("Hoodie")) {
+        if (title.includes("Black")) {
+            sizeOption = '(' + document.getElementById("blackHoodSize").value + ')';
+        } else {
+            sizeOption = '(' + document.getElementById("whiteHoodSize").value + ')';
+        }
+    }
+
     // Check if duplicate cart item
     var cartItemsAll = document.getElementsByClassName("cart-items-all")[0];
     var cartItemNames = document.getElementsByClassName("cart-item-title");
+    var cartItemSizes = document.getElementsByClassName("cart-item-size");
+
     for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
-            alert('This item is already added to cart.');
-            return; // skip below code
+        if (cartItemNames[i].innerText.includes(title)) {
+            if (sizeOption != "") {
+                if (cartItemSizes[i].innerText.includes(sizeOption)) {
+                    // Duplicate Size selected for Duplicate Merch
+                    alert('This size has already been added to cart.');
+                    return; // skip below code
+                }
+            } else {
+                // Album Purchase
+                alert('This item is already added to cart.');
+                return; // skip below code
+            }
         }
     }
 
     var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-item-image" src="${imageSrc}" width="100px">
-            <span class="cart-item-title">${title}</span>
+            <span class="cart-item-title">
+                ${title}
+                <span class="cart-item-size">${sizeOption}</span>
+            </span>
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-amount cart-column">
