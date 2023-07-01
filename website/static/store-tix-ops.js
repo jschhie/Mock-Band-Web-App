@@ -295,6 +295,7 @@ function addToCart(event) {
     // Create new cart row with selected item if not already in cart
     addRowToCart(title, price, imageSrc);
     updateCartTotal();
+
 }
 
 
@@ -321,18 +322,9 @@ function addRowToCart(title, price, imageSrc) {
     var cartItemNames = offCanvas.getElementsByClassName("cart-item-title");
     var cartItemSizes = offCanvas.getElementsByClassName("cart-item-size");
 
-    /*
-    var cartItemsAll = document.getElementsByClassName("cart-items-all")[0];
-    var cartItemNames = document.getElementsByClassName("cart-item-title");
-    var cartItemSizes = document.getElementsByClassName("cart-item-size");
-    */
-
-    for (var i = 0; i < cartItemNames.length; i++) {
-        
-        /*if (cartItemNames[i].innerText.includes(title)) { */
+    for (var i = 0; i < cartItemNames.length; i++) {        
         if (cartItemNames[i].textContent.includes(title)) {
             if (sizeOption != "") {
-                /*if (cartItemSizes[i].innerText.includes(sizeOption)) { */
                 if (cartItemSizes[i].textContent.includes(sizeOption)) {
                     // Duplicate Size selected for Duplicate Merch
                     alert('This size has already been added to cart.');
@@ -368,6 +360,12 @@ function addRowToCart(title, price, imageSrc) {
 
     // Add new cartRow to end of cartItemsAll
     cartItemsAll.append(cartRow);
+
+    if (sizeOption != "") {
+        alert(title + ' ' + sizeOption + ' added to cart!');
+    } else {
+        alert(title + ' (Album) added to cart!');
+    }
 }
 
 
@@ -385,6 +383,7 @@ function addTixToCart(event) {
     // Create new cart row with selected item if not already in cart
     addTixRowToCart(tixType, tixPrice);
     updateCartTotal();
+
 }
 
 
@@ -397,11 +396,6 @@ function addTixRowToCart(tixType, price) {
     var offCanvas = document.getElementById("offcanvasRight").getElementsByClassName("offcanvas-body")[0];
     var cartItemsAll = offCanvas.getElementsByClassName("cart-items-all")[0];
     var cartTixTypes = offCanvas.getElementsByClassName("cart-type");    
-    
-    /*
-    var cartItemsAll = document.getElementsByClassName("cart-items-all")[0];
-    var cartTixTypes = document.getElementsByClassName("cart-type");
-    */
 
     for (var i = 0; i < cartTixTypes.length; i++) {
         /*if (cartTixTypes[i].innerText == tixType) {*/
@@ -428,5 +422,7 @@ function addTixRowToCart(tixType, price) {
 
     // Add new cartRow to end of cartItemsAll
     cartItemsAll.append(cartRow);
+
+    alert(tixType + ' TICKETS added to cart!');
 
 }
