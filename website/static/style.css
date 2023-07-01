@@ -16,7 +16,6 @@
     text-align: center;
 }
 
-
 #topButton {
     display: none;
     bottom: 50%;
@@ -145,17 +144,27 @@ footer {
 /* ===== NAVBAR ====== */
 .custom-navbar a {
     color: rgb(255,255,255,0.8);
+    padding: 10px;
 }
 
 .custom-navbar {
     border-bottom: 1px solid rgb(255,255,255,.3);
+    height: 5%;
+    text-align: center;
 }
 
-.nav-item {
-    display: inline-block;
-    width: 33%;
+.navbar-nav {
+    margin-left: 5%;
+    text-align: left;
 }
 
+
+@media all and (min-width:768px) {
+    /* medium */
+    .nav-item {
+        margin-right: 100px;
+    }
+}
 
 
 /* ===== BUTTONS ===== */
@@ -175,7 +184,7 @@ footer {
 .map-btn {
     margin-top: 2%;
     background-color: teal;
-    color: white;
+    color: color;
     font-size: larger;
 }
 
@@ -203,21 +212,16 @@ footer {
     color: white;
 }
 
-/*
-.play-btn {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-*/
-
 .btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
 }
 
-#navbar a:hover, /*.play-btn:hover,*/ .header-btn:hover {
+.stage:hover {
+    border: 1px rgba(0, 128, 128, 0.7) solid;
+}
+
+#navbar a:hover, .header-btn:hover {
     background-color: rgba(0,0,0,0.5);
     color: white;
 }
@@ -226,8 +230,6 @@ footer {
     color: white;
     background-color: black;
 }
-
-
 
 /* ==== BAND SOCIALS ==== */
 .social-icon {
@@ -336,11 +338,24 @@ footer {
     width: 45%;
 }
 
-.flexbox-btn {
-    max-width: 18%;
+.flexbox-btn, .return-home-btn {
+    max-width: 15%;
+    font-size: small;
 }
 
+@media all and (min-width:768px) {
+    /* medium */
+    .flexbox-btn, .return-home-btn {
+        font-size: 1.05em;
+    }
+}
 
+@media all and (min-width:992px) {
+    /* large, xl */
+    .flexbox-btn, .return-home-btn {
+        font-size: 1.2em;
+    }
+}
 
 /* ===== ABOUT SECTION ===== */
 #gallery {
@@ -492,6 +507,7 @@ footer {
     /* small view */
     margin-top: 1%;
     margin-bottom: 3%;
+    margin-right: 3%;
 }
 
 @media all and (min-width:768px) {
@@ -562,6 +578,12 @@ footer {
 
 .cart-remove-btn {
     margin-left: 10px;
+    border-radius: 10%;
+    height: 40px;
+}
+
+.remove-svg {
+    margin-bottom: 5px;
 }
 
 .cart-row:last-child {
@@ -601,6 +623,21 @@ footer {
     color: white;
     font-size: medium;
     margin-top: 1%;
+}
+
+.view-cart-btn {
+    background-color: white;
+    color: teal;
+    border: 1px solid teal;
+    margin-top: 1%;
+    padding: 15px;
+    font-size: medium;
+    margin-bottom: 1%;
+}
+
+.view-cart-btn:hover {
+    background-color: teal;
+    color: white;
 }
 
 .purchase-btn:hover, .map-btn:hover {

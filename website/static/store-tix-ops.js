@@ -315,14 +315,25 @@ function addRowToCart(title, price, imageSrc) {
     }
 
     // Check if duplicate cart item
+    var offCanvas = document.getElementById("offcanvasRight").getElementsByClassName("offcanvas-body")[0];
+
+    var cartItemsAll = offCanvas.getElementsByClassName("cart-items-all")[0];
+    var cartItemNames = offCanvas.getElementsByClassName("cart-item-title");
+    var cartItemSizes = offCanvas.getElementsByClassName("cart-item-size");
+
+    /*
     var cartItemsAll = document.getElementsByClassName("cart-items-all")[0];
     var cartItemNames = document.getElementsByClassName("cart-item-title");
     var cartItemSizes = document.getElementsByClassName("cart-item-size");
+    */
 
     for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText.includes(title)) {
+        
+        /*if (cartItemNames[i].innerText.includes(title)) { */
+        if (cartItemNames[i].textContent.includes(title)) {
             if (sizeOption != "") {
-                if (cartItemSizes[i].innerText.includes(sizeOption)) {
+                /*if (cartItemSizes[i].innerText.includes(sizeOption)) { */
+                if (cartItemSizes[i].textContent.includes(sizeOption)) {
                     // Duplicate Size selected for Duplicate Merch
                     alert('This size has already been added to cart.');
                     return; // skip below code
@@ -346,7 +357,11 @@ function addRowToCart(title, price, imageSrc) {
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-amount cart-column">
             <input type="number" value="1" class="cart-input" onchange="quantityChanged(this)">
-            <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">REMOVE</button>
+            <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">
+                <svg class="remove-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
         </div>`;
     // backticks to use on multiple lines and can directly add variables with ${varName}
     cartRow.innerHTML = cartRowContents;
@@ -379,11 +394,18 @@ function addTixRowToCart(tixType, price) {
     cartRow.classList.add('cart-row');
 
     // Check if duplicate ticket
+    var offCanvas = document.getElementById("offcanvasRight").getElementsByClassName("offcanvas-body")[0];
+    var cartItemsAll = offCanvas.getElementsByClassName("cart-items-all")[0];
+    var cartTixTypes = offCanvas.getElementsByClassName("cart-type");    
+    
+    /*
     var cartItemsAll = document.getElementsByClassName("cart-items-all")[0];
     var cartTixTypes = document.getElementsByClassName("cart-type");
+    */
 
     for (var i = 0; i < cartTixTypes.length; i++) {
-        if (cartTixTypes[i].innerText == tixType) {
+        /*if (cartTixTypes[i].innerText == tixType) {*/
+        if (cartTixTypes[i].innerHTML == tixType) {
             alert('This item is already added to cart.');
             return; // skip below code
         }
@@ -396,7 +418,11 @@ function addTixRowToCart(tixType, price) {
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-amount cart-column">
             <input type="number" value="1" class="cart-input" onchange="quantityChanged(this)">
-            <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">REMOVE</button>
+            <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">
+                <svg class="remove-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
         </div>`;
     cartRow.innerHTML = cartRowContents;
 
