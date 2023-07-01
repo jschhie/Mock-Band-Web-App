@@ -14,11 +14,11 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/main-store-size.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/offcanvas-store.png">
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart-size.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/offcanvas-merch.png">
 
 ### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20ship%20bill.png">
@@ -37,7 +37,8 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-tours-page.png">
 
 ### 🎫 Concert Tickets
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-stadium.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/offcanvas-tix.png">
+
 
 ### 📷 Photo Gallery
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-gallery.png">
