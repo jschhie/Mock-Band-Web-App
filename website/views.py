@@ -163,6 +163,6 @@ def findOrder():
                 else:
                     txnType = "tickets"
                 return redirect(url_for('views.thankYou', txnType=txnType, orderId=order_id))
-        flash('Sorry, no matching Orders. Please try again.', category="error")     
+        flash('Please try again.', category="lookup-error")     
         
     return render_template('find-order.html')

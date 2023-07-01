@@ -13,17 +13,54 @@
     
 
     <div id="gallery">
-        <figure>
-            <img id="selected-img" src="https://live.staticflickr.com/65535/52726177441_42743d38ed_o.png" alt="BTS | Spring Day Concept Group Photo I"/>
-            <figcaption id="gallery-caption">BTS | Spring Day Concept Group Photo I</figcaption>
-        </figure>
-        
-        <div class="row">
-            <img class="col-sm-3 col-md-3 col-xl-2 preview-img" src="https://live.staticflickr.com/65535/52992400583_ec5cbcd797.jpg" alt="BTS | Spring Day Concept Photo: Jimin" onmouseover = "upDate(this)" onmouseout = "unDo()" onclick = "upDate(this)">
-            <img class="col-sm-3 col-md-3 col-xl-2 preview-img" src="https://live.staticflickr.com/65535/52992080204_85b1838acc.jpg" alt="BTS | Spring Day Concept Group Photo II" onmouseover = "upDate(this)" onmouseout = "unDo()" onclick = "upDate(this)">
-            <img class="col-sm-3 col-md-3 col-xl-2 preview-img" src="https://live.staticflickr.com/65535/52992400593_584c29d257.jpg" alt="BTS | Spring Day Concept Photo: Jungkook" onmouseover = "upDate(this)" onmouseout = "unDo()" onclick = "upDate(this)">
+        <div id="carousel" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="BTS Photo 1"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="BTS Photo 2"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="BTS Photo 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://live.staticflickr.com/65535/52726177441_42743d38ed_o.png" class="selected-img d-block w-100" alt="BTS | Spring Day Concept Group Photo I">
+                    <div class="carousel-caption d-none d-md-block">
+                        Spring Day Concept Photo I
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://live.staticflickr.com/65535/52992400583_ec5cbcd797.jpg" alt="BTS | Spring Day Concept Photo: Jimin" class="selected-img d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        Spring Day Concept Photo: Jimin
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://live.staticflickr.com/65535/52992080204_85b1838acc.jpg" alt="BTS | Spring Day Concept Group Photo II" class="selected-img d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        Spring Day Concept Photo II
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="gallery-arrow bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                    </svg>
+                </span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="gallery-arrow bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    </svg>
+                </span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
+
+    <br>
     
     <p class="about-text">
         Vivamus sed placerat orci. Sed nec fermentum mi. Sed mattis ultricies metus ac volutpat. Ut nec eleifend justo, at hendrerit justo. Ut ultrices, turpis eu condimentum pulvinar, nisi tortor fermentum ligula, sit amet accumsan tellus dui sit amet purus. Praesent ultrices tempus condimentum. Quisque faucibus mauris fermentum quam commodo tincidunt. Sed non semper lectus, eu ultrices urna.

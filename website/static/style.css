@@ -19,6 +19,13 @@
 .close-btn {
     border: none;
     background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.close-btn svg:hover {
+    fill:rgba(0, 0, 0, 0.8);
 }
 
 #topButton {
@@ -363,91 +370,74 @@ footer {
 }
 
 /* ===== ABOUT SECTION ===== */
-#gallery {
-    margin-left: 3%;
-    text-align: center;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 3%;
+.selected-img {
+    height: 193px;
+}
+
+#carousel {
+    width: 288px;
+    height: 193px;
+    float: left;
     margin-top: 3%;
+    margin-left: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
 }
 
-#gallery-caption {
-    margin-bottom: 2.5%;
+.carousel-caption {
     font-weight: bolder;
-    font-size: 1.08em;
-    font-style: italic;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    margin-bottom: 3%;
 }
 
-#selected-img {
-    width: 200px;
-    height: 133px;
-    margin-bottom: 2.5%;
-    border-radius: 5px;
-    border: 0.5px black solid;
-}
-
-.preview-img {
-    width: 100px;
-    height: 50px;
-    margin: auto;
-    border: 0.5px grey solid;
-}
-
-.preview-img:hover, .preview-img:active {
-    border: 0.9px black solid;
+.gallery-arrow {
+    width: 70%;
 }
 
 @media all and (min-width:576px) {
     /* small */
-    #selected-img {
-        width: 222px;
-        height: 148px;
+    #carousel, .selected-img {
+        width: 316px;
+        height: 213px;
     }
-
-    .preview-img {
-        width: 150px;
-        height: 75px; /* x1.5 */
+    
+    .gallery-arrow {
+        width: 65%;
     }
 }
 
 @media all and (min-width:768px) {
     /* medium */
-    #selected-img {
-        width: 267px;
-        height: 177px;
-    }
-
-    .preview-img {
-        width: 160px;
-        height: 80px; /* x1.6 */
-    }   
-}
-
-@media all and (min-width:992px) {
-    /* large */
-    #selected-img {
+    #carousel, .selected-img {
         width: 333px;
         height: 222px;
     }
 
-    .preview-img {
-        width: 180px;
-        height: 90px; /* x1.8 */
-    }   
+    .gallery-arrow {
+        width: 60%;
+    }
+}
+
+@media all and (min-width:992px) {
+    /* large */
+    #carousel, .selected-img {
+        width: 367px;
+        height: 245px;
+    }
+
+    .gallery-arrow {
+        width: 45%;
+    }
+
 }
 
 @media all and (min-width:1200px) {
     /* x-large */
-    #selected-img {
-        width: 400px;
-        height: 266px;
+    #carousel, .selected-img {
+        width: 480px;
+        height: 320px;
     }
-
-    .preview-img {
-        width: 190px;
-        height: 95px; /* x1.9 */
-    }   
 }
 
 .about-text {
