@@ -182,6 +182,8 @@ function updateCartTotal() {
     var json_cart = []; // list of dictionaries
     var header = document.getElementsByClassName("cart-type-header")[0].innerText; // either "TICKET TYPE" (tickets) OR "ITEM" (merch)
 
+    var num_items_sold = 0;
+
     for (var i = 0; i < cartRows.length; i++) {
         // get item price
         var cartRow = cartRows[i];
@@ -194,6 +196,8 @@ function updateCartTotal() {
         var amountContainer = cartRow.getElementsByClassName("cart-amount")[0];
         var amountElement = amountContainer.getElementsByClassName("cart-input")[0];
         var amount = amountElement.value;
+
+        num_items_sold = parseInt(num_items_sold) + parseInt(amount);
 
         // add up total price
         total = total + (price * amount);
@@ -211,10 +215,13 @@ function updateCartTotal() {
                 prod_title = prod_title.substring(0,trimIndex);
             }
         }
-        var new_row = { "prod_title": prod_title, "qty_sold": amount, "merch_size": merch_size };
-        
+        var new_row = { "prod_title": prod_title, "qty_sold": amount, "merch_size": merch_size };        
         json_cart.push(new_row);
     }
+
+    // Update ccart badge notif number
+    document.getElementsByClassName("cart-notif")[0].innerText = parseInt(num_items_sold);
+
 
     // Outside for loop: init venue and venue_date once 
     var venue = "None";
@@ -244,6 +251,7 @@ function quantityChanged(event) {
         // must purchase at least one item to remain in cart
         input.value = 1;
     }
+
     updateCartTotal();
 }
 
