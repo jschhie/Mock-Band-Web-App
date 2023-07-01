@@ -16,6 +16,11 @@
     text-align: center;
 }
 
+.close-btn {
+    border: none;
+    background-color: transparent;
+}
+
 #topButton {
     display: none;
     bottom: 50%;
