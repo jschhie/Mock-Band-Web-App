@@ -71,13 +71,13 @@
             <span class="shop-item-title">Love Yourself: Black Hoodie</span>
             <img class="shop-item-image" type="image/png" src="https://live.staticflickr.com/65535/52726627658_dc143b07b2_o.jpg" height="100px"/>
             <div class="shop-item-details row">
-                <span class="shop-item-price col-md-4">$31.99</span>
-                <select class="form-control col-md-4 size-option" id="blackHoodSize">
+                <span class="shop-item-price col">$31.99</span>
+                <select class="form-control col size-option" id="blackHoodSize">
                     <option value="Small" selected>S</option>
                     <option value="Medium">M</option>
                     <option value="Large">L</option>
                 </select>
-                <button title="Add to Cart" type="button" class="btn general-btn shop-item-btn col-md-2" onclick="addToCart(this)">
+                <button title="Add to Cart" type="button" class="btn general-btn shop-item-btn col" onclick="addToCart(this)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
                     </svg>
@@ -89,13 +89,13 @@
             <span class="shop-item-title">Love Yourself: White Hoodie</span>
             <img class="shop-item-image" type="image/png" src="https://live.staticflickr.com/65535/52726147106_704a98479e_o.jpg" height="100px"/>
             <div class="shop-item-details row">
-                <span class="shop-item-price col-md-4">$31.99</span>
-                <select class="form-control col-md-4 size-option" id="whiteHoodSize">
+                <span class="shop-item-price col">$31.99</span>
+                <select class="form-control col size-option" id="whiteHoodSize">
                     <option value="Small" selected>S</option>
                     <option value="Medium">M</option>
                     <option value="Large">L</option>
                 </select>
-                <button title="Add to Cart" type="button" class="btn general-btn shop-item-btn col-md-2" onclick="addToCart(this)">
+                <button title="Add to Cart" type="button" class="btn general-btn shop-item-btn col" onclick="addToCart(this)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
                     </svg>
@@ -107,29 +107,49 @@
 
 <!-- CART SECTION -->
 <section>
-    <h2 class="section-header">cart</h2>
-    <!-- CART HEADER ROW -->
-    <div class="cart-row">
-        <span class="cart-item cart-header cart-type-header cart-column">ITEM</span>
-        <span class="cart-price cart-header cart-column">PRICE</span>
-        <span class="cart-amount cart-header cart-column">QUANTITY</span>
-    </div>
     
-    <!-- ALL CART ITEMS -->
-    <div class="cart-items-all">
-        <!-- Cart items inserted interactively here -->
-    </div>
-    
-    <!-- CHECKOUT -->
-    <div class="cart-total">
-        <span class="cart-total-label">TOTAL</span>
-        <span class="cart-total-price">$0.00</span>
-    </div>
-    <div class="submit-cart">
-        <button type="button" class="purchase-btn btn" onclick="startCheckout(this, 'merch')">
-            CHECKOUT
+    <!-- SHOPPING CART OFFCANVAS -->
+    <div class="center-btn">
+        <button title="View Cart" class="btn view-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onclick="updateCartTotal()">
+            VIEW CART 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
         </button>
     </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <h2 class="section-header">cart</h2>
+            <!-- CART HEADER ROW -->
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-type-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-amount cart-header cart-column">QUANTITY</span>
+            </div>
+
+            <!-- ALL CART ITEMS -->
+            <div class="cart-items-all">
+                <!-- Cart items inserted interactively here -->
+            </div>
+            
+            <!-- CHECKOUT -->
+            <div class="cart-total">
+                <span class="cart-total-label">TOTAL</span>
+                <span class="cart-total-price">$0.00</span>
+            </div>
+            <div class="submit-cart">
+                <button type="button" class="purchase-btn btn" onclick="startCheckout(this, 'merch')">
+                    CHECKOUT
+                </button>
+            </div>
+        </div>
+      </div>
 
 </section>
 
