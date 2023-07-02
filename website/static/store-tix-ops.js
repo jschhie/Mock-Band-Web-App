@@ -1,39 +1,23 @@
-/* * * * * ABOUT GALLERY * * * * * */
-function upDate(previewPic) {
-    var image = document.getElementById("selected-img");
-    image.src = previewPic.src;
-    var caption = document.getElementById("gallery-caption");
-    caption.innerText = previewPic.alt;
-}
-
-
-
-function unDo() {
-    var image = document.getElementById("selected-img");
-    image.src = "https://live.staticflickr.com/65535/52726177441_42743d38ed_o.png";
-    var caption = document.getElementById("gallery-caption");
-    caption.innerText = image.alt;
-}
-
-
-
-/* * * * * GENERAL PURCHASING OPERATIONS * * * * * */
+/* * * * * CHECKOUT VALIDATION * * * * * */
 function radioChange(event) {
     shippingFee = event.parentElement.getElementsByClassName("form-check-label")[0].getElementsByClassName("radio-price")[0].innerText;
     document.getElementById("shipping-fee").innerText = shippingFee;
     addCheckoutPrices();
 }
 
+
+
 function addCheckoutPrices() {
     subtotalStr = document.getElementById("subtotal").innerText.replace('$', '');
     feeStr = document.getElementById("shipping-fee").innerText.replace('$', '');
     document.getElementById("total-price").innerText = (parseFloat(subtotalStr) + parseFloat(feeStr)).toFixed(2);
-
     // Hidden div information
     document.getElementById("hidden-subtotal").value = subtotalStr;
     document.getElementById("hidden-delivery-fee").value = feeStr;
     document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
 }
+
+
 
 function editCheckout(event) {
     idNames = ["Name", "Address", "City", "Zip", "State", "Email"];
@@ -52,28 +36,6 @@ function editCheckout(event) {
         }
     }
 }
-
-/* PURCHASE CART ITEMS */
-/*
-function purchaseClicked(event) {
-    var cartElement = event.parentElement.parentElement;
-    var cartTotalElement = cartElement.getElementsByClassName("cart-total")[0];
-    var totalPrice = cartTotalElement.getElementsByClassName("cart-total-price")[0].innerText;
-
-    if (totalPrice == "$0.00") {
-        alert("Empty cart! Please add items to cart before purchase.");
-    }  else {
-        alert('Thank you for your purchase.');
-        var cartItems = document.getElementsByClassName("cart-items-all")[0];
-        // Delete all items in cart: Loop over all children in all cart rows
-        while(cartItems.hasChildNodes()) {
-            cartItems.removeChild(cartItems.firstChild);
-        }
-        // Reset total price
-        document.getElementsByClassName("cart-total-price")[0].innerText = "$0.00";
-    }
-}
-*/
 
 
 
@@ -95,6 +57,7 @@ function startCheckout(event, txnType) {
         document.location.href = '/checkout/' + txnType;
     }
 }
+
 
 
 function purchaseClicked(event) {
@@ -131,6 +94,8 @@ function purchaseClicked(event) {
     return true;
 }
 
+
+
 function checkFormFields(idType, idName) {
     if (idType == "findOrder") {
         orderID = document.getElementById("orderID").value;
@@ -161,6 +126,25 @@ function checkFormFields(idType, idName) {
         return true;
     }
 }
+
+
+
+/* * * * * TICKETS / MERCH STORE PURCHASE OPERATIONS * * * * * */
+/* TOGGLE EMPTY CART MESSAGE, CHECKOUT BUTTON */
+function toggleEmptyCart(totalPriceId, emptyTextId, checkoutBtnId) {
+    var tix_total_price = document.getElementById(totalPriceId).innerHTML;
+    if (tix_total_price == "$0.00") {
+        // show message, hide checkout button
+        document.getElementById(emptyTextId).style.display = "block";
+        document.getElementById(checkoutBtnId).style.display = "none";
+    } else {
+        // hide message, show checkout button
+        document.getElementById(emptyTextId).style.display = "none";
+        document.getElementById(checkoutBtnId).style.display = "block";
+    }
+}
+
+
 
 /* REMOVE CART ITEMS */
 function removeCartItems(event) {
@@ -222,7 +206,6 @@ function updateCartTotal() {
     // Update ccart badge notif number
     document.getElementsByClassName("cart-notif")[0].innerText = parseInt(num_items_sold);
 
-
     // Outside for loop: init venue and venue_date once 
     var venue = "None";
     var venue_date = "None";
@@ -233,12 +216,18 @@ function updateCartTotal() {
     }
     json_cart.push({ "venue": venue, "venue_date": venue_date }); // Append to end of list
 
-    // format total value by rounding two decimal places
+    // Format total value by rounding two decimal places
     total = Math.round(total * 100) / 100;
     var totalPriceElement = document.getElementsByClassName("cart-total-price")[0];
     formatPrice(total, totalPriceElement);
-
     sessionStorage.setItem("shoppingCart", JSON.stringify(json_cart));
+
+    // Toggle empty cart message and checkout button
+    if (header == "TICKET TYPE") {
+        toggleEmptyCart("tix-total-price", "empty-tix-text", "checkout-tix-btn");
+    } else {
+        toggleEmptyCart("merch-total-price", "empty-merch-text", "checkout-merch-btn");
+    }
 }
 
 
@@ -251,7 +240,6 @@ function quantityChanged(event) {
         // must purchase at least one item to remain in cart
         input.value = 1;
     }
-
     updateCartTotal();
 }
 
@@ -281,8 +269,7 @@ function formatPrice(total, element) {
 
     if (test == 0) {
         element.innerHTML = newPriceString + '0';
-    }
-    else {
+    } else {
         element.innerHTML = newPriceString;
     }
 }
@@ -290,7 +277,6 @@ function formatPrice(total, element) {
 
 
 /* * * * * STORE OPERATIONS -- PURCHASE ALBUMS, MERCH * * * * * */
-
 function addToCart(event) {
     var addToCartBtn = event;
     var itemRow = addToCartBtn.parentElement.parentElement;
@@ -303,7 +289,6 @@ function addToCart(event) {
     // Create new cart row with selected item if not already in cart
     addRowToCart(title, price, imageSrc);
     updateCartTotal();
-
 }
 
 
@@ -379,7 +364,6 @@ function addRowToCart(title, price, imageSrc) {
 
 
 /* * * * * PURCHASE TOUR TICKETS OPERATIONS * * * * * */
-
 function addTixToCart(event) {
     var tixBtn = event;
 
@@ -391,7 +375,6 @@ function addTixToCart(event) {
     // Create new cart row with selected item if not already in cart
     addTixRowToCart(tixType, tixPrice);
     updateCartTotal();
-
 }
 
 
@@ -430,7 +413,5 @@ function addTixRowToCart(tixType, price) {
 
     // Add new cartRow to end of cartItemsAll
     cartItemsAll.append(cartRow);
-
-    alert(tixType + ' TICKETS added to cart!');
-
+    alert(tixType + ' Tickets added to cart!');
 }

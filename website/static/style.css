@@ -28,12 +28,14 @@
     fill:rgba(0, 0, 0, 0.8);
 }
 
+/* Go to Top of Page Button */
 #topButton {
     display: none;
     bottom: 50%;
     right: 30px;
     z-index: 99;
     position: fixed;
+    width: 50px;
 }
 
 #flashed-div {
@@ -55,14 +57,6 @@ body {
     font-weight: bolder;
     font-size: 2em;
     margin-bottom: 3%;
-}
-
-.arena-link {
-    color: black;
-}
-
-.arena-link:hover {
-    color: teal;
 }
 
 section {
@@ -116,12 +110,14 @@ footer {
 .footer-text {
     color: white;
     text-align: center;
+    font-family: 'Pangolin', cursive;
 }
 
 .footer-link {
     color: grey;
     margin-left: 2%; /* space in between */
     margin-right: 2%;
+    text-decoration: none;
 }
 
 .footer-link:hover {
@@ -170,13 +166,13 @@ footer {
     text-align: left;
 }
 
-
 @media all and (min-width:768px) {
     /* medium */
     .nav-item {
         margin-right: 100px;
     }
 }
+
 
 
 /* ===== BUTTONS ===== */
@@ -243,6 +239,47 @@ footer {
     background-color: black;
 }
 
+
+
+/* ===== STORE: SUBMIT SECTION ===== */
+.submit-cart {
+    text-align: center;
+}
+
+.purchase-btn {
+    background-color: teal;
+    color: white;
+    font-size: medium;
+    margin-top: 1%;
+}
+
+.view-cart-btn {
+    background-color: white;
+    color: teal;
+    border: 1px solid teal;
+    margin-top: 1%;
+    padding: 15px;
+    font-size: medium;
+    margin-bottom: 1%;
+}
+
+.view-cart-btn:hover {
+    background-color: teal;
+    color: white;
+}
+
+.purchase-btn:hover, .map-btn:hover {
+    background-color: rgba(0, 128, 128, 0.7);
+    color: white;
+}
+
+.map-btn:first-child:hover {
+    background-color: transparent;
+    color: teal;
+}
+
+
+
 /* ==== BAND SOCIALS ==== */
 .social-icon {
     padding-left: 5%;
@@ -256,6 +293,10 @@ footer {
 
 
 /* ===== CHECKOUT PAGE ====== */
+.hidden-div {
+    display: none;
+}
+
 .sub-header {
     border-bottom: 1px black dashed;
     text-align: center;
@@ -309,6 +350,17 @@ footer {
 }
 
 /* ===== INDEX, TOUR SECTION ==== */
+.arena-link {
+    color: teal;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+}
+
+.arena-link:hover {
+    text-decoration: underline;
+}
+
 .flexbox-container {
     display: flex;
     justify-content: space-around; /*  distribute extra free space leftover */
@@ -377,11 +429,9 @@ footer {
 #carousel {
     width: 288px;
     height: 193px;
-    float: left;
     margin-top: 3%;
-    margin-left: 3%;
     margin-bottom: 3%;
-    margin-right: 3%;
+    margin: auto;
 }
 
 .carousel-caption {
@@ -412,6 +462,14 @@ footer {
     #carousel, .selected-img {
         width: 333px;
         height: 222px;
+    }
+
+    #carousel {
+        float: left;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 1%;
+        margin-bottom: 1%;
     }
 
     .gallery-arrow {
@@ -453,7 +511,7 @@ footer {
 
 
 
-/* ===== STORE: ITEMS SECTION ===== */
+/* ===== MAIN STORE: ITEMS SECTION ===== */
 .shop-item {
     margin: 30px;
 }
@@ -524,7 +582,20 @@ footer {
 }
 
 
+
 /* ===== TOUR TICKETS + STORE: CART SECTION ====== */
+#checkout-tix-btn, #checkout-merch-btn {
+    display: none;
+}
+
+#empty-tix-text, #empty-merch-text {
+    display: none;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
 .cart-header  {
     font-size: 1.5em;
     font-weight: bold;
@@ -615,48 +686,6 @@ footer {
 
 
 
-/* ===== STORE: SUBMIT SECTION ===== */
-.submit-cart {
-    text-align: center;
-}
-
-.purchase-btn {
-    background-color: teal;
-    color: white;
-    font-size: medium;
-    margin-top: 1%;
-}
-
-.view-cart-btn {
-    background-color: white;
-    color: teal;
-    border: 1px solid teal;
-    margin-top: 1%;
-    padding: 15px;
-    font-size: medium;
-    margin-bottom: 1%;
-}
-
-.view-cart-btn:hover {
-    background-color: teal;
-    color: white;
-}
-
-.purchase-btn:hover, .map-btn:hover {
-    background-color: rgba(0, 128, 128, 0.7);
-    color: white;
-}
-
-.map-btn:first-child:hover {
-    background-color: transparent;
-    color: teal;
-}
-
-.hidden-div {
-    display: none;
-}
-
-
 /* ===== THANK YOU: RECEIPT SECTION ===== */
 #receipt-banner {
     animation: 1s ease-out 0s 1 slideInLeft;
@@ -740,7 +769,9 @@ footer {
     text-align: center;
 }
 
-/* ORDER LOOKUP */
+
+
+/* ===== ORDER LOOKUP ==== */
 .lookup-card {
     width: 80%;
     margin: auto;
