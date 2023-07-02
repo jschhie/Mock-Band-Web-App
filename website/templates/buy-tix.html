@@ -146,6 +146,13 @@
                     <span class="cart-amount cart-header cart-column">QUANTITY</span>
                 </div>
                 
+                <!-- EMPTY CART TEXT -->
+                <div id="empty-tix-text">
+                    Your cart is currently empty.
+                    <br>
+                    Continue browsing <button class="button arena-link"  data-bs-dismiss="offcanvas">here</button>
+                </div>
+
                 <!-- ALL CART ITEMS -->
                 <div class="cart-items-all">
                     <!-- Ticket Cart inserted interactively here -->
@@ -154,9 +161,9 @@
                 <!-- CHECKOUT -->
                 <div class="cart-total">
                     <span class="cart-total-label">TOTAL</span>
-                    <span class="cart-total-price">$0.00</span>
+                    <span id="tix-total-price" class="cart-total-price">$0.00</span>
                 </div>
-                <div class="submit-cart">
+                <div class="submit-cart" id="checkout-tix-btn">
                     <button type="button" class="purchase-btn btn" onclick="startCheckout(this, 'tickets')">
                         CHECKOUT
                     </button>
@@ -167,5 +174,10 @@
 </div>
 
 <br>
+
+<script>
+    // function call when page loads 
+    toggleEmptyCart("tix-total-price", "empty-tix-text", "checkout-tix-btn");
+</script>
 
 {% endblock %}
