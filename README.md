@@ -41,7 +41,10 @@
 
 
 ### 📷 Photo Gallery
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-gallery2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio1.png">
+
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio2.png">
+
 
 <hr>
 
