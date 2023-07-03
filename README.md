@@ -31,7 +31,7 @@
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated-receipt-size2.png">
 
 ### 🔍 Order Lookup
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/lookup-order.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-lookup.png">
 
 ### 🎤 Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-tours-page.png">
@@ -41,9 +41,9 @@
 
 
 ### 📷 Photo Gallery
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio1.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio-re1.png">
 
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio-re2.png">
 
 
 <hr>
