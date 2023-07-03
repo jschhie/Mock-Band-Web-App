@@ -57,6 +57,7 @@ body {
     font-weight: bolder;
     font-size: 2em;
     margin-bottom: 3%;
+    margin-top: 3%;
 }
 
 section {
@@ -438,6 +439,7 @@ footer {
     align-items: center;
     position: relative;
     width: 35%; /* xs, mobile view */
+    transition: .5s; /* ease transition */
 }
 
 .bio-parent img {
@@ -464,6 +466,11 @@ footer {
 
 .selected-img {
     height: 193px;
+}
+
+#gallery {
+    width: 90%;
+    margin: auto;
 }
 
 #carousel {
@@ -498,6 +505,10 @@ footer {
         width: 60%;
     }
 
+    #gallery {
+        width: 80%;
+    }
+
     .bio-parent {
         width: 25%;
     }
@@ -512,6 +523,10 @@ footer {
 
     .gallery-arrow {
         width: 60%;
+    }
+
+    #gallery {
+        width: 70%;
     }
 
     .footer-center {
@@ -536,6 +551,10 @@ footer {
 
     .footer-center {
         padding-left: 15%;
+    }
+
+    #gallery {
+        width: 60%;
     }
 
     .bio-all {
@@ -839,4 +858,10 @@ footer {
 
 .lookup-header {
     margin-top: 1%;
+    padding: 3%;
+}
+
+.lookup-form {
+    width: 80%;
+    margin: auto;
 }
