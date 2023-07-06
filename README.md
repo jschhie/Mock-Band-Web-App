@@ -14,36 +14,36 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/offcanvas-store.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-store.png">
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart-badge-merch.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-store2.png">
 
 ### 💳 Customer Checkout
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/mock%20ship%20bill.png">
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-checkout-form.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-checkout.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-checkout2.png">
 
 ### 🧾 Order Confirmation
 > Sample Receipt for Main Store Merch
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated-receipt-size.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch.png">
 
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/updated-receipt-size2.png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2png">
 
 ### 🔍 Order Lookup
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-lookup.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-lookup.png">
 
 ### 🎤 Tour Dates
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-tours-page.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-home.png">
 
 ### 🎫 Concert Tickets
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cart-badge-tix.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-tix.png">
 
 
 ### 📷 Photo Gallery
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio-re1.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-about.png">
 
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-bio-re2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-about2.png">
 
 
 <hr>
