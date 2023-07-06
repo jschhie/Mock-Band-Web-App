@@ -28,7 +28,7 @@
 > Sample Receipt for Main Store Merch
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch.png">
 
-<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2png">
+<img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2.png">
 
 ### 🔍 Order Lookup
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-lookup.png">
