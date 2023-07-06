@@ -333,7 +333,7 @@ function addRowToCart(title, price, imageSrc) {
 
     var cartRowContents = `
         <div class="cart-item cart-column">
-            <img class="cart-item-image" src="${imageSrc}" width="100px">
+            <img class="cart-item-image" src="${imageSrc}" width="80px">
             <span class="cart-item-title">
                 ${title}
                 <span class="cart-item-size">${sizeOption}</span>
