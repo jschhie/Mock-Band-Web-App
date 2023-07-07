@@ -24,7 +24,7 @@
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-offanvas-merch.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-offcanvas-merch.png">
 
 ### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-checkout.png">
