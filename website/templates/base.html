@@ -54,7 +54,12 @@
         <h3 class="band-name">Unofficial BTS</h3>
         {% if isIndex %}
             <div>
-                <a href="/store"class="btn header-btn add-album-btn">Get our latest album!</a>
+                <a href="/store" class="icon-link icon-link-hover btn header-btn add-album-btn">
+                    Get our latest album!
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </a>
                 <br>
                 <br>
             </div>
@@ -86,7 +91,7 @@
                 {% endwith %}
             </div>
 
-            <button class="shadow-lg btn general-btn" id="topButton" title="Back to Top" onclick="topFunction()">
+            <button class="icon-link icon-link-hover shadow-lg btn general-btn" id="topButton" title="Back to Top" onclick="topFunction()" style="--bs-icon-link-transform: translate3d(0, -.15rem, 0);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
                 </svg>
