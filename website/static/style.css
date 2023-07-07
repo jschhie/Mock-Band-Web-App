@@ -646,6 +646,21 @@ footer {
     /* adds even amount of space around (top bottom left right) */
 }
 
+
+.modal-img {
+    border-radius: 5px;
+    margin: 5%;
+}
+
+.modal-details {
+    margin: 5%;
+}
+
+.modal-title, .modal-subtitle {
+    font-family: 'Syne', 'Times';
+    color: teal;
+}
+
 .cart-item-size {
     width: 20%;
     text-align: center;
@@ -684,7 +699,7 @@ footer {
 #empty-tix-text, #empty-merch-text {
     display: none;
     font-size: 1.3em;
-    font-weight: bold;
+    font-weight: 400;
     margin-top: 10%;
     margin-bottom: 10%;
 }
