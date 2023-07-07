@@ -394,33 +394,38 @@ footer {
     /* to change the width of inline elements, 
     can apply width, height without breaking line */
     padding-right: 0.5em;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .tour-date {
     color: teal;
     font-weight: bold;
     font-size: large;
-    width: 11%;
+    width: 12%;
 }
 
 .tour-city {
-    width: 25%;
+    width: 30%;
     font-weight: bolder;
 }
 
 .tour-arena {
-    width: 45%;
+    width: 30%;
 }
 
-.flexbox-btn, .return-home-btn {
+.flexbox-btn {
     max-width: 15%;
     font-size: small;
 }
 
+.return-home-btn {
+    font-size: 1.2em;
+    max-width: 33%;
+}
+
 @media all and (min-width:768px) {
     /* medium */
-    .flexbox-btn, .return-home-btn {
+    .flexbox-btn {
         font-size: 1.05em;
     }
 }
@@ -464,7 +469,7 @@ footer {
     color: #ffffff;
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
     opacity: 0;
     font-size: medium;
 }
