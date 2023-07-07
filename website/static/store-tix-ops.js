@@ -1,3 +1,21 @@
+/* * * * * GALLERY IMAGE FOR PRODUCT CATALOG * * * * * */
+function showImg(image) {
+    // replace modal main image
+    var mainImg = image.parentElement.getElementsByClassName("modal-img")[0];
+    if (image.src != mainImg.src) {
+        mainImg.src = image.src;
+        // lighten other preview image border (Exactly two preview images)
+        var otherImgs = image.parentElement.getElementsByClassName("preview-img");
+        if (otherImgs[0].src == image.src) {
+            otherImgs[1].style.borderColor = "lightgrey";
+        } else {
+            otherImgs[0].style.borderColor = "lightgrey";
+        }
+        // darken current preview image border
+        image.style.borderColor = "black";        
+    }
+}
+
 /* * * * * CHECKOUT VALIDATION * * * * * */
 function radioChange(event) {
     shippingFee = event.parentElement.getElementsByClassName("form-check-label")[0].getElementsByClassName("radio-price")[0].innerText;

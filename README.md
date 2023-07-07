@@ -14,17 +14,17 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-store.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-store2.png">
 
 > Product Catalog
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/cd-specs.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/modal-1.png">
 
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/merch-specs.png">
 
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-store2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-offanvas-merch.png">
 
 ### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-checkout.png">

@@ -650,6 +650,13 @@ footer {
 .modal-img {
     border-radius: 5px;
     margin: 5%;
+    float: left;
+}
+
+.preview-img {
+    margin: 5%;
+    display: block;
+    border: 1px solid lightgray;
 }
 
 .modal-details {
