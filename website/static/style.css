@@ -210,8 +210,9 @@ footer {
     color: white;
     border: 1px black solid;
     font-size: 1.5em;
-    border-bottom-left-radius: 60%;
-    border-bottom-right-radius: 60%;
+    height: 150px;
+    border-radius: 50% 50% 0 0/100% 100% 0 0;
+    width: 100%;
 }
 
 .stage, .general-row {
@@ -402,6 +403,7 @@ footer {
     font-weight: bold;
     font-size: large;
     width: 12%;
+    text-align: center;
 }
 
 .tour-city {

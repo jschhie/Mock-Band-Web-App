@@ -9,317 +9,40 @@
     <!-- MUSIC SECTION -->
     <h2 class="section-header">music</h2>
     <div class="shop-items-all">
+        {% for album in albums %}
         <div class="shop-item">
-            <span class="shop-item-title">Young Forever</span>
-            <img class="shop-item-image" src="https://live.staticflickr.com/65535/52726666648_ba2e880a99_w.jpg" height="100px"/>
+            <span class="shop-item-title">{{album.prod_title}}</span>
+            <img class="shop-item-image" src={{album.img_src}} height="100px"/>
             <div class="shop-item-details">
-                <span class="shop-item-price">$19.99</span>
+                <span class="shop-item-price">{{album.unit_price}}</span>
                 <button title="Add to Cart" class="btn general-btn shop-item-btn" type="button" onclick="addToCart(this)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
                     </svg>
                 </button>
             </div>
-
-            <button title="View Album" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#album1">
+            <button title="View Album" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target={{ "#album" + loop.index|string }}>
                 View Album
             </button>
-
-            <!-- ALBUM 1 MODAL -->
-            <div class="modal fade" id="album1" tabindex="-1" aria-labelledby="album1Modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="album1Label">Young Forever (Album)</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- GALLERY -->
-                            <img src="https://live.staticflickr.com/65535/52726666648_ba2e880a99_w.jpg" width="160px" height="160px" class="modal-img shadow">
-                            <img src="https://live.staticflickr.com/65535/52726666648_ba2e880a99_w.jpg" width="80px" class="preview-img" style="border-color: black;" onclick="showImg(this)">
-                            <img src="https://live.staticflickr.com/65535/53027712092_2dd3506499_w.jpg" width="80px" height="80px" class="preview-img" onclick="showImg(this)">
-
-                            <div class="modal-details">
-                                <p class="modal-subtitle">DESCRIPTION</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <span class="row">
-                                    <p class="modal-subtitle col">PRICE</p>
-                                    <p class="col">$19.99</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">RELEASED</p>
-                                    <p class="col">May 2, 2016</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">WEIGHT</p>
-                                    <p class="col">1.52 pounds</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">SPECS</p>
-                                    <p class="col">6.69"L x 0.79"W</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
-        <div class="shop-item">
-            <span class="shop-item-title">WINGS</span>
-            <img class="shop-item-image" src="https://live.staticflickr.com/65535/52726666373_7da75acb45_w.jpg" height="160px"/>
-            
-            <div class="shop-item-details">
-                <span class="shop-item-price">$21.99</span>
-                <button title="Add to Cart" class="btn general-btn shop-item-btn" type="button" onclick="addToCart(this)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
-                    </svg>
-                </button>
-            </div>
-
-            <button title="View Album" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#album2">
-                View Album
-            </button>
-
-            <!-- ALBUM 2 MODAL -->
-            <div class="modal fade" id="album2" tabindex="-1" aria-labelledby="album2Modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="album2Label">WINGS (Album)</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- GALLERY -->
-                            <img src="https://live.staticflickr.com/65535/52726666373_7da75acb45_w.jpg" width="150px" class="modal-img shadow">
-                            <img src="https://live.staticflickr.com/65535/52726666373_7da75acb45_w.jpg" width="80px" class="preview-img" style="border-color: black;" onclick="showImg(this)">
-                            <img src="https://live.staticflickr.com/65535/53028707455_6bd6c80421_o.jpg" width="80px" class="preview-img" onclick="showImg(this)">
-
-                            <div class="modal-details">
-                                <p class="modal-subtitle">DESCRIPTION</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <span class="row">
-                                    <p class="modal-subtitle col">PRICE</p>
-                                    <p class="col">$21.99</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">RELEASED</p>
-                                    <p class="col">October 10, 2016</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">WEIGHT</p>
-                                    <p class="col">7.2 ounces</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">SPECS</p>
-                                    <p class="col">6.69"L x 0.79"W</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="shop-item">
-            <span class="shop-item-title">You Never Walk Alone</span>
-            <img class="shop-item-image" src="https://live.staticflickr.com/65535/52726600750_3946190a20_w.jpg" height="100px"/>
-            <div class="shop-item-details">
-                <span class="shop-item-price">$28.25</span>
-                <button title="Add to Cart" class="btn general-btn shop-item-btn" type="button" onclick="addToCart(this)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
-                    </svg>
-                </button>
-            </div>
-
-            <button title="View Album" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#album3">
-                View Album
-            </button>
-
-            <!-- ALBUM 3 MODAL -->
-            <div class="modal fade" id="album3" tabindex="-1" aria-labelledby="album3Modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="album3Label">You Never Walk Alone (Album)</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- GALLERY -->
-                            <img src="https://live.staticflickr.com/65535/52726600750_3946190a20_w.jpg" width="150px" height="150px" class="modal-img shadow">
-                            <img src="https://live.staticflickr.com/65535/52726600750_3946190a20_w.jpg" width="80px" class="preview-img" style="border-color: black;" onclick="showImg(this)">
-                            <img src="https://live.staticflickr.com/65535/53028496734_6610398588_w.jpg" width="80px" height="80px" class="preview-img" onclick="showImg(this)">
-                            
-                            <div class="modal-details">
-                                <p class="modal-subtitle">DESCRIPTION</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <span class="row">
-                                    <p class="modal-subtitle col">PRICE</p>
-                                    <p class="col">$28.25</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">RELEASED</p>
-                                    <p class="col">February 13, 2017</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">WEIGHT</p>
-                                    <p class="col">3.52 ounces</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">SPECS</p>
-                                    <p class="col">6.69"L x 6.69"W</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="shop-item">
-            <span class="shop-item-title">Love Yourself: HER</span>
-            <img class="shop-item-image" src="https://live.staticflickr.com/65535/52726186301_80d0c6f6c5_n.jpg" height="100px"/>
-            <div class="shop-item-details">
-                <span class="shop-item-price">$28.99</span>
-                <button title="Add to Cart" class="btn general-btn shop-item-btn" type="button" onclick="addToCart(this)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <button title="View Album" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#album4">
-                View Album
-            </button>
-
-            <!-- ALBUM 4 MODAL -->
-            <div class="modal fade" id="album4" tabindex="-1" aria-labelledby="album4Modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="album4Label">Love Yourself: HER (Album)</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- GALLERY -->
-                            <img src="https://live.staticflickr.com/65535/52726186301_80d0c6f6c5_n.jpg" width="150px" height="150px" class="modal-img shadow">
-                            <img src="https://live.staticflickr.com/65535/52726186301_80d0c6f6c5_n.jpg" width="80px" class="preview-img" style="border-color: black;" onclick="showImg(this)">
-                            <img src="https://live.staticflickr.com/65535/53028499394_57eeb759b9_w.jpg" width="80px" height="80px" class="preview-img" onclick="showImg(this)">
-                            <div class="modal-details">
-                                <p class="modal-subtitle">DESCRIPTION</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <span class="row">
-                                    <p class="modal-subtitle col">PRICE</p>
-                                    <p class="col">$28.99</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">RELEASED</p>
-                                    <p class="col">September 19, 2017</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">WEIGHT</p>
-                                    <p class="col">12.4 ounces</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">SPECS</p>
-                                    <p class="col">5.47"L x 8.0"W</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
+        {% endfor %}
 </section>
 
 <!-- MERCH SECTION -->
 <section>
     <h2 class="section-header">merch</h2>
     <div class="shop-items-all">
+        {% for merch_item in merch %}
         <div class="shop-item">
-            <span class="shop-item-title">Love Yourself: Black Hoodie</span>
-            <img class="shop-item-image" type="image/png" src="https://live.staticflickr.com/65535/52726627658_dc143b07b2_o.jpg" height="100px"/>
+            <span class="shop-item-title">{{merch_item.prod_title}}</span>
+            <img class="shop-item-image" type="image/png" src={{merch_item.img_src}} height="100px"/>
             <div class="shop-item-details row">
-                <span class="shop-item-price col">$31.99</span>
+                <span class="shop-item-price col">{{merch_item.unit_price}}</span>
+                {% if 'Black' in merch_item.prod_title %}
                 <select class="form-control col size-option" id="blackHoodSize">
-                    <option value="Small" selected>S</option>
-                    <option value="Medium">M</option>
-                    <option value="Large">L</option>
-                </select>
-                <button title="Add to Cart" type="button" class="btn general-btn shop-item-btn col" onclick="addToCart(this)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <button title="View Product" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#blackhood">
-                View Product
-            </button>
-
-            <!-- BLACK HOOD MODAL -->
-            <div class="modal fade" id="blackhood" tabindex="-1" aria-labelledby="blackhoodModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="blackhoodLabel">Love Yourself: HER (Black Hoodie)</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="https://live.staticflickr.com/65535/52726627658_dc143b07b2_o.jpg" width="150px" class="modal-img shadow">
-                            <div class="modal-details" style="display:inline-block;">
-                                <p class="modal-subtitle">DESCRIPTION</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <span class="row">
-                                    <p class="modal-subtitle col">PRICE</p>
-                                    <p class="col">$31.99</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">MATERIAL</p>
-                                    <p class="col">100% Cotton.<br>Exclusive of design.</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">MADE IN</p>
-                                    <p class="col">USA</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="shop-item">
-            <span class="shop-item-title">Love Yourself: White Hoodie</span>
-            <img class="shop-item-image" type="image/png" src="https://live.staticflickr.com/65535/52726147106_704a98479e_o.jpg" height="100px"/>
-            <div class="shop-item-details row">
-                <span class="shop-item-price col">$31.99</span>
+                {% else %}
                 <select class="form-control col size-option" id="whiteHoodSize">
+                {% endif %}
                     <option value="Small" selected>S</option>
                     <option value="Medium">M</option>
                     <option value="Large">L</option>
@@ -330,48 +53,113 @@
                     </svg>
                 </button>
             </div>
-
+            {% if 'Black' in merch_item.prod_title %}
+            <button title="View Product" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#blackhood">
+            {% else %}
             <button title="View Product" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#whitehood">
+            {% endif %}
                 View Product
             </button>
-
-            <!-- WHITE HOOD MODAL -->
-            <div class="modal fade" id="whitehood" tabindex="-1" aria-labelledby="whitehoodModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="whitehoodLabel">Love Yourself: HER (White Hoodie)</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="https://live.staticflickr.com/65535/52726147106_704a98479e_o.jpg" width="150px" class="modal-img shadow">
-                            <div class="modal-details" style="display:inline-block;">
-                                <p class="modal-subtitle">DESCRIPTION</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                <span class="row">
-                                    <p class="modal-subtitle col">PRICE</p>
-                                    <p class="col">$31.99</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">MATERIAL</p>
-                                    <p class="col">100% Cotton.<br>Exclusive of design.</p>
-                                </span>
-                                <span class="row">
-                                    <p class="modal-subtitle col">MADE IN</p>
-                                    <p class="col">USA</p>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+        {% endfor %}
     </div>
 </section>
+
+
+
+<!-- ALBUMS 1, 2, 3, 4 MODALS -->
+{% for album in albums %}
+<div class="modal fade" id={{ "album" + loop.index|string }} tabindex="-1" aria-labelledby={{ "album" + loop.index|string + "Modal" }} aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id={{ "album" + loop.index|string + "Label" }}>{{album.prod_title}} (Album)</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- GALLERY -->
+                <img src={{album.img_src}} width="160px" height="160px" class="modal-img shadow">
+                <img src={{album.img_src}} width="80px" class="preview-img" style="border-color: black;" onclick="showImg(this)">
+                <img src={{album.alt_src}} width="80px" height="80px" class="preview-img" onclick="showImg(this)">
+
+                <div class="modal-details">
+                    <p class="modal-subtitle">DESCRIPTION</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <span class="row">
+                        <p class="modal-subtitle col">PRICE</p>
+                        <p class="col">{{album.unit_price}}</p>
+                    </span>
+                    <span class="row">
+                        <p class="modal-subtitle col">RELEASED</p>
+                        <p class="col">{{album.release_date}}</p>
+                    </span>
+                    <span class="row">
+                        <p class="modal-subtitle col">WEIGHT</p>
+                        <p class="col">{{album.weight}}</p>
+                    </span>
+                    <span class="row">
+                        <p class="modal-subtitle col">SPECS</p>
+                        <p class="col">{{album.specs}}</p>
+                    </span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
+<!-- BLACK / WHITE HOOD MODALS -->
+{% for merch_item in merch %}
+
+{% if 'Black' in merch_item.prod_title %}
+<div class="modal fade" id="blackhood" tabindex="-1" aria-labelledby="blackhoodModal" aria-hidden="true">
+{% else %}
+<div class="modal fade" id="whitehood" tabindex="-1" aria-labelledby="whitehoodModal" aria-hidden="true">
+{% endif %}
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                {% if 'Black' in merch_item.prod_title %}
+                <h1 class="modal-title fs-5" id="blackhoodLabel">{{merch_item.prod_title}}</h1>
+                {% else %}
+                <h1 class="modal-title fs-5" id="whitehoodLabel">{{merch_item.prod_title}}</h1>
+                {% endif %}
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src={{merch_item.img_src}} width="150px" class="modal-img shadow">
+                <div class="modal-details" style="display:inline-block;">
+                    <p class="modal-subtitle">DESCRIPTION</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <span class="row">
+                        <p class="modal-subtitle col">PRICE</p>
+                        <p class="col">{{merch_item.unit_price}}</p>
+                    </span>
+                    <span class="row">
+                        <p class="modal-subtitle col">MATERIAL</p>
+                        <p class="col">{{merch_item.material}}.<br>Exclusive of design.</p>
+                    </span>
+                    <span class="row">
+                        <p class="modal-subtitle col">MADE IN</p>
+                        <p class="col">{{merch_item.origin}}</p>
+                    </span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
 
 <!-- CART SECTION -->
 <section>
