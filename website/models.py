@@ -49,4 +49,13 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     prod_title = db.Column(db.String(50))
     unit_price = db.Column(db.String(50))
+    ### ALL STORE PRODUCTS ###
     img_src = db.Column(db.String(100), default="None") # image url for merch, "None" for tickets
+    ### STORE ALBUMS ###
+    alt_src = db.Column(db.String(100), default="None") # catalog image url
+    release_date = db.Column(db.String(30), default="None")
+    weight = db.Column(db.String(30), default="None") # album weight
+    specs = db.Column(db.String(30), default="None") # album dimensions
+    ### STORE MERCH ###
+    origin = db.Column(db.String(30), default="None") # Country of origin
+    material = db.Column(db.String(30), default="None") 

@@ -31,7 +31,13 @@ def about():
 
 @views.route('/store')
 def store():
-    return render_template('store.html')
+    # Fetch all Products
+    albums  = Product.query.filter(Product.id>=1, Product.id<=4).all()
+    # Products 1-4 are exclusively albums
+    merch = Product.query.filter(Product.id>=5, Product.id<=6).all()
+    print(albums)
+    print(merch)
+    return render_template('store.html', albums=albums, merch=merch)
 
 
 

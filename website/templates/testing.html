@@ -16,7 +16,19 @@
             {{ product.unit_price }}
             <br>
             {% if product.img_src != "None" %}
-                MERCH: <img class="cart-item-image" src={{product.img_src}}>
+                MERCH: 
+                <br>
+                <img class="cart-item-image" src={{product.img_src}}>
+                <br>
+                {% if product.release_date != "None" %}
+                    <img class="cart-item-image" src={{product.alt_src}}>
+                    <p>{{product.release_date}}</p>
+                    <p>{{product.weight}}</p>
+                    <p>{{product.specs}}</p>
+                {% else %}
+                    <p>{{product.origin}}</p>
+                    <p>{{product.material}}</p>
+                {% endif %}
             {% else %}
                 TICKET: {{ product.img_src }}
             {% endif %}
