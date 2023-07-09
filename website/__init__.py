@@ -55,7 +55,7 @@ def create_database(app):
                             "Love Yourself: Black Hoodie",
                             "Love Yourself: White Hoodie"]
             
-            merch_prices = [19.99, 21.99, 28.25, 28.99, 31.99, 31.99]
+            merch_prices = ["$19.99", "$21.99", "$28.25", "$28.99", "$31.99", "$31.99"]
 
             img_urls = ["https://live.staticflickr.com/65535/52726666648_ba2e880a99_w.jpg",
                         "https://live.staticflickr.com/65535/52726666373_7da75acb45_w.jpg",
@@ -103,7 +103,7 @@ def create_database(app):
 
             # Insert (generic) ticket info
             tix_seats = ["SIDE A", "SIDE B", "FRONT ROW", "GENERAL ADMISSION"]
-            tix_prices = ['195.00', '195.00', '350.00' , '85.00'] # store as strings to avoid rounding floating point errors
+            tix_prices = ['$195.00', '$195.00', '$350.00' , '$85.00'] # store as strings to avoid rounding floating point errors
             for seat, price in zip(tix_seats, tix_prices):
                 new_product = Product(prod_title=seat, unit_price=price)
                 db.session.add(new_product)
