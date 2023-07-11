@@ -25,7 +25,7 @@ def create_app():
     app.register_blueprint(views, url_prefix='/')
 
     # create or retrieve existing DB
-    from .models import Customer, Order, ItemSold, Product
+    from .models import Customer, Order, ItemSold, Product, Concert
     create_database(app)
 
     return app
@@ -35,19 +35,10 @@ def create_app():
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
         with app.test_request_context():
-            from .models import Customer, Order, ItemSold, Product
+            from .models import Customer, Order, ItemSold, Product, Concert
             db.create_all(app=app)
 
-            # Initialize database once
-            '''
-            try:
-                if (Product.query.all() != None):
-                    return # Don't reinitialize database
-            except:
-                pass
-            '''
-
-            # Insert store albums and merch
+            ###### Insert store albums and merch ######
             merch_titles = ["Young Forever",
                             "WINGS",
                             "You Never Walk Alone",
@@ -101,10 +92,31 @@ def create_database(app):
                 db.session.add(new_product)
                 db.session.commit()
 
-            # Insert (generic) ticket info
-            tix_seats = ["SIDE A", "SIDE B", "FRONT ROW", "GENERAL ADMISSION"]
-            tix_prices = ['$195.00', '$195.00', '$350.00' , '$85.00'] # store as strings to avoid rounding floating point errors
-            for seat, price in zip(tix_seats, tix_prices):
-                new_product = Product(prod_title=seat, unit_price=price)
-                db.session.add(new_product)
+            ###### Insert tours and concert info ######
+            dates = ["JAN 15", "OCT 02", "SEP 26", "SEP 12", "SEP 05", "AUG 25"]
+
+            locations = ["SEOUL, KOREA", 
+                         "CHICAGO, IL, UNITED STATES", 
+                         "NEW YORK, NY, UNITED STATES", 
+                         "OAKLAND, CA, UNITED STATES", 
+                         "LOS ANGELES, CA, UNITED STATES", 
+                         "SEOUL, KOREA"]
+            
+            arenas = ["GOCHEOK SKY DOME", 
+                      "UNITED CENTER", 
+                      "CENTRAL PARK", 
+                      "ORACLE ARENA", 
+                      "STAPLES CENTER", 
+                      "SEOUL OLYMPIC STADIUM"]
+
+            titles = ["SEOUL MUSIC AWARDS",
+                     "LOVE YOURSELF TOUR",
+                     "GOOD MORNING AMERICA",
+                     "LOVE YOURSELF TOUR",
+                     "LOVE YOURSELF TOUR",
+                     "LOVE YOURSELF TOUR"]
+            
+            for location, arena, date, title in zip(locations, arenas, dates, titles):
+                new_concert = Concert(venue_location=location, venue_arena=arena, date=date, title=title)
+                db.session.add(new_concert)
                 db.session.commit()

@@ -59,3 +59,11 @@ class Product(db.Model):
     ### STORE MERCH ###
     origin = db.Column(db.String(30), default="None") # Country of origin
     material = db.Column(db.String(30), default="None") 
+
+
+class Concert(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    venue_location = db.Column(db.String(30))
+    venue_arena = db.Column(db.String(30))
+    date = db.Column(db.String(20))
+    title = db.Column(db.String(30))
