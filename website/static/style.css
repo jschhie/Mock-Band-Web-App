@@ -43,6 +43,7 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5%;
 }
 
 body {
@@ -70,6 +71,12 @@ header, footer, .btn, .tour-date, .tour-city, .shop-item-title, .cart-item-title
     font-size: 1em;
 }
 
+header {
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 3;
+}
 
 
 /* ==== BAND MAIN HEADER ===== */
@@ -87,8 +94,8 @@ header {
     margin-top: 5px;
     font-weight: bold;
     font-size: 2.5em;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    /*padding-top: 30px;
+    padding-bottom: 30px;*/
     font-family: 'Syne', 'Times';
 }
 
@@ -167,6 +174,7 @@ footer {
 .navbar-nav {
     margin-left: 5%;
     text-align: left;
+
 }
 
 @media all and (min-width:768px) {
@@ -186,6 +194,12 @@ footer {
     text-align: center;
     vertical-align: middle;
     padding: .67em;
+}
+
+.view-btn {
+    background-color: transparent;
+    color: black;
+    border-color: black;
 }
 
 .map-block {
@@ -219,13 +233,19 @@ footer {
     padding: 20px;
 }
 
+/*
 .header-btn {
     background-color: rgba(255,255,255,0.2);
     color: white;
-}
+}*/
 
 .btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.view-btn:hover {
+    background-color: black;
     color: white;
 }
 
@@ -257,19 +277,44 @@ footer {
     margin-top: 1%;
 }
 
+.view-cart-span {
+    /* mobile view */
+    margin: auto;
+    text-align: center;
+}
+
 .view-cart-btn {
+    /*
     background-color: white;
     color: teal;
     border: 1px solid teal;
-    margin-top: 1%;
-    padding: 15px;
-    font-size: medium;
-    margin-bottom: 1%;
+    */
+    margin-top: 10%;
+    width: 200px;
 }
 
+.view-cart-btn {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    padding: 10px;
+    font-size: medium;
+}
+
+/*
 .view-cart-btn:hover {
     background-color: teal;
     color: white;
+}*/
+
+
+@media all and (min-width:992px) {
+    /* large, xl */
+    .view-cart-btn {
+        /*margin-top: 5%;*/
+        margin-bottom: 10%;
+        margin-right: 60px;
+        padding: 5px;
+    }
 }
 
 .purchase-btn:hover, .map-btn:hover {
@@ -362,17 +407,6 @@ footer {
 }
 
 /* ===== INDEX, TOUR SECTION ==== */
-.arena-link {
-    color: teal;
-    text-decoration: none;
-    border: none;
-    background-color: transparent;
-}
-
-.arena-link:hover {
-    text-decoration: underline;
-}
-
 .flexbox-container {
     display: flex;
     justify-content: space-around; /*  distribute extra free space leftover */
@@ -415,9 +449,12 @@ footer {
     width: 30%;
 }
 
+.tour-title {
+    text-align: left;
+}
+
 .flexbox-btn {
-    max-width: 15%;
-    font-size: small;
+    width: 18%;
 }
 
 .return-home-btn {
@@ -425,16 +462,9 @@ footer {
     max-width: 33%;
 }
 
-@media all and (min-width:768px) {
-    /* medium */
-    .flexbox-btn {
-        font-size: 1.05em;
-    }
-}
-
 @media all and (min-width:992px) {
     /* large, xl */
-    .flexbox-btn, .return-home-btn {
+    .return-home-btn {
         font-size: 1.2em;
     }
 }
@@ -614,16 +644,17 @@ footer {
 /* ===== MAIN STORE: ITEMS SECTION ===== */
 .shop-item {
     margin: 30px;
+    width: 200px;
 }
 
 .shop-item-title {
     display: block; /* on its own line */
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     font-size: 1.2em;
     color: teal;
-    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .shop-item-image {
@@ -632,13 +663,16 @@ footer {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
+    border-radius: 5px;
+    /*border: 1px solid #EEEEEE; */
+    /*padding: 20px;*/
 }
 
 .shop-item-details  {
     display: flex;
     align-items: center;
-    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .shop-item-price {
@@ -706,11 +740,11 @@ footer {
 
 
 /* ===== TOUR TICKETS + STORE: CART SECTION ====== */
-#checkout-tix-btn, #checkout-merch-btn {
+#checkout-merch-btn {
     display: none;
 }
 
-#empty-tix-text, #empty-merch-text {
+#empty-merch-text {
     display: none;
     font-size: 1.3em;
     font-weight: 400;
@@ -795,7 +829,7 @@ footer {
     margin-bottom: 3%;
 }
 
-.cart-total-label, .tix-cart-total-label {
+.cart-total-label {
     font-size: 2em;
     font-weight: bold;
     margin-right: 10px;
@@ -900,11 +934,6 @@ footer {
     padding-bottom: 0;
 }
 
-.venue-details {
-    font-size: large;
-    font-weight: 400;
-}
-
 .center-btn {
     text-align: center;
 }
@@ -927,4 +956,6 @@ footer {
 .lookup-form {
     width: 80%;
     margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

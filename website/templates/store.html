@@ -10,9 +10,9 @@
     <h2 class="section-header">music</h2>
     <div class="shop-items-all">
         {% for album in albums %}
-        <div class="shop-item">
-            <span class="shop-item-title">{{album.prod_title}}</span>
+        <div class="shop-item card" style="border-color: transparent;">
             <img class="shop-item-image" src={{album.img_src}} height="100px"/>
+            <span class="shop-item-title">{{album.prod_title}}</span>
             <div class="shop-item-details">
                 <span class="shop-item-price">{{album.unit_price}}</span>
                 <button title="Add to Cart" class="btn general-btn shop-item-btn" type="button" onclick="addToCart(this)">
@@ -21,7 +21,7 @@
                     </svg>
                 </button>
             </div>
-            <button title="View Album" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target={{ "#album" + loop.index|string }}>
+            <button title="View Album" class="shop-item-details btn view-btn" data-bs-toggle="modal" data-bs-target={{ "#album" + loop.index|string }}>
                 View Album
             </button>
         </div>
@@ -33,9 +33,9 @@
     <h2 class="section-header">merch</h2>
     <div class="shop-items-all">
         {% for merch_item in merch %}
-        <div class="shop-item">
-            <span class="shop-item-title">{{merch_item.prod_title}}</span>
+        <div class="shop-item card" style="border-color: transparent;">
             <img class="shop-item-image" type="image/png" src={{merch_item.img_src}} height="100px"/>
+            <span class="shop-item-title">{{merch_item.prod_title}}</span>
             <div class="shop-item-details row">
                 <span class="shop-item-price col">{{merch_item.unit_price}}</span>
                 {% if 'Black' in merch_item.prod_title %}
@@ -54,9 +54,9 @@
                 </button>
             </div>
             {% if 'Black' in merch_item.prod_title %}
-            <button title="View Product" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#blackhood">
+            <button title="View Product" class="shop-item-details btn view-btn" data-bs-toggle="modal" data-bs-target="#blackhood">
             {% else %}
-            <button title="View Product" class="shop-item-details btn" data-bs-toggle="modal" data-bs-target="#whitehood">
+            <button title="View Product" class="shop-item-details btn view-btn" data-bs-toggle="modal" data-bs-target="#whitehood">
             {% endif %}
                 View Product
             </button>
@@ -79,8 +79,8 @@
             <div class="modal-body">
                 <!-- GALLERY -->
                 <img src={{album.img_src}} width="160px" height="160px" class="modal-img shadow">
-                <img src={{album.img_src}} width="80px" class="preview-img" style="border-color: black;" onclick="showImg(this)">
-                <img src={{album.alt_src}} width="80px" height="80px" class="preview-img" onclick="showImg(this)">
+                <img src={{album.img_src}} width="80px" class="preview-img" style="border-color: black; border-radius: 5px;" onclick="showImg(this)">
+                <img src={{album.alt_src}} width="80px" height="80px" class="preview-img" style="border-radius: 5px;" onclick="showImg(this)">
 
                 <div class="modal-details">
                     <p class="modal-subtitle">DESCRIPTION</p>
@@ -159,66 +159,6 @@
 </div>
 {% endfor %}
 
-
-
-<!-- CART SECTION -->
-<section>
-    
-    <!-- SHOPPING CART OFFCANVAS -->
-    <div class="center-btn">
-        <button title="View Cart" class="btn view-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onclick="updateCartTotal()">
-            VIEW CART 
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-            </svg>
-            <span class="badge rounded-pill text-bg-dark cart-notif">0</span>
-        </button>
-    </div>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        
-        <div class="offcanvas-header">
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-        <div class="offcanvas-body">
-            <h2 class="section-header">cart</h2>
-            <!-- CART HEADER ROW -->
-            <div class="cart-row">
-                <span class="cart-item cart-header cart-type-header cart-column">ITEM</span>
-                <span class="cart-price cart-header cart-column">PRICE</span>
-                <span class="cart-amount cart-header cart-column">QUANTITY</span>
-            </div>
-
-            <!-- EMPTY CART TEXT -->
-            <div id="empty-merch-text">
-                Your cart is currently empty.
-                <br>
-                Continue browsing <button class="button arena-link"  data-bs-dismiss="offcanvas" style="font-family:'Syne', 'Times';">here</button>
-            </div>
-
-            <!-- ALL CART ITEMS -->
-            <div class="cart-items-all">
-                <!-- Cart items inserted interactively here -->
-            </div>
-            
-            <!-- CHECKOUT -->
-            <div class="cart-total">
-                <span class="cart-total-label">TOTAL</span>
-                <span id="merch-total-price" class="cart-total-price">$0.00</span>
-            </div>
-            <div class="submit-cart" id="checkout-merch-btn">
-                <button type="button" class="icon-link icon-link-hover purchase-btn btn" onclick="startCheckout(this, 'merch')">
-                    CHECKOUT
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-      </div>
-
-</section>
 
 <br>
 

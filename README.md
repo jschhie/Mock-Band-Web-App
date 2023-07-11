@@ -14,17 +14,15 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-store2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/store.png">
 
 > Product Catalog
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/modal-1.png">
-
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/merch-specs.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/catalog.png">
 
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-offcanvas-merch.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/cart.png">
 
 ### 💳 Customer Checkout
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-checkout.png">
@@ -40,16 +38,12 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-lookup.png">
 
 ### 🎤 Tour Dates
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-home.png">
-
-### 🎫 Concert Tickets
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-tix.png">
-
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/tours.png">
 
 ### 📷 Photo Gallery
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-about.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/about1.png">
 
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-about2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/about2.png">
 
 
 <hr>

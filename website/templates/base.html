@@ -28,10 +28,11 @@
                     data-bs-target="#navbar"
                     aria-controls="navbar" 
                     aria-expanded="false" 
-                    aria-label="Toggle navigation"
-                    style="background-color: black; padding:0;">
+                    aria-label="Toggle navigation">
                     <span>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/BTS_logo_%282017%29.png/1024px-BTS_logo_%282017%29.png" width="55"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
                     </span>
                 </button>
                 <div class="collapse navbar-collapse custom-navbar" id="navbar">
@@ -40,29 +41,37 @@
                             <a class="nav-link" href="/index">H O M E</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/store">S T O R E</a>
+                            <a class="nav-link" href="/about">A B O U T</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">A B O U T</a>
+                            <a class="nav-link" href="/store">S T O R E</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </nav>
-        
-        <h3 class="band-name">Unofficial BTS</h3>
-        {% if isIndex %}
-            <div>
-                <a href="/store" class="icon-link icon-link-hover btn header-btn add-album-btn">
-                    Get our latest album!
+            <span class="view-cart-span">
+                <!-- CHECK IF CURRENT PAGE IS STORE PAGE -->
+                {% if hideCart == false %}
+                <button title="View Cart" class="btn view-cart-btn header-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onclick="updateCartTotal()">
+                    VIEW CART 
+                    <svg id="cart-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    <span class="badge rounded-pill text-bg-dark cart-notif">0</span>
+                </button>
+                {% else %}
+                <a href="/store" class="icon-link icon-link-hover btn view-cart-btn header-btn" style="width:200px;">
+                    Get latest album!
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                     </svg>
                 </a>
-                <br>
-                <br>
-            </div>
-        {% endif %}
+                {% endif %}
+            </span>
+        </nav>
+        
+        <h3 class="band-name">Unofficial BTS</h3>
+        
     </header>
 
     <body>
@@ -95,6 +104,54 @@
                 TOP
                 <br>
             </button>
+
+            <!-- SHOPPING CART OFFCANVAS -->        
+            <section>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    
+                    <div class="offcanvas-header">
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <h2 class="section-header">cart</h2>
+                        <!-- CART HEADER ROW -->
+                        <div class="cart-row">
+                            <span class="cart-item cart-header cart-type-header cart-column">ITEM</span>
+                            <span class="cart-price cart-header cart-column">PRICE</span>
+                            <span class="cart-amount cart-header cart-column">QUANTITY</span>
+                        </div>
+
+                        <!-- EMPTY CART TEXT -->
+                        <div id="empty-merch-text">
+                            Your cart is currently empty.
+                            <br>
+                            Continue browsing <button class="button arena-link"  data-bs-dismiss="offcanvas" onclick="document.location.href='/store'" style="font-family:'Syne', 'Times';">here</button>
+                        </div>
+                
+
+                        <!-- ALL CART ITEMS -->
+                        <div class="cart-items-all">
+                            <!-- Cart items inserted interactively here -->
+                        </div>
+                        
+                        <!-- CHECKOUT -->
+                        <div class="cart-total">
+                            <span class="cart-total-label">TOTAL</span>
+                            <span id="merch-total-price" class="cart-total-price">$0.00</span>
+                        </div>
+                        <div class="submit-cart" id="checkout-merch-btn">
+                            <button type="button" class="icon-link icon-link-hover purchase-btn btn" onclick="startCheckout(this, 'merch')">
+                                CHECKOUT
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- WEB PAGE CONTENT HERE -->
             {% block content %} {% endblock %}
         </div>

@@ -33,8 +33,8 @@ class Order(db.Model):
     delivery_fee = db.Column(db.String(50))
     total_price = db.Column(db.String(50))
     # Applicable to Ticket Orders
-    venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue
-    venue_date = db.Column(db.String(30), default="None") # date and time (ex: AUG 25, FRIDAY @ 8 PM)
+    #venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue
+    #venue_date = db.Column(db.String(30), default="None") # date and time (ex: AUG 25, FRIDAY @ 8 PM)
 
 
 class ItemSold(db.Model):
