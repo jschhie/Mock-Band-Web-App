@@ -284,11 +284,6 @@ footer {
 }
 
 .view-cart-btn {
-    /*
-    background-color: white;
-    color: teal;
-    border: 1px solid teal;
-    */
     margin-top: 10%;
     width: 200px;
 }
@@ -300,11 +295,12 @@ footer {
     font-size: medium;
 }
 
-/*
-.view-cart-btn:hover {
-    background-color: teal;
-    color: white;
-}*/
+.arena-link {
+    color: teal;
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+}
 
 
 @media all and (min-width:992px) {
