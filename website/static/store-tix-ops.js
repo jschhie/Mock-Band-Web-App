@@ -71,8 +71,8 @@ function startCheckout(event, txnType) {
         sessionStorage.setItem("subtotal", totalPrice);
         temp = parseFloat(totalPrice.replace('$','')) + 5.99; // Standard $5.99 shipping fee
         sessionStorage.setItem("predictedTotal", temp.toFixed(2))
-        // redirect to Checkout Page for store merch or tour tickets
-        document.location.href = '/checkout/' + txnType;
+        // redirect to Checkout Page
+        document.location.href = '/checkout';
     }
 }
 
@@ -150,8 +150,8 @@ function checkFormFields(idType, idName) {
 /* * * * * TICKETS / MERCH STORE PURCHASE OPERATIONS * * * * * */
 /* TOGGLE EMPTY CART MESSAGE, CHECKOUT BUTTON */
 function toggleEmptyCart(totalPriceId, emptyTextId, checkoutBtnId) {
-    var tix_total_price = document.getElementById(totalPriceId).innerHTML;
-    if (tix_total_price == "$0.00") {
+    var total_price = document.getElementById(totalPriceId).innerHTML;
+    if (total_price == "$0.00") {
         // show message, hide checkout button
         document.getElementById(emptyTextId).style.display = "block";
         document.getElementById(checkoutBtnId).style.display = "none";
@@ -182,8 +182,6 @@ function updateCartTotal() {
 
     var total = 0;
     var json_cart = []; // list of dictionaries
-    var header = document.getElementsByClassName("cart-type-header")[0].innerText; // either "TICKET TYPE" (tickets) OR "ITEM" (merch)
-
     var num_items_sold = 0;
 
     for (var i = 0; i < cartRows.length; i++) {
@@ -206,16 +204,12 @@ function updateCartTotal() {
         var prod_title = "";
         var merch_size = "";
 
-        // get product title or ticket type name
-        if (header == "TICKET TYPE") {
-            prod_title = cartRow.getElementsByClassName("cart-type")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
-        } else {
-            prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
-            var trimIndex = prod_title.indexOf('(');
-            if (trimIndex != -1) {
-                merch_size = prod_title.substring(trimIndex);
-                prod_title = prod_title.substring(0,trimIndex);
-            }
+        // get product title 
+        prod_title = cartRow.getElementsByClassName("cart-item")[0].innerText.replaceAll('\n', ''); // mobile view inserts 'newline' at front and end of title
+        var trimIndex = prod_title.indexOf('(');
+        if (trimIndex != -1) {
+            merch_size = prod_title.substring(trimIndex);
+            prod_title = prod_title.substring(0,trimIndex);
         }
         var new_row = { "prod_title": prod_title, "qty_sold": amount, "merch_size": merch_size };        
         json_cart.push(new_row);
@@ -224,16 +218,6 @@ function updateCartTotal() {
     // Update ccart badge notif number
     document.getElementsByClassName("cart-notif")[0].innerText = parseInt(num_items_sold);
 
-    // Outside for loop: init venue and venue_date once 
-    var venue = "None";
-    var venue_date = "None";
-    if (header == "TICKET TYPE") {
-        // get concert venue, date, and time
-        venue = document.getElementsByClassName("arena-link")[0].innerText;
-        venue_date = document.getElementsByClassName("venue-date")[0].innerText;
-    }
-    json_cart.push({ "venue": venue, "venue_date": venue_date }); // Append to end of list
-
     // Format total value by rounding two decimal places
     total = Math.round(total * 100) / 100;
     var totalPriceElement = document.getElementsByClassName("cart-total-price")[0];
@@ -241,11 +225,7 @@ function updateCartTotal() {
     sessionStorage.setItem("shoppingCart", JSON.stringify(json_cart));
 
     // Toggle empty cart message and checkout button
-    if (header == "TICKET TYPE") {
-        toggleEmptyCart("tix-total-price", "empty-tix-text", "checkout-tix-btn");
-    } else {
-        toggleEmptyCart("merch-total-price", "empty-merch-text", "checkout-merch-btn");
-    }
+    toggleEmptyCart("merch-total-price", "empty-merch-text", "checkout-merch-btn");
 }
 
 
@@ -377,59 +357,4 @@ function addRowToCart(title, price, imageSrc) {
     } else {
         alert(title + ' (Album) added to cart!');
     }
-}
-
-
-
-/* * * * * PURCHASE TOUR TICKETS OPERATIONS * * * * * */
-function addTixToCart(event) {
-    var tixBtn = event;
-
-    // Get ticket type, price, and icon
-    var tixType = tixBtn.getElementsByClassName("tix-type")[0].innerText;
-    var tixPrice = tixBtn.getElementsByClassName("tix-price")[0].innerText;
-    //var tixIcon = tixBtn.getElementsByClassName("tix-span")[0].getElementsByClassName("tix-icon")[0];
-
-    // Create new cart row with selected item if not already in cart
-    addTixRowToCart(tixType, tixPrice);
-    updateCartTotal();
-}
-
-
-
-function addTixRowToCart(tixType, price) {
-    var cartRow = document.createElement('div');
-    cartRow.classList.add('cart-row');
-
-    // Check if duplicate ticket
-    var offCanvas = document.getElementById("offcanvasRight").getElementsByClassName("offcanvas-body")[0];
-    var cartItemsAll = offCanvas.getElementsByClassName("cart-items-all")[0];
-    var cartTixTypes = offCanvas.getElementsByClassName("cart-type");    
-
-    for (var i = 0; i < cartTixTypes.length; i++) {
-        /*if (cartTixTypes[i].innerText == tixType) {*/
-        if (cartTixTypes[i].innerHTML == tixType) {
-            alert('This item is already added to cart.');
-            return; // skip below code
-        }
-    }
-
-    var cartRowContents = `
-        <div class="cart-item cart-column">
-            <span class="cart-type">${tixType}</span>
-        </div>
-        <span class="cart-price cart-column">${price}</span>
-        <div class="cart-amount cart-column">
-            <input type="number" value="1" class="cart-input" onchange="quantityChanged(this)">
-            <button type="button" class="btn cart-remove-btn" onclick="removeCartItems(this)">
-                <svg class="remove-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                </svg>
-            </button>
-        </div>`;
-    cartRow.innerHTML = cartRowContents;
-
-    // Add new cartRow to end of cartItemsAll
-    cartItemsAll.append(cartRow);
-    alert(tixType + ' Tickets added to cart!');
 }

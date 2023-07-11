@@ -19,13 +19,13 @@ def testing():
 @views.route('/')
 @views.route('/index')
 def index():
-    return render_template('index.html', isIndex=True)
+    return render_template('index.html', hideCart=True)
 
 
 
 @views.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', hideCart=True)
 
 
 
@@ -35,25 +35,12 @@ def store():
     albums  = Product.query.filter(Product.id>=1, Product.id<=4).all()
     # Products 5-6 are exclusively merch
     merch = Product.query.filter(Product.id>=5, Product.id<=6).all()
-    return render_template('store.html', albums=albums, merch=merch)
+    return render_template('store.html', albums=albums, merch=merch, hideCart=False)
 
 
 
-@views.route('/buy-tix/<string:arena>', methods=['GET', 'POST'])
-def buy_tix(arena):
-    if (arena not in ["seoul", "oakland", "la", "chicago"]):
-        return render_template('error.html'), 404
-    
-    return render_template('buy-tix.html', arena=arena)
-
-
-
-@views.route('/checkout/<string:txnType>', methods=['GET', 'POST'])
-def checkout(txnType):
-    if (txnType not in ["tickets", "merch"]):
-        return render_template('error.html'), 404
-
-    # where txnType is either "merch" or "tickets"
+@views.route('/checkout', methods=['GET', 'POST'])
+def checkout():
     if request.method == 'POST':
         # purchaseClicked(event): returns true or false, if successful form submission
         # POST request only made when all input filled out
@@ -88,19 +75,16 @@ def checkout(txnType):
 
         # Fetch JSON cart
         json_cart = json.loads(request.form['jsonCart'])
-        venue_info = json_cart[-1] # Last dictionary, reserved for venue info
-        venue = venue_info['venue']
-        venue_date = venue_info['venue_date']
 
         new_order = Order(purchase_date=purchase_date, customer_id=new_customer.id, subtotal=subtotal,
-                          delivery_fee=delivery_fee, total_price=total_price, venue=venue, venue_date=venue_date)
+                          delivery_fee=delivery_fee, total_price=total_price)
 
         # Store new Order into DB
         db.session.add(new_order)
         db.session.commit()
 
-        # [ {'prod_title': '____', 'qty_sold': ___}, {}, ..., {'venue': 'None', 'venue_date': 'None'} ]
-        for dictionary in json_cart[:-1]: # all except last dictionary
+        # [ {'prod_title': '____', 'qty_sold': ___}, {}, ..., {} ]
+        for dictionary in json_cart:
             merch_size = dictionary['merch_size']
             prod_title = dictionary['prod_title']
             if (merch_size != ""):
@@ -113,17 +97,14 @@ def checkout(txnType):
             # Create ItemSold object
             new_item_sold = ItemSold(qty_sold=qty_sold, merch_size=merch_size, order_id=new_order.id, product_id=product.id)
             db.session.add(new_item_sold)
-            
-            print('MERCH SIZE: ', new_item_sold.merch_size, 'TITLE: ', prod_title)
-
             db.session.commit()
-        return redirect(url_for('views.thankYou', txnType=txnType, orderId=new_order.id))
-    return render_template('checkout.html', txnType=txnType)
+        return redirect(url_for('views.thankYou', orderId=new_order.id))
+    return render_template('checkout.html', hideCart=True)
 
 
 
-@views.route('/thank-you/<string:txnType>%3D<int:orderId>')
-def thankYou(txnType, orderId):
+@views.route('/thank-you/%3D<int:orderId>')
+def thankYou(orderId):
     # Get Customer and Order instance from orderId
     order = Order.query.filter_by(id=orderId).first()
     if (order == None):
@@ -146,7 +127,7 @@ def thankYou(txnType, orderId):
     if (customer == None):
         return render_template('error.html'), 404
 
-    return render_template('thank-you.html', txnType=txnType, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))
+    return render_template('thank-you.html', hideCart=True, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))
 
 
 @views.route('/find-order/', methods=['GET', 'POST'])
@@ -161,12 +142,7 @@ def findOrder():
             # Check if matching Customer Info
             matching_customer = Customer.query.filter_by(id=matching_order.customer_id).first()
             if (matching_customer and matching_customer.bill_name == full_name):
-                # Check if Order is Tickets or Merch Type
-                if (matching_order.venue == "None"):
-                    txnType = "merch"
-                else:
-                    txnType = "tickets"
-                return redirect(url_for('views.thankYou', txnType=txnType, orderId=order_id))
+                return redirect(url_for('views.thankYou', orderId=order_id))
         flash('Please try again.', category="lookup-error")     
         
-    return render_template('find-order.html')
+    return render_template('find-order.html', hideCart=True)
