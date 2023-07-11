@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
-from .models import Customer, Order, ItemSold, Product
+from .models import Customer, Order, ItemSold, Product, Concert
 from datetime import datetime
 
 import json
@@ -19,7 +19,9 @@ def testing():
 @views.route('/')
 @views.route('/index')
 def index():
-    return render_template('index.html', hideCart=True)
+    # Sort by dates / order id 
+    concerts = Concert.query.filter(Concert.id>=1, Concert.id<=6).order_by(Concert.id).all()
+    return render_template('index.html', hideCart=True, concerts=concerts)
 
 
 
@@ -32,7 +34,7 @@ def about():
 @views.route('/store')
 def store():
     # Products 1-4 are exclusively albums
-    albums  = Product.query.filter(Product.id>=1, Product.id<=4).all()
+    albums = Product.query.filter(Product.id>=1, Product.id<=4).all()
     # Products 5-6 are exclusively merch
     merch = Product.query.filter(Product.id>=5, Product.id<=6).all()
     return render_template('store.html', albums=albums, merch=merch, hideCart=False)
