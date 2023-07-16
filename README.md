@@ -25,7 +25,6 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/cart.png">
 
 ### 💳 Customer Checkout
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/checkout.png">
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/checkout2.png">
 
 ### 🧾 Order Confirmation
