@@ -3,7 +3,7 @@
 > Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
-* Mock e-commerce platform, featuring a store catalog, order lookup, shopping cart functionality, and customer checkout system for band merchandise
+* Mock e-commerce platform, featuring a store catalog, order lookup/history, shopping cart functionality, and customer (or guest) checkout system for band merchandise
 * Hosted on PythonAnywhere; you may interact with the website at: https://bandstore.pythonanywhere.com/
 
 ## 🔖 Table of Contents
@@ -14,7 +14,7 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/store.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/store.png">
 
 > Product Catalog
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/catalog.png">
@@ -22,11 +22,11 @@
 
 ### 🛒 Main Store: Sample Cart
 > Cart Section for Merch
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/cart.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/cart.png">
 
 ### 💳 Customer Checkout
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-checkout.png">
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-checkout2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/checkout.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/checkout2.png">
 
 ### 🧾 Order Confirmation
 > Sample Receipt for Main Store Merch
@@ -35,15 +35,15 @@
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2.png">
 
 ### 🔍 Order Lookup
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-font-lookup.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/find-order.png">
 
 ### 🎤 Tour Dates
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/tours.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/tours.png">
 
 ### 📷 Photo Gallery
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/about1.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/about1.png">
 
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/about2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/about2.png">
 
 
 <hr>

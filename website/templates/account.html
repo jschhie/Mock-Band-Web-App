@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %} Unofficial BTS | My Account {% endblock %}
+
+{% block content %} 
+
+<section>  
+    <h2 class="section-header">
+        order history
+    </h2>
+    
+    {% if order_history|length == 0 %}
+        <div class="empty-history" style="text-align: center; width: 80%; margin: auto;">
+            No past orders! Browse our store <a class="arena-link" href="/store">here!</a>
+        </div>
+    {% else %}
+        <!-- TABLE HEADER ROW -->
+        <div class="cart-row">
+            <span class="cart-header cart-type-header cart-column" style="width: 25%;">ORDER #</span>
+            <span class="cart-header cart-column" style="width: 25%;">DATE</span>
+            <span class="cart-header cart-column" style="width: 25%;">TOTAL</span>
+            <span class="cart-header cart-type-header cart-column" style="width: 25%;">RECEIPT</span>
+        </div>
+
+        <!-- ORDER HISTORY -->
+        <div class="order-history">
+            {% for order in order_history %}
+                <div class="cart-row">
+                    <span class="cart-column" style="width: 25%;">
+                        {{order.id}}
+                    </span>
+                
+                    <span class="cart-column" style="width: 25%;">
+                        {{order.purchase_date}}
+                    </span>
+                    
+                    <span class="cart-column" style="width: 25%;">
+                        ${{order.total_price}}
+                    </span>
+                    
+                    <span class="cart-column" style="width: 25%;">
+                        <a href={{ "thank-you/%253D" + order.id|string }}>view</a>
+                    </span>
+
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

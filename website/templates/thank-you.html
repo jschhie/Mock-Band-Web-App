@@ -101,11 +101,11 @@
             <h4 class="sub-header">shipping address</h4>
             <br>
             <div class="receipt-ship-bill">
-                {{ customer.rec_name }}
+                {{ order.rec_name }}
                 <br>
-                {{ customer.rec_address }}, {{ customer.rec_city }}, {{ customer.rec_state }} {{ customer.rec_zip }}
+                {{ order.rec_address }}, {{ order.rec_city }}, {{ order.rec_state }} {{ order.rec_zip }}
                 <br>
-                {{ customer.rec_email }}
+                {{ order.rec_email }}
             </div>
         </div>
 
@@ -115,11 +115,11 @@
             <h4 class="sub-header">billing address</h4>
             <br>
             <div class="receipt-ship-bill">
-                {{ customer.bill_name }}
+                {{ order.bill_name }}
                 <br>
-                {{ customer.bill_address }}, {{ customer.bill_city }}, {{ customer.bill_state }} {{ customer.bill_zip }}
+                {{ order.bill_address }}, {{ order.bill_city }}, {{ order.bill_state }} {{ order.bill_zip }}
                 <br>
-                {{ customer.bill_email }}
+                {{ order.bill_email }}
             </div>
         </div>
 

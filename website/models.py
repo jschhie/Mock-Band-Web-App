@@ -1,10 +1,20 @@
 from . import db
+from flask_login import UserMixin
 
 
-
-class Customer(db.Model):
+class Customer(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     orders = db.relationship('Order')
+    # Login
+    username = db.Column(db.String(30), unique=True)
+    password = db.Column(db.String(20))
+
+
+
+class Order(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    purchase_date = db.Column(db.String(50))
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id')) # foreign key
     # Customer = Name on Billing
     bill_name = db.Column(db.String(30))
     bill_address = db.Column(db.String(30))
@@ -19,22 +29,12 @@ class Customer(db.Model):
     rec_state = db.Column(db.String(2)) # State Abbreviation
     rec_zip = db.Column(db.String(5))
     rec_email = db.Column(db.String(30))
-
-
-
-class Order(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    purchase_date = db.Column(db.String(50))
-    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id')) # foreign key
     # List of all ItemSold
     items_sold = db.relationship('ItemSold')
     # Monetary Values
     subtotal = db.Column(db.String(50))
     delivery_fee = db.Column(db.String(50))
     total_price = db.Column(db.String(50))
-    # Applicable to Ticket Orders
-    #venue = db.Column(db.String(30), default="None") # if Merch: None, else: Concert Venue
-    #venue_date = db.Column(db.String(30), default="None") # date and time (ex: AUG 25, FRIDAY @ 8 PM)
 
 
 class ItemSold(db.Model):

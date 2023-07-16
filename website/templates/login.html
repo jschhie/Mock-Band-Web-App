@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} Unofficial BTS | Login {% endblock %}
+
+{% block content %} 
+
+<form method="POST" class="base-form shadow">
+    <div class="base-card">
+        <h4 class="sub-header lookup-header">
+            account login
+        </h4>
+        <br>
+        <div class="row">
+            <label class="col-md-3">Username</label>
+            <input class="form-control col-md-8" placeholder="username" id="username" name="username" minlength="5" maxlength="30"/>
+        </div>
+        <br>
+        <div class="row">
+            <label class="col-md-3">Password</label>
+            <input type="password" class="form-control col-md-8" placeholder="password" id="password" name="password" minlength="10" maxlength="20"/>
+        </div>
+        <br>
+    </div>
+
+    <div class="center-btn">
+        <button type="submit" class="btn" style="margin-right: 20px;">
+            LOGIN
+        </button>
+        <a href="/register" class="button btn view-btn">
+            CREATE NEW
+        </a>
+    </div>
+
+    <br>
+
+</form>
+
+{% endblock %}

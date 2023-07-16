@@ -233,12 +233,6 @@ footer {
     padding: 20px;
 }
 
-/*
-.header-btn {
-    background-color: rgba(255,255,255,0.2);
-    color: white;
-}*/
-
 .btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -281,11 +275,13 @@ footer {
     /* mobile view */
     margin: auto;
     text-align: center;
+    width: 300px;
+    height: 60px;
+    margin-top: 50px;
 }
 
-.view-cart-btn {
-    margin-top: 10%;
-    width: 200px;
+.view-cart-span button {
+    font-family: 'Syne', 'Times';
 }
 
 .view-cart-btn {
@@ -295,6 +291,7 @@ footer {
     font-size: medium;
 }
 
+
 .arena-link {
     color: teal;
     text-decoration: underline;
@@ -303,13 +300,23 @@ footer {
 }
 
 
+@media all and (min-width:768px) {
+    /* medium */
+    .view-cart-span {
+        width: 340px;
+        height: 50px;
+        margin: auto;
+        margin-top: 2%;
+    }
+}
+
 @media all and (min-width:992px) {
-    /* large, xl */
-    .view-cart-btn {
-        /*margin-top: 5%;*/
-        margin-bottom: 10%;
-        margin-right: 60px;
-        padding: 5px;
+    /* large, x-large */
+    .view-cart-span {
+        width: 320px;
+        height: 50px;
+        margin: auto;
+        margin-right: 5%;
     }
 }
 
@@ -740,12 +747,15 @@ footer {
     display: none;
 }
 
-#empty-merch-text {
-    display: none;
+#empty-merch-text, .empty-history {
     font-size: 1.3em;
     font-weight: 400;
     margin-top: 10%;
     margin-bottom: 10%;
+}
+
+#empty-merch-text {
+    display: none;
 }
 
 .cart-header  {
@@ -938,8 +948,8 @@ footer {
     font-weight: 400;
 }
 
-/* ===== ORDER LOOKUP ==== */
-.lookup-card {
+/* ===== ORDER LOOKUP + ACCOUNT LOGIN & REGISTER FORMS ==== */
+.base-card {
     width: 80%;
     margin: auto;
 }
@@ -949,7 +959,7 @@ footer {
     padding: 3%;
 }
 
-.lookup-form {
+.base-form {
     width: 80%;
     margin: auto;
     margin-top: 5%;
