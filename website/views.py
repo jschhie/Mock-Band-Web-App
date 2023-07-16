@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
 from .models import Customer, Order, ItemSold, Product, Concert
+from flask_login import current_user, login_required
 from datetime import datetime
 
 import json
@@ -12,7 +13,20 @@ views = Blueprint('views', __name__)
 @views.route('/testing')
 def testing():
     products = Product.query.all()
-    return render_template('testing.html', products=products)
+    return render_template('testing.html', products=products, user=current_user)
+
+
+@login_required
+@views.route('/account')
+def account():
+    if current_user.is_authenticated:
+        # Find current Customer logged in
+        current_customer = Customer.query.filter(Customer.id==current_user.id).first()
+        # Fetch matching Orders for Customer
+        order_history = Order.query.filter(Order.customer_id==current_customer.id).all()
+        return render_template('account.html', hideCart=True, user=current_user, order_history=order_history)
+
+    return render_template('error', user=current_user), 404
 
 
 
@@ -21,13 +35,13 @@ def testing():
 def index():
     # Sort by dates / order id 
     concerts = Concert.query.filter(Concert.id>=1, Concert.id<=6).order_by(Concert.id).all()
-    return render_template('index.html', hideCart=True, concerts=concerts)
+    return render_template('index.html', hideCart=True, concerts=concerts, user=current_user)
 
 
 
 @views.route('/about')
 def about():
-    return render_template('about.html', hideCart=True)
+    return render_template('about.html', hideCart=True, user=current_user)
 
 
 
@@ -37,19 +51,20 @@ def store():
     albums = Product.query.filter(Product.id>=1, Product.id<=4).all()
     # Products 5-6 are exclusively merch
     merch = Product.query.filter(Product.id>=5, Product.id<=6).all()
-    return render_template('store.html', albums=albums, merch=merch, hideCart=False)
+    return render_template('store.html', albums=albums, merch=merch, hideCart=False, user=current_user)
 
 
 
 @views.route('/checkout', methods=['GET', 'POST'])
 def checkout():
+    if current_user.is_authenticated:
+        # Find current Customer Account
+        current_customer = Customer.query.filter(Customer.id==current_user.id).first()
+
     if request.method == 'POST':
         # purchaseClicked(event): returns true or false, if successful form submission
         # POST request only made when all input filled out
-
-        # TODO Check if Customer exists (using Customer.bill_email)
-
-        # Create new Customer
+    
         idTypes = ["bill", "ship"] # bill = billing, ship = shipping / rec = recipient
         idNames = ["Name", "Address", "City", "State", "Zip", "Email"]
         customerInputs = []
@@ -60,15 +75,14 @@ def checkout():
 
         bill_name, bill_address, bill_city, bill_state, bill_zip, bill_email, rec_name, rec_address, rec_city, rec_state, rec_zip, rec_email = customerInputs
 
-        new_customer = Customer(bill_name=bill_name, bill_address=bill_address, bill_city=bill_city, bill_state=bill_state, bill_zip=bill_zip, bill_email=bill_email,
-                                rec_name=rec_name, rec_address=rec_address, rec_city=rec_city, rec_state=rec_state, rec_zip=rec_zip, rec_email=rec_email)
+        # Check if Customer signed in
+        if current_user.is_authenticated == False:
+            current_customer = Customer()
+            # Store new Customer into DB
+            db.session.add(current_customer)
+            db.session.commit()
 
-        # Store new Customer into DB
-
-        db.session.add(new_customer)
-        db.session.commit()
-
-        # Link Order to current Customer
+        # Link Order to current or new Customer
         delivery_fee = request.form['deliveryFee']
         subtotal = request.form['subtotal']
         total_price = request.form['totalPrice']
@@ -78,8 +92,10 @@ def checkout():
         # Fetch JSON cart
         json_cart = json.loads(request.form['jsonCart'])
 
-        new_order = Order(purchase_date=purchase_date, customer_id=new_customer.id, subtotal=subtotal,
-                          delivery_fee=delivery_fee, total_price=total_price)
+        new_order = Order(purchase_date=purchase_date, customer_id=current_customer.id, subtotal=subtotal,
+                          delivery_fee=delivery_fee, total_price=total_price, 
+                          bill_name=bill_name, bill_address=bill_address, bill_city=bill_city, bill_state=bill_state, bill_email=bill_email, bill_zip=bill_zip,
+                        rec_name=rec_name, rec_address=rec_address, rec_city=rec_city, rec_state=rec_state, rec_email=rec_email, rec_zip=rec_zip)
 
         # Store new Order into DB
         db.session.add(new_order)
@@ -101,7 +117,7 @@ def checkout():
             db.session.add(new_item_sold)
             db.session.commit()
         return redirect(url_for('views.thankYou', orderId=new_order.id))
-    return render_template('checkout.html', hideCart=True)
+    return render_template('checkout.html', hideCart=True, user=current_user)
 
 
 
@@ -110,7 +126,7 @@ def thankYou(orderId):
     # Get Customer and Order instance from orderId
     order = Order.query.filter_by(id=orderId).first()
     if (order == None):
-        return render_template('error.html'), 404
+        return render_template('error.html', user=current_user), 404
     
     items_sold = order.items_sold
 
@@ -125,11 +141,13 @@ def thankYou(orderId):
         match = Product.query.filter_by(id=prod_id).first()
         matching_products.append(match)
 
+    '''
     customer = Customer.query.filter_by(id=order.customer_id).first()
     if (customer == None):
-        return render_template('error.html'), 404
+        return render_template('error.html', user=current_user), 404
+    '''
 
-    return render_template('thank-you.html', hideCart=True, order=order, customer=customer, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products))
+    return render_template('thank-you.html', hideCart=True, order=order, num_items_sold=num_items_sold, zip=zip(items_sold, matching_products), user=current_user)
 
 
 @views.route('/find-order/', methods=['GET', 'POST'])
@@ -142,9 +160,14 @@ def findOrder():
         matching_order = Order.query.filter_by(id=order_id).first()
         if (matching_order):
             # Check if matching Customer Info
+            if (matching_order.bill_name == full_name):
+                return redirect(url_for('views.thankYou', orderId=order_id))
+            '''
+            # Check if matching Customer Info
             matching_customer = Customer.query.filter_by(id=matching_order.customer_id).first()
             if (matching_customer and matching_customer.bill_name == full_name):
-                return redirect(url_for('views.thankYou', orderId=order_id))
+                return redirect(url_for('views.thankYou', orderId=order_id))            
+            '''
         flash('Please try again.', category="lookup-error")     
         
-    return render_template('find-order.html', hideCart=True)
+    return render_template('find-order.html', hideCart=True, user=current_user)

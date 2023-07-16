@@ -2,12 +2,14 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 
+from flask_login import LoginManager, current_user
+
 db = SQLAlchemy()
 DB_NAME = "band_store_database.db"
 
 
 def page_not_found(e):
-    return render_template('error.html'), 404
+    return render_template('error.html', user=current_user), 404
 
 
 def create_app():
@@ -22,11 +24,21 @@ def create_app():
 
     # register blueprints and views into app
     from .views import views
+    from .auth import auth
+
     app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(auth, url_prefix='/')
 
     # create or retrieve existing DB
     from .models import Customer, Order, ItemSold, Product, Concert
     create_database(app)
+
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(id):
+        return Customer.query.get(int(id))
 
     return app
 

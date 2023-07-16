@@ -49,11 +49,17 @@
                     </ul>
                 </div>
             </div>
-            <span class="view-cart-span">
+            <div class="view-cart-span btn-group">
+                <!-- LOGIN / LOGOUT -->
+                {% if user.is_authenticated %}
+                    <button type="button" class="btn av-link view-cart-btn header-btn" id="account" onclick="document.location.href='/account'">account</button>
+                    <button type="button" class="btn nav-link view-cart-btn header-btn" id="logout" onclick="document.location.href='/logout'">logout</button>
+                {% else %}
+                    <button type="button" class="btn nav-link view-cart-btn header-btn" id="login" onclick="document.location.href='/login'">login</button>
+                {% endif %}
                 <!-- CHECK IF CURRENT PAGE IS STORE PAGE -->
                 {% if hideCart == false %}
                 <button title="View Cart" class="btn view-cart-btn header-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onclick="updateCartTotal()">
-                    VIEW CART 
                     <svg id="cart-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                     </svg>
@@ -61,13 +67,13 @@
                 </button>
                 {% else %}
                 <a href="/store" class="icon-link icon-link-hover btn view-cart-btn header-btn" style="width:200px;">
-                    Get latest album!
+                    Explore shop!
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                     </svg>
                 </a>
                 {% endif %}
-            </span>
+            </div>
         </nav>
         
         <h3 class="band-name">Unofficial BTS</h3>
@@ -81,9 +87,10 @@
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
-                        {% if category == 'lookup-error' %}
                         <div class="alert alert-secondary alter-dismissable fade show" role="alert">
+                            {% if category == 'lookup-error' %}
                             <h5 class="alert-header">No matching Orders.</h5>
+                            {% endif %}
                             {{ message }}
                             <button type="button" class="close-btn" data-bs-dismiss="alert" aria-label="Close" title="Close alert">
                                 <span aria-hidden="true">
@@ -91,7 +98,6 @@
                                 </span>
                             </button>
                         </div>
-                        {% endif %}
                     {% endfor %}
                 {% endif %}
                 {% endwith %}
