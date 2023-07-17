@@ -36,9 +36,6 @@
 ### 📦 Order History
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/history.png">
 
-### 🔍 Order Lookup
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/find-order.png">
-
 ### 🎤 Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/tours.png">
 
