@@ -14,7 +14,7 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/freeship.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/new-store.png">
 
 > Product Catalog
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/catalog.png">
