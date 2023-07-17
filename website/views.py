@@ -5,6 +5,7 @@ from flask_login import current_user, login_required
 from datetime import datetime
 
 import json
+import random
 
 views = Blueprint('views', __name__)
 
@@ -89,7 +90,6 @@ def about():
 
 @views.route('/store')
 def store():
-    flash('Members enjoy FREE Standard Shipping!', category="banner")
     # Products 1-4 are exclusively albums
     albums = Product.query.filter(Product.id>=1, Product.id<=4).all()
     # Products 5-6 are exclusively merch
@@ -145,7 +145,9 @@ def checkout():
         # Fetch JSON cart
         json_cart = json.loads(request.form['jsonCart'])
 
-        new_order = Order(purchase_date=purchase_date, customer_id=current_customer.id, subtotal=subtotal,
+        order_id = int(str(random.randrange(0,100)) + str(random.randrange(0,100)) + str(random.randrange(0,100)))
+
+        new_order = Order(id=order_id, purchase_date=purchase_date, customer_id=current_customer.id, subtotal=subtotal,
                           delivery_fee=delivery_fee, total_price=total_price, 
                           bill_name=bill_name, bill_address=bill_address, bill_city=bill_city, bill_state=bill_state, bill_email=bill_email, bill_zip=bill_zip,
                         rec_name=rec_name, rec_address=rec_address, rec_city=rec_city, rec_state=rec_state, rec_email=rec_email, rec_zip=rec_zip)
@@ -174,7 +176,7 @@ def checkout():
 
 
 
-@views.route('/thank-you/%3D<int:orderId>')
+@views.route('/thank-you/<int:orderId>')
 def thankYou(orderId):
     # Get Customer and Order instance from orderId
     order = Order.query.filter_by(id=orderId).first()

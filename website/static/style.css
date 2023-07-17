@@ -12,6 +12,13 @@
     font-size: 1em;
 }
 
+.banner {
+    /*background-color: rgba(95,158,160, 0.3);*/
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    margin-bottom: 0;
+}
+
 #error-page {
     text-align: center;
 }
@@ -982,7 +989,9 @@ footer {
     border-radius: 0;
     /* remove default styling */
     border: none;
-    background-color: transparent;
+    background-color: white;
+    color: black;
+    text-decoration: none;
     padding: 10px;
     font-size: small;
 }
@@ -992,6 +1001,11 @@ footer {
 }
 
 #history:hover, #logout:hover, #register:hover, #login:hover, #settings:hover {
+    background-color: teal;
+    color: white;
+}
+
+#history:focus, #logout:focus, #register:focus, #login:focus, #settings:focus {
     background-color: teal;
     color: white;
 }
