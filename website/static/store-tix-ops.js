@@ -71,6 +71,7 @@ function startCheckout(event, txnType) {
         sessionStorage.setItem("subtotal", totalPrice);
         temp = parseFloat(totalPrice.replace('$','')) + 5.99; // Standard $5.99 shipping fee
         sessionStorage.setItem("predictedTotal", temp.toFixed(2))
+
         // redirect to Checkout Page
         document.location.href = '/checkout';
     }

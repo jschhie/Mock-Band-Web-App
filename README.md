@@ -14,7 +14,7 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/store.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/freeship.png">
 
 > Product Catalog
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/catalog.png">
@@ -25,13 +25,16 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/cart.png">
 
 ### 💳 Customer Checkout
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/checkout2.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/freeship2.png">
 
 ### 🧾 Order Confirmation
 > Sample Receipt for Main Store Merch
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch.png">
 
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2.png">
+
+### 📦 Order History
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/history.png">
 
 ### 🔍 Order Lookup
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/find-order.png">

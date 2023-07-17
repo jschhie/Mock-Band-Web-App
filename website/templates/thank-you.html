@@ -48,8 +48,11 @@
                     with Standard Ground (5-7 biz days)
                 {% elif order.delivery_fee == "12.99" %}
                     with Express Shipping (1-3 biz days)
-                {% else %}
+                {% elif order.delivery_fee == "15.99" %}
                     with Next-Day Shipping (1 biz day)
+                {% else %}
+                    <!-- FREE Standard for Members -->
+                    with <span style="color:teal;">FREE</span> Standard Ground (5-7 biz days)
                 {% endif %}
             </div>
             <br>

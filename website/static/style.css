@@ -40,10 +40,6 @@
 
 #flashed-div {
     text-align: center;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
 }
 
 body {
@@ -303,8 +299,9 @@ footer {
 @media all and (min-width:768px) {
     /* medium */
     .view-cart-span {
+        /*
         width: 340px;
-        height: 50px;
+        height: 50px;*/
         margin: auto;
         margin-top: 2%;
     }
@@ -313,8 +310,9 @@ footer {
 @media all and (min-width:992px) {
     /* large, x-large */
     .view-cart-span {
+        /*
         width: 320px;
-        height: 50px;
+        height: 50px;*/
         margin: auto;
         margin-right: 5%;
     }
@@ -964,4 +962,47 @@ footer {
     margin: auto;
     margin-top: 5%;
     margin-bottom: 5%;
+}
+
+/*
+.dropdown-menu {
+    height: 137px;
+}*/
+
+.dropdown-menu li {
+    background-color: white;
+    color: black;
+    /* text align within buttons */
+    text-align: center;
+}
+
+#history, #logout, #register, #login, #settings, #user {
+    /* buttons */
+    width: 100%;
+    border-radius: 0;
+    /* remove default styling */
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    font-size: small;
+}
+
+#user {
+    font-weight: bold;
+}
+
+#history:hover, #logout:hover, #register:hover, #login:hover, #settings:hover {
+    background-color: teal;
+    color: white;
+}
+
+#logout, #register {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#account, #guest {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 60px;
 }

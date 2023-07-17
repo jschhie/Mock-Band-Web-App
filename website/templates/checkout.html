@@ -233,10 +233,19 @@
         <div class="checkout-form">
             <div class="form-check shipping-form" id="delivery-form">
                 <div>
-                    <input value="$5.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      <span class="radio-price">$5.99</span><span class="shipping-type"> Standard (5-7 biz days)</span>
-                    </label>
+                    {% if user.is_authenticated %}
+                        <input value="$0.00" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
+                        <label class="form-check-label" for="flexRadioDefault2">               
+                            <span class="radio-price">$0.00</span><span class="shipping-type">
+                                <span style="color:teal;">FREE</span> Standard (5-7 biz days)
+                            </span>
+                        </label>
+                    {% else %}
+                        <input value="$5.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked onchange="radioChange(this)">
+                        <label class="form-check-label" for="flexRadioDefault2">               
+                            <span class="radio-price">$5.99</span><span class="shipping-type"> Standard (5-7 biz days)</span>
+                        </label>
+                    {% endif %}
                 </div>
                 <div>
                     <input value="$12.99" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onchange="radioChange(this)">
@@ -263,7 +272,11 @@
             </div>
             <br>
             <div class="row">
-                <span class="col-md-6" id="ship-handle-label">Shipping & Handling </span><span class="col-md-6" id="shipping-fee">$5.99</span>
+                {% if user.is_authenticated %}
+                    <span class="col-md-6" id="ship-handle-label">Shipping & Handling </span><span class="col-md-6" id="shipping-fee">$0.00</span>
+                {% else %}
+                    <span class="col-md-6" id="ship-handle-label">Shipping & Handling </span><span class="col-md-6" id="shipping-fee">$5.99</span>
+                {% endif %}
             </div>
             <div id="total-price-label">TOTAL PRICE <span id="total-dollar-sign">$</span><span id="total-price"></span></div>
         </div>
@@ -290,10 +303,19 @@
     // Populate subtotal and predicted total price with $5.99 shipping fee
     document.getElementById("subtotal").innerText = sessionStorage.getItem("subtotal");
     document.getElementById("total-price").innerText = sessionStorage.getItem("predictedTotal");
+    
     // Populate hidden div info
     document.getElementById("hidden-subtotal").value = sessionStorage.getItem("subtotal").replace('$', '').toString();
     document.getElementById("hidden-delivery-fee").value = "5.99"; // string
     document.getElementById("hidden-total-price").value = sessionStorage.getItem("predictedTotal").toString();
+    
+    // Apply FREE Membership Standard Shipping
+    if (document.getElementById("shipping-fee").innerText == "$0.00") {
+        document.getElementById("total-price").innerText = sessionStorage.getItem("subtotal").replace('$', '').toString();
+        document.getElementById("hidden-delivery-fee").value = "0.00"; // string
+        document.getElementById("hidden-total-price").value = sessionStorage.getItem("subtotal").replace('$', '').toString();
+    }
+
     // Retrieve JSON shoppingCart
     var json_cart = sessionStorage.getItem("shoppingCart");
     document.getElementById("hidden-json-cart").value = json_cart;

@@ -30,7 +30,7 @@ def login():
         else:
             flash('Username does not exist.', category='error')
             
-    return render_template("login.html", user=current_user)
+    return render_template("login.html", user=current_user, username=None)
 
 
 
