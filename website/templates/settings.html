@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Unofficial BTS | Account Settings
+{% endblock %}
+  
+{% block content %}
+<section style="text-align: center;">
+    <form method="POST">
+        <h2 class="section-header">settings</h2>
+
+        <div class="checkout-section">
+            <h4 class="sub-header">shipping address</h4>
+            <br>
+            <div class="checkout-form">
+                <div class="row">
+                    <label class="col-md-3" id="ship-name-label">Name</label>
+                    <input class="form-control col-md-9" placeholder="John Smith" id="shipName" name="shipName" maxlength="30">
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-md-3">Street Address</label>
+                    <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="shipAddress" name="shipAddress" minlength="3" maxlength="30">
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-md-3">City</label>
+                    <input class="form-control col-md-3" placeholder="City" id="shipCity" name="shipCity" minlength="3" maxlength="30">
+                    <label class="col-md-3">State</label>
+                    <select class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState">
+                        <option value="AL" selected>Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District of Columbia</optio>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="GU">Guam</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-md-3">ZIP</label>
+                    <input class="form-control col-md-3" placeholder="12345" id="shipZip" name="shipZip" minlength="5" maxlength="5">
+                    <label class="col-md-3">Email</label>
+                    <input type="email" class="form-control col-md-3" placeholder="user@gmail.com" id="shipEmail" name="shipEmail" minlength="3" maxlength="30">
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-section">
+            <h4 class="sub-header">billing address</h4>
+            <br>
+            <div class="checkout-form">
+                <div class="form-check billing-button">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onchange="editCheckout(this)">
+                    <label class="form-check-label" for="flexCheckDefault">Same as shipping address?</label>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-md-3" id="bill-name-label">Name</label>
+                    <input class="form-control col-md-9" placeholder="John Smith" id="billName" name="billName" maxlength="30">
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-md-3">Street Address</label>
+                    <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="billAddress" name="billAddress" minlength="3" maxlength="30">
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-md-3">City</label>
+                    <input class="form-control col-md-3" placeholder="City" id="billCity" name="billCity" minlength="3" maxlength="30">
+                    <label class="col-md-3">State</label>
+                    <select class="form-control col-md-3" placeholder="ST" id="billState" name="billState">
+                        <option value="AL" selected>Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District of Columbia</optio>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="GU">Guam</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <br>
+                <div class="row">
+                    <label class="col-md-3">ZIP</label>
+                    <input class="form-control col-md-3" placeholder="12345" id="billZip" name="billZip" minlength="5" maxlength="5">
+                    <label class="col-md-3">Email</label>
+                    <input type="form-control email" class="form-control col-md-3" placeholder="user@gmail.com" id="billEmail" name="billEmail" minlength="3" maxlength="30">
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="center-btn">
+            <button class="btn" type="submit" style="font-family: 'Syne', 'Times';">SAVE</button>
+            <a href="/account" class="btn view-btn">Back to Account</a>
+        </div>
+        <br>
+
+    </form>
+</section>
+
+{% endblock %}
