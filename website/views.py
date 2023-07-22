@@ -67,18 +67,32 @@ def edit_review(userid, productid):
         username = current_customer.username
         review = Review.query.filter(Review.username==username).filter(Review.product_id==productid).first()
         
+        product = Product.query.filter(Product.id==productid).first()
+        img_src = product.img_src
+        title = product.prod_title
+
         if request.method == "POST":
             if request.form['action'] == 'review':
                 content = request.form['content']
                 now = datetime.now()
                 review_date = now.strftime("%m/%d/%Y")
+                rating = request.form['inlineRadioOptions'] # 1-5 star rating
+                if (content == ''):
+                    flash('Please provide your review before submitting!')
+                    return render_template('edit-review.html', review=review, img_src=img_src, title=title, hideCart=True, user=current_user, username=username)
                 # Insert/Update Review in database
                 if (review == None):
-                    review = Review(product_id=productid, username=username, content=content, review_date=review_date)
+                    review = Review(product_id=productid, username=username, content=content, review_date=review_date, rating=rating)
                     db.session.add(review) # add new Review
                 else:
+                    product.avg_rating -= int(review.rating) # Subtract previous/current rating score
                     review.content = content
+                    review.rating = rating
                     review.review_date = review_date
+
+                product.avg_rating += int(rating) # New rating score
+                print(product.avg_rating)
+
                 db.session.commit()
                 # Redirect to Reviews
                 flash('Review submitted.')
@@ -87,10 +101,6 @@ def edit_review(userid, productid):
                 # Discard changes, and redirect to Reviews
                 flash('Changes to your review have been discarded!')
                 return redirect(url_for('views.reviews'))
-
-        product = Product.query.filter(Product.id==productid).first()
-        img_src = product.img_src
-        title = product.prod_title
 
         return render_template('edit-review.html', review=review, img_src=img_src, title=title, hideCart=True, user=current_user, username=username)
 
@@ -167,6 +177,7 @@ def store():
     else:
         username = None
 
+    '''
     # Load all users' Reviews per Product
     all_reviews = dict() # dictionary of product_id : Reviews
     for i in range(1, 7):
@@ -176,8 +187,10 @@ def store():
             all_reviews[i] = reviews
         else:
             all_reviews[i] = None
+    '''
     
-    return render_template('store.html', all_reviews=all_reviews, albums=albums, merch=merch, hideCart=False, user=current_user, username=username)
+    #return render_template('store.html', all_reviews=all_reviews, albums=albums, merch=merch, hideCart=False, user=current_user, username=username)
+    return render_template('store.html', albums=albums, merch=merch, hideCart=False, user=current_user, username=username)
 
 
 

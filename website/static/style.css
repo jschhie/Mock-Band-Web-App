@@ -1034,3 +1034,11 @@ footer {
     font-size: medium;
     font-weight: bold;
 }
+
+.shop-item-rating {
+    font-size: 1.1em;
+    font-family: 'Syne', 'Times';
+    font-weight:lighter;
+    border-top: 1px lightgrey solid;
+    padding: 5px;
+}
