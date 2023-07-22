@@ -983,7 +983,7 @@ footer {
     text-align: center;
 }
 
-#history, #logout, #register, #login, #settings, #user {
+#history, #logout, #register, #login, #settings, #user, #reviews {
     /* buttons */
     width: 100%;
     border-radius: 0;
@@ -1000,12 +1000,12 @@ footer {
     font-weight: bold;
 }
 
-#history:hover, #logout:hover, #register:hover, #login:hover, #settings:hover {
+#history:hover, #logout:hover, #register:hover, #login:hover, #settings:hover, #reviews:hover {
     background-color: teal;
     color: white;
 }
 
-#history:focus, #logout:focus, #register:focus, #login:focus, #settings:focus {
+#history:focus, #logout:focus, #register:focus, #login:focus, #settings:focus, #reviews:focus {
     background-color: teal;
     color: white;
 }
@@ -1019,4 +1019,18 @@ footer {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     height: 60px;
+}
+
+.review-date, .review-username {
+    font-family: 'Syne', 'Times';
+    color: black;
+}
+
+.review-date {
+    font-size: small;
+}
+
+.review-username {
+    font-size: medium;
+    font-weight: bold;
 }

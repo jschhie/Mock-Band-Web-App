@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Unofficial BTS | Edit Review {% endblock %}
+
+{% block content %} 
+
+<section style="text-align: center;">  
+    <h2 class="section-header">
+        edit review
+    </h2>
+
+    <br>
+
+    <img class="cart-item-image" src={{img_src}}>
+    <div class="cart-item-title">{{title}}</div>
+
+    <br>
+
+    <form method="POST">
+        <textarea placeholder="Write your review!" style="width: 70%;" name="content" id="content">{% if review is not none %}{{review.content}}{% endif %}</textarea>
+        <br>
+        <br>
+        <button type="submit" class="btn" name="action" value="review">submit review</button>
+        <button type="submit" class="btn view-btn" name="action" value="cancel">cancel</button>
+    </form>
+    
+</section>
+
+{% endblock %}

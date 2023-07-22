@@ -3,7 +3,7 @@
 > Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
-* Mock e-commerce platform, featuring a store catalog, order lookup/history, shopping cart functionality, and customer (or guest) checkout system for band merchandise
+* Mock e-commerce platform, featuring a store catalog, order lookup/history, shopping cart functionality, and account (or guest) checkout system, and customer reviews
 * Hosted on PythonAnywhere; you may interact with the website at: https://bandstore.pythonanywhere.com/
 
 ## 🔖 Table of Contents
@@ -17,7 +17,7 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/new-store.png">
 
 > Product Catalog
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/updated/catalog.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/merch-review.png">
 
 
 ### 🛒 Main Store: Sample Cart
@@ -34,7 +34,10 @@
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2.png">
 
 ### 📦 Order History
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/history.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/order-history2.png">
+
+### ✍️ My Reviews
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/reviews.png">
 
 ### 🎤 Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/tours.png">

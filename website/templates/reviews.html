@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Unofficial BTS | My Reviews {% endblock %}
+
+{% block content %} 
+
+<section style="width:80%; margin:auto;">  
+    <h2 class="section-header">
+        my reviews
+    </h2>
+
+    {% for key, value in unique_purchases.items() %}
+        <!-- where key is product_id and value is a list of img_src urls, product_titles -->
+        <div class="receipt-cart-row">
+            {% for entry in value %}
+                {% if 'http' in entry %}
+                    <img class="cart-item-image" style="margin-top: 2%; margin-bottom: 2%;" src={{entry}}>
+                {% else %}
+                    <div class="cart-item-title">{{entry}}</div>
+                {% endif %}
+            {% endfor %}
+            <a href="/edit-review/{{user.id}}-{{key}}" class="btn" style="margin-left: auto;">edit review</a>
+        </div>
+    {% endfor %}
+
+</section>
+
+{% endblock %}

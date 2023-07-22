@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
-from .models import Customer, Order, ItemSold, Product, Concert
+from .models import Customer, Order, ItemSold, Product, Concert, Review
 from flask_login import current_user, login_required
 from datetime import datetime
 
@@ -25,11 +25,76 @@ def account():
         current_customer = Customer.query.filter(Customer.id==current_user.id).first()
         username = current_customer.username
         # Fetch matching Orders for Customer
-        order_history = Order.query.filter(Order.customer_id==current_customer.id).all()
+        order_history = Order.query.filter(Order.customer_id==current_customer.id).order_by(Order.purchase_date.desc()).all() # sort by most recent purchase date
         return render_template('account.html', hideCart=True, user=current_user, order_history=order_history, username=username)
 
     return render_template('error', user=current_user, username=None), 404
 
+
+
+@login_required
+@views.route('/reviews')
+def reviews():
+    if current_user.is_authenticated:
+        # Find current Customer logged in
+        current_customer = Customer.query.filter(Customer.id==current_user.id).first()
+        username = current_customer.username
+        
+        # Fetch Products for Customer Reviews
+        order_history = Order.query.filter(Order.customer_id==current_customer.id).all()
+        unique_purchases = {} # dictionary of unique purchases (product_id : [title, img_src])
+        for order in order_history:
+            for item in order.items_sold:
+                # Find matching title and image source
+                product = Product.query.filter(Product.id==item.product_id).first()
+                if product.id not in unique_purchases:
+                    title = product.prod_title
+                    img_src = product.img_src
+                    unique_purchases[product.id] = [img_src, title]
+
+        return render_template('reviews.html', hideCart=True, user=current_user, username=username, unique_purchases=unique_purchases)
+
+    return render_template('error', user=current_user, username=None), 404
+
+
+
+@login_required
+@views.route('/edit-review/<int:userid>-<int:productid>', methods=['GET', 'POST'])
+def edit_review(userid, productid):
+    if (current_user.is_authenticated and userid == current_user.id):
+        # Find current Customer logged in
+        current_customer = Customer.query.filter(Customer.id==current_user.id).first()
+        username = current_customer.username
+        review = Review.query.filter(Review.username==username).filter(Review.product_id==productid).first()
+        
+        if request.method == "POST":
+            if request.form['action'] == 'review':
+                content = request.form['content']
+                now = datetime.now()
+                review_date = now.strftime("%m/%d/%Y")
+                # Insert/Update Review in database
+                if (review == None):
+                    review = Review(product_id=productid, username=username, content=content, review_date=review_date)
+                    db.session.add(review) # add new Review
+                else:
+                    review.content = content
+                    review.review_date = review_date
+                db.session.commit()
+                # Redirect to Reviews
+                flash('Review submitted.')
+                return redirect(url_for('views.reviews'))
+            elif request.form['action'] == 'cancel':
+                # Discard changes, and redirect to Reviews
+                flash('Changes to your review have been discarded!')
+                return redirect(url_for('views.reviews'))
+
+        product = Product.query.filter(Product.id==productid).first()
+        img_src = product.img_src
+        title = product.prod_title
+
+        return render_template('edit-review.html', review=review, img_src=img_src, title=title, hideCart=True, user=current_user, username=username)
+
+    return render_template('error', user=current_user, username=None), 404
 
 '''
 @login_required
@@ -101,7 +166,18 @@ def store():
         username = current_customer.username
     else:
         username = None
-    return render_template('store.html', albums=albums, merch=merch, hideCart=False, user=current_user, username=username)
+
+    # Load all users' Reviews per Product
+    all_reviews = dict() # dictionary of product_id : Reviews
+    for i in range(1, 7):
+        # product_ids between 1 and 6
+        reviews = Review.query.filter(Review.product_id==i).all()
+        if (reviews):
+            all_reviews[i] = reviews
+        else:
+            all_reviews[i] = None
+    
+    return render_template('store.html', all_reviews=all_reviews, albums=albums, merch=merch, hideCart=False, user=current_user, username=username)
 
 
 

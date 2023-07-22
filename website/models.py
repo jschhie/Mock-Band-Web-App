@@ -8,7 +8,17 @@ class Customer(db.Model, UserMixin):
     # Login
     username = db.Column(db.String(30), unique=True)
     password = db.Column(db.String(20))
+    # Reviews -- available to Accounts only
+    reviews = db.relationship('Review')
 
+
+
+class Review(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id')) # foreign key
+    username = db.Column(db.Integer, db.ForeignKey('customer.username')) # foreign key
+    content = db.Column(db.String(100)) # max 100 characters
+    review_date = db.Column(db.String(50))
 
 
 class Order(db.Model):
