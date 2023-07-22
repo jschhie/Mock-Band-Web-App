@@ -14,10 +14,10 @@
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/new-store.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/avg-stars-store.png">
 
 > Product Catalog
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/merch-review.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/avg-stars.png">
 
 
 ### 🛒 Main Store: Sample Cart
@@ -37,7 +37,7 @@
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/order-history2.png">
 
 ### ✍️ My Reviews
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/reviews.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/stars.png">
 
 ### 🎤 Tour Dates
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/tours.png">

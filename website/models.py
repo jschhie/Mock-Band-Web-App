@@ -2,14 +2,15 @@ from . import db
 from flask_login import UserMixin
 
 
+
 class Customer(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     orders = db.relationship('Order')
     # Login
     username = db.Column(db.String(30), unique=True)
     password = db.Column(db.String(20))
-    # Reviews -- available to Accounts only
-    reviews = db.relationship('Review')
+    # Reviews -- available to Customer Accounts only
+    reviews = db.relationship('Review') # All Reviews written by Username
 
 
 
@@ -19,6 +20,8 @@ class Review(db.Model):
     username = db.Column(db.Integer, db.ForeignKey('customer.username')) # foreign key
     content = db.Column(db.String(100)) # max 100 characters
     review_date = db.Column(db.String(50))
+    rating =  db.Column(db.Integer, default=5) # single digit between 1-5
+
 
 
 class Order(db.Model):
@@ -47,6 +50,7 @@ class Order(db.Model):
     total_price = db.Column(db.String(50))
 
 
+
 class ItemSold(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     qty_sold = db.Column(db.Integer) # at least 1
@@ -55,12 +59,15 @@ class ItemSold(db.Model):
     merch_size = db.Column(db.String(10), default="") # (Small, Medium, or Large) for Merch. Empty "" for Albums, Tickets
 
 
+
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     prod_title = db.Column(db.String(50))
     unit_price = db.Column(db.String(50))
     ### ALL STORE PRODUCTS ###
     img_src = db.Column(db.String(100), default="None") # image url for merch, "None" for tickets
+    public_reviews = db.relationship('Review') # All Reviews for given Product
+    avg_rating = db.Column(db.Integer, default=0) # 1-5 star scale
     ### STORE ALBUMS ###
     alt_src = db.Column(db.String(100), default="None") # catalog image url
     release_date = db.Column(db.String(30), default="None")
@@ -69,6 +76,7 @@ class Product(db.Model):
     ### STORE MERCH ###
     origin = db.Column(db.String(30), default="None") # Country of origin
     material = db.Column(db.String(30), default="None") 
+
 
 
 class Concert(db.Model):

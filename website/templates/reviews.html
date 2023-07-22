@@ -9,19 +9,25 @@
         my reviews
     </h2>
 
-    {% for key, value in unique_purchases.items() %}
-        <!-- where key is product_id and value is a list of img_src urls, product_titles -->
-        <div class="receipt-cart-row">
-            {% for entry in value %}
-                {% if 'http' in entry %}
-                    <img class="cart-item-image" style="margin-top: 2%; margin-bottom: 2%;" src={{entry}}>
-                {% else %}
-                    <div class="cart-item-title">{{entry}}</div>
-                {% endif %}
-            {% endfor %}
-            <a href="/edit-review/{{user.id}}-{{key}}" class="btn" style="margin-left: auto;">edit review</a>
+    {% if unique_purchases|length == 0 %}
+        <div class="empty-history" style="text-align: center; width: 80%; margin: auto;">
+            You can review products once you have placed an order. Browse our store <a class="arena-link" href="/store">here!</a>
         </div>
-    {% endfor %}
+    {% else %}
+        {% for key, value in unique_purchases.items() %}
+            <!-- where key is product_id and value is a list of img_src urls, product_titles -->
+            <div class="receipt-cart-row">
+                {% for entry in value %}
+                    {% if 'http' in entry %}
+                        <img class="cart-item-image" style="margin-top: 2%; margin-bottom: 2%;" src={{entry}}>
+                    {% else %}
+                        <div class="cart-item-title">{{entry}}</div>
+                    {% endif %}
+                {% endfor %}
+                <a href="/edit-review/{{user.id}}-{{key}}" class="btn" style="margin-left: auto;">edit review</a>
+            </div>
+        {% endfor %}
+    {% endif %}
 
 </section>
 
