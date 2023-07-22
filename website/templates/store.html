@@ -101,6 +101,25 @@
                         <p class="modal-subtitle col">SPECS</p>
                         <p class="col">{{album.specs}}</p>
                     </span>
+                    <!-- ALBUM REVIEWS -->
+                    <div>
+                        <p class="modal-subtitle col">REVIEWS</p>
+                        {% for key, reviews in all_reviews.items() %}
+                            <!-- if is current Product -->
+                            {% if key == album.id %}
+                                {% if reviews is not none %}
+                                    {% for review in reviews %}
+                                        <span class="review-username">{{review.username}} | <span class="review-date">{{review.review_date}}</span></span>
+                                        <br>
+                                        {{review.content}}
+                                        <hr>
+                                    {% endfor %}
+                                {% else %}
+                                    Currently, no reviews.
+                                {% endif %}    
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -149,6 +168,26 @@
                         <p class="modal-subtitle col">MADE IN</p>
                         <p class="col">{{merch_item.origin}}</p>
                     </span>
+                    <!-- MERCH REVIEWS -->
+                    <div>
+                        <p class="modal-subtitle col">REVIEWS</p>
+                        {% for key, reviews in all_reviews.items() %}
+                            <!-- if is current Product -->
+                            {% if key == merch_item.id %}
+                                {% if reviews is not none %}
+                                    {% for review in reviews %}
+                                        <span class="review-username">{{review.username}} | <span class="review-date">{{review.review_date}}</span>
+                                    </span>
+                                        <br>
+                                        {{review.content}} 
+                                        <hr>
+                                    {% endfor %}
+                                {% else %}
+                                    Currently, no reviews.
+                                {% endif %}    
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
