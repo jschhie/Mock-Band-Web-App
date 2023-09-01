@@ -59,10 +59,18 @@ function addCheckoutPrices() {
     subtotalStr = document.getElementById("subtotal").innerText.replace('$', '');
     feeStr = document.getElementById("shipping-fee").innerText.replace('$', '');
     document.getElementById("total-price").innerText = (parseFloat(subtotalStr) + parseFloat(feeStr)).toFixed(2);
+    
+    // Apply discounts, if checked
+    if (document.getElementById("discount").innerText != "-$0.00") {
+        discountStr = document.getElementById("discount").innerText.replace('$',''); // -123.45 format
+        document.getElementById("total-price").innerText = (parseFloat(document.getElementById("total-price").innerText) + parseFloat(discountStr)).toFixed(2);
+    }
+
     // Hidden div information
     document.getElementById("hidden-subtotal").value = subtotalStr;
     document.getElementById("hidden-delivery-fee").value = feeStr;
     document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
+    document.getElementById("hidden-points").value = discountStr; // formatted as: -123.45, without $ character
 }
 
 
