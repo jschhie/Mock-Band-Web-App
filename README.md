@@ -34,7 +34,7 @@
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2.png">
 
 ### 📦 Order History & Membership Points
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/all-discounts/discounts.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/all-discounts/new-account.png">
 
 ### ✍️ My Reviews
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/stars.png">

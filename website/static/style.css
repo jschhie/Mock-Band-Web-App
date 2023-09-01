@@ -747,7 +747,7 @@ footer {
 
 
 
-/* ===== TOUR TICKETS + STORE: CART SECTION ====== */
+/* ===== STORE: CART SECTION ====== */
 #checkout-merch-btn {
     display: none;
 }
@@ -954,12 +954,19 @@ footer {
 }
 
 /* ===== ORDER LOOKUP + ACCOUNT LOGIN & REGISTER FORMS ==== */
+.account-text {
+    margin: auto;
+    padding: 3%;
+    font-size: medium;
+}
+
+
 .base-card {
     width: 80%;
     margin: auto;
 }
 
-.lookup-header {
+.shadow-header {
     margin-top: 1%;
     padding: 3%;
 }
@@ -970,11 +977,6 @@ footer {
     margin-top: 5%;
     margin-bottom: 5%;
 }
-
-/*
-.dropdown-menu {
-    height: 137px;
-}*/
 
 .dropdown-menu li {
     background-color: white;
