@@ -248,7 +248,7 @@ def checkout():
                 # Update discounts field of Order
                 new_order.discounts = request.form['pointsUsed'].replace('-','') # Remove minus sign
             # Add up points
-            current_customer.points += (int(float(request.form['subtotal']))) # total whole $ spent rounded down
+            current_customer.points += (int(float(request.form['subtotal']))) + int(float(request.form['pointsUsed'])) # subtotal + -discounts (rounded down to nearest $)
 
         # Store new Order into DB
         db.session.add(new_order)

@@ -50,7 +50,7 @@ function showImg(image) {
 function radioChange(event) {
     shippingFee = event.parentElement.getElementsByClassName("form-check-label")[0].getElementsByClassName("radio-price")[0].innerText;
     document.getElementById("shipping-fee").innerText = shippingFee;
-    addCheckoutPrices();
+    addCheckoutPrices(); // add subtotal, discount, shipping fee
 }
 
 
@@ -221,6 +221,9 @@ function applyPoints(checkbox) {
         document.getElementById("discount").innerText = '-$0.00';
     }
 
+    addCheckoutPrices(); // add subtotal, discount, shipping fee
+
+    /*
     // update total amount in checkout
     subtotalStr = document.getElementById("subtotal").innerText.replace('$', '');
     feeStr = document.getElementById("shipping-fee").innerText.replace('$', '');
@@ -235,6 +238,7 @@ function applyPoints(checkbox) {
     document.getElementById("hidden-delivery-fee").value = feeStr;
     document.getElementById("hidden-points").value = discountStr; // formatted as: -123.45, without $ character
     document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
+    */
 }
 
 /* UPDATE CART TOTAL */
