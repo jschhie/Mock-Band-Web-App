@@ -11,7 +11,7 @@ class Customer(db.Model, UserMixin):
     password = db.Column(db.String(20))
     # Reviews -- available to Customer Accounts only
     reviews = db.relationship('Review') # All Reviews written by Username
-
+    points = db.Column(db.Integer, default=0) # 1 membership point per $5 spent
 
 
 class Review(db.Model):
@@ -48,7 +48,8 @@ class Order(db.Model):
     subtotal = db.Column(db.String(50))
     delivery_fee = db.Column(db.String(50))
     total_price = db.Column(db.String(50))
-
+    # Membership Discount Applied (per Order)
+    discounts = db.Column(db.String(50), default="0.00")
 
 
 class ItemSold(db.Model):

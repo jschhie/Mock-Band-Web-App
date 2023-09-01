@@ -203,7 +203,31 @@ function removeCartItems(event) {
     updateCartTotal();
 }
 
+/* APPLY OR REMOVE MEMBERSHIP POINTS */
+function applyPoints(checkbox) {
+    if (checkbox.checked) {
+        // update Discounts value
+        let discountValue = document.getElementById("discount-value").innerText;
+        document.getElementById("discount").innerText = '-$' + discountValue;
+    } else {
+        document.getElementById("discount").innerText = '-$0.00';
+    }
 
+    // update total amount in checkout
+    subtotalStr = document.getElementById("subtotal").innerText.replace('$', '');
+    feeStr = document.getElementById("shipping-fee").innerText.replace('$', '');
+    discountStr = document.getElementById("discount").innerText.replace('$','');
+    document.getElementById("total-price").innerText = (parseFloat(subtotalStr) + parseFloat(feeStr)).toFixed(2);
+    if (parseFloat(discountStr) != '-0.00') {
+        document.getElementById("total-price").innerText = (parseFloat(document.getElementById("total-price").innerText) + parseFloat(discountStr)).toFixed(2);
+    }
+    
+    // Hidden div information
+    document.getElementById("hidden-subtotal").value = subtotalStr;
+    document.getElementById("hidden-delivery-fee").value = feeStr;
+    document.getElementById("hidden-points").value = discountStr; // formatted as: -123.45, without $ character
+    document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
+}
 
 /* UPDATE CART TOTAL */
 function updateCartTotal() {

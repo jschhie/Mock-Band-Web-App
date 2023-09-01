@@ -375,13 +375,13 @@ footer {
     text-align: center;
 }
 
-#ship-handle-label, #subtotal-label {
+#ship-handle-label, #subtotal-label, .discount-label {
     font-weight: bolder;
     font-size: 1.1em;
     text-align: center;
 }
 
-#shipping-fee, #subtotal {
+#shipping-fee, #subtotal, #discount {
     text-align: center;
 }
 
@@ -1041,4 +1041,9 @@ footer {
     font-weight:lighter;
     border-top: 1px lightgrey solid;
     padding: 5px;
+}
+
+.points-text {
+    font-family: 'Syne', 'Times';
+    font-weight:lighter;
 }
