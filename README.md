@@ -3,7 +3,7 @@
 > Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
-* Mock e-commerce platform, featuring a store catalog, order lookup/history, shopping cart functionality, and account (or guest) checkout system, and customer reviews
+* Mock e-commerce platform, featuring a store catalog, order lookup/history, shopping cart functionality, and account (or guest) checkout system, customer reviews, and membership points
 * Hosted on PythonAnywhere; you may interact with the website at: https://bandstore.pythonanywhere.com/
 
 ## 🔖 Table of Contents
