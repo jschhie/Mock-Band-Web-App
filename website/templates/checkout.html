@@ -263,6 +263,20 @@
         </div>
     </div>
 
+    <!-- Apply Membership Points -->
+    {% if user.is_authenticated and user.points > 0 %}
+    <div class="checkout-section">
+        <h4 class="sub-header">apply points</h4>
+        <br>
+        <div class="checkout-form">
+            <div class="form-check points-button">
+                <input class="form-check-input" type="checkbox" value="" id="pointsCheckbox" onchange="applyPoints(this)">
+                <label class="form-check-label" for="pointsCheckbox">Apply {{ (user.points/5)|round|int}} membership points for $<span id="discount-value">{{ '%0.2f' % ((user.points/5)|round|int/10) }}</span> off?</label>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
     <div class="checkout-section">
         <h4 class="sub-header">total</h4>
         <br>
@@ -278,6 +292,14 @@
                     <span class="col-md-6" id="ship-handle-label">Shipping & Handling </span><span class="col-md-6" id="shipping-fee">$5.99</span>
                 {% endif %}
             </div>
+            {% if user.is_authenticated %}
+            <br>
+            <div class="row">
+                <!-- Optionally apply membership points -->
+                <span class="col-md-6 discount-label">Discounts</span>
+                <span class="col-md-6" id="discount">-$0.00</span>
+            </div>
+            {% endif %}
             <div id="total-price-label">TOTAL PRICE <span id="total-dollar-sign">$</span><span id="total-price"></span></div>
         </div>
     </div>
@@ -287,6 +309,7 @@
         <input id="hidden-subtotal" type="text" name="subtotal">
         <input id="hidden-total-price" type="text" name="totalPrice">
         <input id="hidden-delivery-fee" type="text" name="deliveryFee">
+        <input id="hidden-points" type="text" name="pointsUsed">
         <input id="hidden-json-cart" name="jsonCart">
     </div>
 
@@ -308,12 +331,17 @@
     document.getElementById("hidden-subtotal").value = sessionStorage.getItem("subtotal").replace('$', '').toString();
     document.getElementById("hidden-delivery-fee").value = "5.99"; // string
     document.getElementById("hidden-total-price").value = sessionStorage.getItem("predictedTotal").toString();
-    
+
     // Apply FREE Membership Standard Shipping
     if (document.getElementById("shipping-fee").innerText == "$0.00") {
         document.getElementById("total-price").innerText = sessionStorage.getItem("subtotal").replace('$', '').toString();
         document.getElementById("hidden-delivery-fee").value = "0.00"; // string
         document.getElementById("hidden-total-price").value = sessionStorage.getItem("subtotal").replace('$', '').toString();
+    }
+
+    // Populate hidden discounts, for registered accounts
+    if (document.getElementById("shipping-fee").innerText == "$0.00") {
+        document.getElementById("hidden-points").value = "-0.00"; // string
     }
 
     // Retrieve JSON shoppingCart

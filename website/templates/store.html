@@ -84,7 +84,7 @@
 <!-- ALBUMS 1, 2, 3, 4 MODALS -->
 {% for album in albums %}
 <div class="modal fade" id={{ "album" + loop.index|string }} tabindex="-1" aria-labelledby={{ "album" + loop.index|string + "Modal" }} aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id={{ "album" + loop.index|string + "Label" }}>{{album.prod_title}} (Album)</h1>

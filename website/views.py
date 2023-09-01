@@ -241,6 +241,15 @@ def checkout():
                           bill_name=bill_name, bill_address=bill_address, bill_city=bill_city, bill_state=bill_state, bill_email=bill_email, bill_zip=bill_zip,
                         rec_name=rec_name, rec_address=rec_address, rec_city=rec_city, rec_state=rec_state, rec_email=rec_email, rec_zip=rec_zip)
 
+        if current_user.is_authenticated:
+            # Deduct points if used in checkout
+            if request.form['pointsUsed'] != '-0.00':
+                current_customer.points = 0 # all points applied
+                # Update discounts field of Order
+                new_order.discounts = request.form['pointsUsed'].replace('-','') # Remove minus sign
+            # Add up points
+            current_customer.points += (int(float(request.form['subtotal']))) # total whole $ spent rounded down
+
         # Store new Order into DB
         db.session.add(new_order)
         db.session.commit()

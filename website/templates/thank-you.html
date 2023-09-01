@@ -56,6 +56,15 @@
                 {% endif %}
             </div>
             <br>
+            {% if user.is_authenticated %}
+            <div class="receipt-summary-row row">
+                <span class="col-md-6 receipt-label">
+                    discounts: 
+                </span>
+                <span class="col-md-6 receipt-value">-${{ order.discounts }}</span>
+            </div>
+            <br>
+            {% endif %}
             total amount: <span id="receipt-amount">${{ order.total_price }}</span>
         </div>
 

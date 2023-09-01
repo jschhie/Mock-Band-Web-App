@@ -24,8 +24,8 @@
 > Cart Section for Merch
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/cart.png">
 
-### 💳 Customer Checkout
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/freeship2.png">
+### 💳 Customer Checkout with Membership Discount
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/all-discounts/discounts-2.png">
 
 ### 🧾 Order Confirmation
 > Sample Receipt for Main Store Merch
@@ -33,8 +33,8 @@
 
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2.png">
 
-### 📦 Order History
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/order-history2.png">
+### 📦 Order History & Membership Points
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/all-discounts/discounts.png">
 
 ### ✍️ My Reviews
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/stars.png">
