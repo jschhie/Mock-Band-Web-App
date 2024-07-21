@@ -87,7 +87,7 @@
             {% for item_sold, product in zip %}            
                 <div class="receipt-cart-row">
                     <div class="receipt-column">
-                        <img class="cart-item-image" src={{product.img_src}}>
+                        <img class="cart-item-image" src={{product.img_src}} alt={{product.prod_title}}>
                         <span class="cart-item-title receipt-item-title">
                             {{ product.prod_title }}
                             {% if item_sold.merch_size != "" %}

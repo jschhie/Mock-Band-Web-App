@@ -11,7 +11,7 @@
     <div class="shop-items-all">
         {% for album in albums %}
         <div class="shop-item card" style="border-color: transparent;">
-            <img class="shop-item-image" src={{album.img_src}} height="100px"/>
+            <img class="shop-item-image" src={{album.img_src}} height="100px" alt={{album.prod_title}}/>
             <span class="shop-item-title">{{album.prod_title}}</span>
             <div class="shop-item-details">
                 <span class="shop-item-price">{{album.unit_price}}</span>
@@ -41,14 +41,16 @@
     <div class="shop-items-all">
         {% for merch_item in merch %}
         <div class="shop-item card" style="border-color: transparent;">
-            <img class="shop-item-image" type="image/png" src={{merch_item.img_src}} height="100px"/>
+            <img class="shop-item-image" type="image/png" src={{merch_item.img_src}} height="100px" alt={{merch_item.prod_title}}/>
             <span class="shop-item-title">{{merch_item.prod_title}}</span>
             <div class="shop-item-details row">
                 <span class="shop-item-price col">{{merch_item.unit_price}}</span>
                 {% if 'Black' in merch_item.prod_title %}
-                <select class="form-control col size-option" id="blackHoodSize">
+                <label id="blackhood-size-label"></label>
+                <select class="form-control col size-option" id="blackHoodSize" aria-labelledby="blackhood-size-label">
                 {% else %}
-                <select class="form-control col size-option" id="whiteHoodSize">
+                <label id="whitehood-size-label"></label>
+                <select class="form-control col size-option" id="whiteHoodSize" aria-labelledby="whitehood-size-label">
                 {% endif %}
                     <option value="Small" selected>S</option>
                     <option value="Medium">M</option>
