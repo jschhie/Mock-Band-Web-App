@@ -19,7 +19,7 @@
             <div class="receipt-cart-row">
                 {% for entry in value %}
                     {% if 'http' in entry %}
-                        <img class="cart-item-image" style="margin-top: 2%; margin-bottom: 2%;" src={{entry}}>
+                        <img class="cart-item-image" style="margin-top: 2%; margin-bottom: 2%;" src={{entry}} alt="Image of purchased item">
                     {% else %}
                         <div class="cart-item-title">{{entry}}</div>
                     {% endif %}

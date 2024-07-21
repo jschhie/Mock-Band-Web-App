@@ -24,8 +24,8 @@
             <div class="row">
                 <label class="col-md-3">City</label>
                 <input class="form-control col-md-3" placeholder="City" id="shipCity" name="shipCity" minlength="3" maxlength="30">
-                <label class="col-md-3">State</label>
-                <select class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState">
+                <label id="ship-state-label" class="col-md-3">State</label>
+                <select class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState" aria-labelledby="ship-state-label">
                     <option value="AL" selected>Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -113,8 +113,8 @@
             <div class="row">
                 <label class="col-md-3">City</label>
                 <input class="form-control col-md-3" placeholder="City" id="billCity" name="billCity" minlength="3" maxlength="30">
-                <label class="col-md-3">State</label>
-                <select class="form-control col-md-3" placeholder="ST" id="billState" name="billState">
+                <label id="bill-state-label" class="col-md-3">State</label>
+                <select class="form-control col-md-3" placeholder="ST" id="billState" name="billState" aria-labelledby="bill-state-label">
                     <option value="AL" selected>Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -196,8 +196,8 @@
             </div>
             <br>
             <div class="row">
-                <label class="col-md-3">Expiry Date</label>
-                <select class="form-control col-md-3" autocomplete="off">
+                <label id="expiry-date-label" class="col-md-3">Expiry Date</label>
+                <select class="form-control col-md-3" autocomplete="off" aria-labelledby="expiry-date-label">
                     <option value="01" selected>Jan</option>
                     <option value="02">Feb</option>
                     <option value="03">Mar</option>
@@ -211,7 +211,8 @@
                     <option value="11">Nov</option>
                     <option value="12">Dec</option>
                 </select>
-                <select class="form-control col-md-3" autocomplete="off">
+                <label id="expiry-year-label">Expiry Year</label>
+                <select class="form-control col-md-3" autocomplete="off" aria-labelledby="expiry-year-label">
                     <option value="24" selected>2024</option>
                     <option value="25">2025</option>
                     <option value="26">2026</option>
