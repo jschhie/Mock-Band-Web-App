@@ -358,6 +358,7 @@ footer {
     border-bottom: 1px black dashed;
     text-align: center;
     margin-bottom: 0;
+    font-size: 1.3em;
 }
 
 .checkout-section {
@@ -686,6 +687,13 @@ footer {
 .shop-item-price {
     flex-grow: 1;
     font-size: 1.3em;
+}
+
+#blackhood-size-label, #whitehood-size-label {
+    flex-grow: 1;
+    font-size: 1.08em;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .shop-items-all {
