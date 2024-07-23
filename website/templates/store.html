@@ -46,10 +46,10 @@
             <div class="shop-item-details row">
                 <span class="shop-item-price col">{{merch_item.unit_price}}</span>
                 {% if 'Black' in merch_item.prod_title %}
-                <label id="blackhood-size-label"></label>
+                <label id="blackhood-size-label">Size</label>
                 <select class="form-control col size-option" id="blackHoodSize" aria-labelledby="blackhood-size-label">
                 {% else %}
-                <label id="whitehood-size-label"></label>
+                <label id="whitehood-size-label">Size</label>
                 <select class="form-control col size-option" id="whiteHoodSize" aria-labelledby="whitehood-size-label">
                 {% endif %}
                     <option value="Small" selected>S</option>
@@ -90,13 +90,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id={{ "album" + loop.index|string + "Label" }}>{{album.prod_title}} (Album)</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" tabindex="0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- GALLERY -->
-                <img src={{album.img_src}} width="160px" height="160px" class="modal-img shadow">
-                <img src={{album.img_src}} width="80px" class="preview-img" style="border-color: black; border-radius: 5px;" onclick="showImg(this)">
-                <img src={{album.alt_src}} width="80px" height="80px" class="preview-img" style="border-radius: 5px;" onclick="showImg(this)">
+                <img src={{album.img_src}} width="160px" height="160px" class="modal-img shadow" alt={{album.prod_title}}>
+                <img src={{album.img_src}} width="80px" class="preview-img" tabindex="1" style="border-color: black; border-radius: 5px;" onclick="showImg(this)" alt={{album.prod_title}}>
+                <img src={{album.alt_src}} width="80px" height="80px" class="preview-img" tabindex="2" style="border-radius: 5px;" onclick="showImg(this)" alt={{ album.prod_title + " supplementary image" }}>
 
                 <div class="modal-details">
                     <p class="modal-subtitle">DESCRIPTION</p>
@@ -118,7 +118,7 @@
                         <p class="col">{{album.specs}}</p>
                     </span>
                     <!-- ALBUM REVIEWS -->
-                    <div>
+                    <div tabindex="3">
                         <span class="row">
                             <p class="modal-subtitle col">REVIEWS</p>
                             {% if album.public_reviews|length == 0 %}
@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-bs-dismiss="modal" tabindex="4">Close</button>
             </div>
         </div>
     </div>
@@ -180,10 +180,10 @@
                 {% else %}
                 <h1 class="modal-title fs-5" id="whitehoodLabel">{{merch_item.prod_title}}</h1>
                 {% endif %}
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" tabindex="0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src={{merch_item.img_src}} width="150px" class="modal-img shadow">
+                <img src={{merch_item.img_src}} width="150px" class="modal-img shadow" alt={{merch_item.prod_title}}>
                 <div class="modal-details" style="display:inline-block;">
                     <p class="modal-subtitle">DESCRIPTION</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -200,7 +200,7 @@
                         <p class="col">{{merch_item.origin}}</p>
                     </span>
                     <!-- MERCH REVIEWS -->
-                    <div>
+                    <div tabindex="0">
                         <span class="row">
                             <p class="modal-subtitle col">REVIEWS</p>
                             {% if merch_item.public_reviews|length == 0 %}
@@ -235,7 +235,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn" data-bs-dismiss="modal" tabindex="1">Close</button>
             </div>
         </div>
     </div>
