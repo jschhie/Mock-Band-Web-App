@@ -15,171 +15,102 @@
             <div class="checkout-form">
                 <div class="row">
                     <label class="col-md-3" id="ship-name-label">Name</label>
-                    <input class="form-control col-md-9" placeholder="John Smith" id="shipName" name="shipName" maxlength="30">
+                    {% if saved_data %}
+                    <input class="form-control col-md-9" placeholder="John Smith" id="savedName" name="savedName" maxlength="30" value="{{ saved_data.ship_name }}">
+                    {% else %}
+                    <input class="form-control col-md-9" placeholder="John Smith" id="savedName" name="savedName" maxlength="30">
+                    {% endif %}
                 </div>
                 <br>
                 <div class="row">
                     <label class="col-md-3">Street Address</label>
-                    <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="shipAddress" name="shipAddress" minlength="3" maxlength="30">
+                    {% if saved_data %}
+                    <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="savedAddress" name="savedAddress" minlength="3" maxlength="30" value="{{ saved_data.ship_address }}">
+                    {% else %}
+                    <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="savedAddress" name="savedAddress" minlength="3" maxlength="30">
+                    {% endif %}
                 </div>
                 <br>
                 <div class="row">
                     <label class="col-md-3">City</label>
-                    <input class="form-control col-md-3" placeholder="City" id="shipCity" name="shipCity" minlength="3" maxlength="30">
+                    {% if saved_data %}
+                    <input class="form-control col-md-3" placeholder="City" id="savedCity" name="savedCity" minlength="3" maxlength="30" value="{{ saved_data.ship_city }}">
+                    {% else %}
+                    <input class="form-control col-md-3" placeholder="City" id="savedCity" name="savedCity" minlength="3" maxlength="30">
+                    {% endif %}
                     <label class="col-md-3">State</label>
-                    <select class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState">
-                        <option value="AL" selected>Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="AS">American Samoa</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District of Columbia</optio>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="GU">Guam</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
+                    <!-- Conditionally select select option if saved_data is given -->
+                    <select class="form-control col-md-3" placeholder="ST" id="savedState" name="savedState">
+                        <option id="AL" value="AL" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AL' else "" }}>Alabama</option>
+                        <option id="AK" value="AK" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AK' else "" }}>Alaska</option>
+                        <option id="AZ" value="AZ" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AZ' else "" }}>Arizona</option>
+                        <option id="AR" value="AR" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AR' else "" }}>Arkansas</option>
+                        <option id="AS" value="AS" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AS' else "" }}>American Samoa</option>
+                        <option id="CA" value="CA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'CA' else "" }}>California</option>
+                        <option id="CO" value="CO" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'CO' else "" }}>Colorado</option>
+                        <option id="CT" value="CT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'CT' else "" }}>Connecticut</option>
+                        <option id="DE" value="DE" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'DE' else "" }}>Delaware</option>
+                        <option id="DC" value="DC" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'DC' else "" }}>District of Columbia</optio>
+                        <option id="FL" value="FL" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'FL' else "" }}>Florida</option>
+                        <option id="GA" value="GA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'GA' else "" }}>Georgia</option>
+                        <option id="GU" value="GU" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'GU' else "" }}>Guam</option>
+                        <option id="HI" value="HI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'HI' else "" }}>Hawaii</option>
+                        <option id="ID" value="ID" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'ID' else "" }}>Idaho</option>
+                        <option id="IL" value="IL" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'IL' else "" }}>Illinois</option>
+                        <option id="IN" value="IN" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'IN' else "" }}>Indiana</option>
+                        <option id="IA" value="IA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'IA' else "" }}>Iowa</option>
+                        <option id="KS" value="KS" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'KS' else "" }}>Kansas</option>
+                        <option id="KY" value="KY" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'KY' else "" }}>Kentucky</option>
+                        <option id="LA" value="LA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'LA' else "" }}>Louisiana</option>
+                        <option id="ME" value="ME" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'ME' else "" }}>Maine</option>
+                        <option id="MD" value="MD" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MD' else "" }}>Maryland</option>
+                        <option id="MA" value="MA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MA' else "" }}>Massachusetts</option>
+                        <option id="MI" value="MI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MI' else "" }}>Michigan</option>
+                        <option id="MN" value="MN" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MN' else "" }}>Minnesota</option>
+                        <option id="MS" value="MS" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MS' else "" }}>Mississippi</option>
+                        <option id="MO" value="MO" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MO' else "" }}>Missouri</option>
+                        <option id="MT" value="MT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MT' else "" }}>Montana</option>
+                        <option id="NE" value="NE" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NE' else "" }}>Nebraska</option>
+                        <option id="NV" value="NV" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NV' else "" }}>Nevada</option>
+                        <option id="NH" value="NH" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NH' else "" }}>New Hampshire</option>
+                        <option id="NJ" value="NJ" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NJ' else "" }}>New Jersey</option>
+                        <option id="NM" value="NM" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NM' else "" }}>New Mexico</option>
+                        <option id="NY" value="NY" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NY' else "" }}>New York</option>
+                        <option id="NC" value="NC" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NC' else "" }}>North Carolina</option>
+                        <option id="ND" value="ND" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'ND' else "" }}>North Dakota</option>
+                        <option id="OH" value="OH" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'OH' else "" }}>Ohio</option>
+                        <option id="OK" value="OK" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'OK' else "" }}>Oklahoma</option>
+                        <option id="OR" value="OR" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'OR' else "" }}>Oregon</option>
+                        <option id="PA" value="PA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'PA' else "" }}>Pennsylvania</option>
+                        <option id="RI" value="RI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'RI' else "" }}>Rhode Island</option>
+                        <option id="SC" value="SC" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'SC' else "" }}>South Carolina</option>
+                        <option id="SD" value="SD" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'SD' else "" }}>South Dakota</option>
+                        <option id="TN" value="TN" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'TN' else "" }}>Tennessee</option>
+                        <option id="TX" value="TX" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'TX' else "" }}>Texas</option>
+                        <option id="UT" value="UT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'UT' else "" }}>Utah</option>
+                        <option id="VT" value="VT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'VT' else "" }}>Vermont</option>
+                        <option id="VA" value="VA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'VA' else "" }}>Virginia</option>
+                        <option id="WA" value="WA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WA' else "" }}>Washington</option>
+                        <option id="WV" value="WV" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WV' else "" }}>West Virginia</option>
+                        <option id="WI" value="WI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WI' else "" }}>Wisconsin</option>
+                        <option id="WY" value="WY" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WY' else "" }}>Wyoming</option>
                     </select>
                 </div>
                 <br>
                 <div class="row">
                     <label class="col-md-3">ZIP</label>
-                    <input class="form-control col-md-3" placeholder="12345" id="shipZip" name="shipZip" minlength="5" maxlength="5">
+                    {% if saved_data %}
+                    <input class="form-control col-md-3" placeholder="12345" id="savedZip" name="savedZip" minlength="5" maxlength="5" value="{{ saved_data.ship_zip }}">
+                    {% else %}
+                    <input class="form-control col-md-3" placeholder="12345" id="savedZip" name="savedZip" minlength="5" maxlength="5">
+                    {% endif %}
                     <label class="col-md-3">Email</label>
-                    <input type="email" class="form-control col-md-3" placeholder="user@gmail.com" id="shipEmail" name="shipEmail" minlength="3" maxlength="30">
+                    {% if saved_data %}
+                    <input type="email" class="form-control col-md-3" placeholder="user@gmail.com" id="savedEmail" name="savedEmail" minlength="3" maxlength="30" value="{{ saved_data.ship_email }}">
+                    {% else %}
+                    <input type="email" class="form-control col-md-3" placeholder="user@gmail.com" id="savedEmail" name="savedEmail" minlength="3" maxlength="30">
+                    {% endif %}
                 </div>
-            </div>
-        </div>
-
-        <div class="checkout-section">
-            <h4 class="sub-header">billing address</h4>
-            <br>
-            <div class="checkout-form">
-                <div class="form-check billing-button">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onchange="editCheckout(this)">
-                    <label class="form-check-label" for="flexCheckDefault">Same as shipping address?</label>
-                </div>
-                <br>
-                <div class="row">
-                    <label class="col-md-3" id="bill-name-label">Name</label>
-                    <input class="form-control col-md-9" placeholder="John Smith" id="billName" name="billName" maxlength="30">
-                </div>
-                <br>
-                <div class="row">
-                    <label class="col-md-3">Street Address</label>
-                    <input class="form-control col-md-9" placeholder="123 Somewhere Street" id="billAddress" name="billAddress" minlength="3" maxlength="30">
-                </div>
-                <br>
-                <div class="row">
-                    <label class="col-md-3">City</label>
-                    <input class="form-control col-md-3" placeholder="City" id="billCity" name="billCity" minlength="3" maxlength="30">
-                    <label class="col-md-3">State</label>
-                    <select class="form-control col-md-3" placeholder="ST" id="billState" name="billState">
-                        <option value="AL" selected>Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="AS">American Samoa</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District of Columbia</optio>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="GU">Guam</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                    </select>
-                </div>
-                <br>
-                <div class="row">
-                    <label class="col-md-3">ZIP</label>
-                    <input class="form-control col-md-3" placeholder="12345" id="billZip" name="billZip" minlength="5" maxlength="5">
-                    <label class="col-md-3">Email</label>
-                    <input type="form-control email" class="form-control col-md-3" placeholder="user@gmail.com" id="billEmail" name="billEmail" minlength="3" maxlength="30">
-                </div>
-            </div>
             </div>
         </div>
 

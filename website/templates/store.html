@@ -182,7 +182,7 @@
                 {% endif %}
                 <button type="button" class="btn-close" tabindex="0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" tabindex="1">
                 <img src={{merch_item.img_src}} width="150px" class="modal-img shadow" alt={{merch_item.prod_title}}>
                 <div class="modal-details" style="display:inline-block;">
                     <p class="modal-subtitle">DESCRIPTION</p>
@@ -200,7 +200,7 @@
                         <p class="col">{{merch_item.origin}}</p>
                     </span>
                     <!-- MERCH REVIEWS -->
-                    <div tabindex="0">
+                    <div tabindex="2">
                         <span class="row">
                             <p class="modal-subtitle col">REVIEWS</p>
                             {% if merch_item.public_reviews|length == 0 %}
@@ -235,7 +235,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn" data-bs-dismiss="modal" tabindex="1">Close</button>
+                <button type="button" class="btn" data-bs-dismiss="modal" tabindex="3">Close</button>
             </div>
         </div>
     </div>

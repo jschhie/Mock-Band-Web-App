@@ -425,3 +425,14 @@ function addRowToCart(title, price, imageSrc) {
         alert(title + ' (Album) added to cart!');
     }
 }
+
+
+/* * * * * SETTINGS: SAVE SHIPPING ADDRESS SELECTED STATE * * * * * */
+/*
+function saveShippingState() {
+    //var state = document.getElementById('hiddenState').value;
+    var state = document.getElementById("savedState").value;
+    document.getElementById('hiddenState').value = state;
+    alert(state);
+    document.getElementById(state).selected = "true";
+}*/

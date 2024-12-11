@@ -12,6 +12,23 @@ class Customer(db.Model, UserMixin):
     # Reviews -- available to Customer Accounts only
     reviews = db.relationship('Review') # All Reviews written by Username
     points = db.Column(db.Integer, default=0) # 1 membership point per $5 spent
+    # Boolean to check if Customer has Saved Shipping Data
+    has_saved_shipping_data = db.Column(db.Boolean, default=False) # False: Guest checkout, or account has no saved shipping data
+
+
+
+class SavedShippingData(db.Model):
+    # Saved Shipping Data -- modifiable in Account Settings
+    id = db.Column(db.Integer, primary_key=True)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id')) # foreign key
+    ship_name = db.Column(db.String(30))
+    ship_address = db.Column(db.String(30))
+    ship_city = db.Column(db.String(30))
+    #ship_state_code = db.Column(db.Integer) # Digit that uniquely maps to a State Abbreviation. Example: 1 -> Alabama -> AL
+    ship_state = db.Column(db.String(2)) # State Abbreviation
+    ship_zip = db.Column(db.String(5))
+    ship_email = db.Column(db.String(30))
+
 
 
 class Review(db.Model):
