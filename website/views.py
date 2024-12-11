@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
-from .models import Customer, Order, ItemSold, Product, Concert, Review
+from .models import Customer, Order, ItemSold, Product, Concert, Review, SavedShippingData
 from flask_login import current_user, login_required
 from datetime import datetime
 
@@ -106,7 +106,8 @@ def edit_review(userid, productid):
 
     return render_template('error', user=current_user, username=None), 404
 
-'''
+
+
 @login_required
 @views.route('/settings', methods=['GET', 'POST'])
 def settings():
@@ -117,22 +118,77 @@ def settings():
         return render_template('error', user=current_user), 404
     
     if request.method == 'POST':
-        # Update Shipping and / or Billing Info
-        idTypes = ["bill", "ship"] # bill = billing, ship = shipping / rec = recipient
+        # Update Shipping Info
         idNames = ["Name", "Address", "City", "State", "Zip", "Email"]
         customerInputs = []
-        for idType in idTypes:
-            for idName in idNames:
-                idString = idType + idName
-                customerInputs.append(request.form[idString])
+        for idName in idNames:
+            idString = "saved" + idName
+            customerInputs.append(request.form[idString])
 
-        bill_name, bill_address, bill_city, bill_state, bill_zip, bill_email, rec_name, rec_address, rec_city, rec_state, rec_zip, rec_email = customerInputs
+        saved_name, saved_address, saved_city, saved_state, saved_zip, saved_email = customerInputs
 
-        db.session.commit()
+        '''
+        if len(saved_name + saved_address + saved_zip + saved_email) == 0:
+            # Special case: Customer removes all info from fields (enters nothing)
+            # Note: saved_state excluded from string character count: default value is 'AL'
+            print('erasing data')
+            
+            if (current_customer.has_saved_shipping_data):
+                # Fetch and delete from database
+                try:
+                    saved_shipping_data = SavedShippingData.query.filter(SavedShippingData.customer_id==current_user.id).first()
+                    db.session.delete(saved_shipping_data)
+                    db.session.commit()
+                except:
+                    pass
+            
+            # Update boolean         
+            # current_customer.has_saved_shipping_data = False
+            flash('Shipping Address cleared!')
+            return redirect(url_for('views.account'))
+        '''
+
+        if current_customer.has_saved_shipping_data:
+            # Check if need to create new SavedShippingData object or update existing one
+            saved_shipping_data = SavedShippingData.query.filter(SavedShippingData.customer_id==current_user.id).first()
+            saved_shipping_data.ship_name = saved_name
+            saved_shipping_data.ship_address = saved_address
+            saved_shipping_data.ship_city = saved_city
+            saved_shipping_data.ship_state = saved_state
+            saved_shipping_data.ship_zip = saved_zip
+            saved_shipping_data.ship_email = saved_email
+            db.session.commit()
+            # Special case: Customer removes all info from fields (enters nothing)
+            if len(saved_name + saved_address + saved_zip + saved_email) == 0:
+                # Note: saved_state excluded from string character count: default value is 'AL'
+                flash('Shipping Address cleared!')
+            else:
+                flash('Changes to your Shipping Address have been saved!')
+            return redirect(url_for('views.account'))
+        else:
+            # Create and insert new data into fields
+            saved_shipping_data = SavedShippingData(customer_id=current_user.id, 
+                                                    ship_name=saved_name, 
+                                                    ship_address=saved_address,
+                                                    ship_city=saved_city, 
+                                                    ship_state=saved_state,
+                                                    ship_zip=saved_zip,
+                                                    ship_email=saved_email)
+            db.session.add(saved_shipping_data)
+            # Update Boolean to True
+            current_customer.has_saved_shipping_data = True
+            db.session.commit()
+            flash('Saved a new Shipping Address!')
+            return redirect(url_for('views.account'))
+
+    # Default: remain on settings page
+    # Check if need to pre-load form with existing, saved shipping data
+    if current_customer.has_saved_shipping_data:
+            print('saved shipping data')
+            saved_shipping_data = SavedShippingData.query.filter(SavedShippingData.customer_id==current_user.id).first()
+            return render_template('settings.html', hideCart=True, user=current_user, saved_data=saved_shipping_data)
 
     return render_template('settings.html', hideCart=True, user=current_user)
-'''
-
 
 
 
@@ -196,10 +252,15 @@ def store():
 
 @views.route('/checkout', methods=['GET', 'POST'])
 def checkout():
+    saved_shipping_data = None # default
     if current_user.is_authenticated:
         # Find current Customer Account
         current_customer = Customer.query.filter(Customer.id==current_user.id).first()
         username = current_customer.username
+            # Check if need to pre-load form with existing, saved shipping data
+        if current_customer.has_saved_shipping_data:
+                print('saved shipping data for checkout')
+                saved_shipping_data = SavedShippingData.query.filter(SavedShippingData.customer_id==current_user.id).first()
     else:
         username = None
 
@@ -270,7 +331,7 @@ def checkout():
             db.session.add(new_item_sold)
             db.session.commit()
         return redirect(url_for('views.thankYou', orderId=new_order.id))
-    return render_template('checkout.html', hideCart=True, user=current_user, username=username)
+    return render_template('checkout.html', hideCart=True, user=current_user, username=username, saved_data=saved_shipping_data)
 
 
 

@@ -30,7 +30,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
 
     # create or retrieve existing DB
-    from .models import Customer, Order, ItemSold, Product, Concert, Review
+    from .models import Customer, Order, ItemSold, Product, Concert, Review, SavedShippingData
     create_database(app)
 
     login_manager = LoginManager()
@@ -47,7 +47,7 @@ def create_app():
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
         with app.test_request_context():
-            from .models import Customer, Order, ItemSold, Product, Concert, Review
+            from .models import Customer, Order, ItemSold, Product, Concert, Review, SavedShippingData
             db.create_all(app=app)
 
             ###### Insert store albums and merch ######

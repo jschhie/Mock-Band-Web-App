@@ -7,7 +7,7 @@
 * Features include:
   * store catalog with shopping cart functionality
   * order lookup and purchase history
-  * account and guest checkout options
+  * account and guest checkout with autofill options
   * customer reviews and ratings
   * membership points system
 * Hosted on PythonAnywhere at: https://bandstore.pythonanywhere.com/
