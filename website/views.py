@@ -127,11 +127,12 @@ def settings():
 
         saved_name, saved_address, saved_city, saved_state, saved_zip, saved_email = customerInputs
 
+        '''
         if len(saved_name + saved_address + saved_zip + saved_email) == 0:
             # Special case: Customer removes all info from fields (enters nothing)
             # Note: saved_state excluded from string character count: default value is 'AL'
             print('erasing data')
-            '''
+            
             if (current_customer.has_saved_shipping_data):
                 # Fetch and delete from database
                 try:
@@ -140,11 +141,14 @@ def settings():
                     db.session.commit()
                 except:
                     pass
-            '''
+            
             # Update boolean         
-            current_customer.has_saved_shipping_data = False
+            # current_customer.has_saved_shipping_data = False
+            flash('Shipping Address cleared!')
+            return redirect(url_for('views.account'))
+        '''
 
-        elif current_customer.has_saved_shipping_data:
+        if current_customer.has_saved_shipping_data:
             # Check if need to create new SavedShippingData object or update existing one
             saved_shipping_data = SavedShippingData.query.filter(SavedShippingData.customer_id==current_user.id).first()
             saved_shipping_data.ship_name = saved_name
@@ -154,7 +158,12 @@ def settings():
             saved_shipping_data.ship_zip = saved_zip
             saved_shipping_data.ship_email = saved_email
             db.session.commit()
-            flash('Changes to your Shipping Address have been saved!')
+            # Special case: Customer removes all info from fields (enters nothing)
+            if len(saved_name + saved_address + saved_zip + saved_email) == 0:
+                # Note: saved_state excluded from string character count: default value is 'AL'
+                flash('Shipping Address cleared!')
+            else:
+                flash('Changes to your Shipping Address have been saved!')
             return redirect(url_for('views.account'))
         else:
             # Create and insert new data into fields
