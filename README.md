@@ -67,12 +67,20 @@ git clone https://github.com/jschhie/mock-band-web-app.git [folderNameHere]
 cd [folderNameHere]
 ```
 
-3. Install the required packages:
+3. Create and activate virtual environment (`venv`):
+> To isolate the project's dependencies
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+4. Install the required packages:
 ```bash
 pip3 install -r requirements.txt
 ```
 
-4. Run the Flask app:
+5. Run the Flask app:
 ```bash
 python3 main.py
 ```
