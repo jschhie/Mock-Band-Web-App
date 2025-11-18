@@ -1,0 +1,10 @@
+venv/
+env/
+.vercel
+__pycache__/
+*.pyc
+.DS_STORE
+pip-log.txt
+pip-debug.log
+*.db
+newdemos/*
