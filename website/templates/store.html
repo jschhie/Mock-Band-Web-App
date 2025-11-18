@@ -23,7 +23,8 @@
             </div>
             <div class="shop-item-rating">
                 {% if album.public_reviews|length > 0 %}
-                    {{album.avg_rating / album.public_reviews|length}} stars ({{album.public_reviews|length}})
+                    <!-- Round average star rating to first decimal -->
+                    {{ (album.avg_rating / album.public_reviews|length)|float|round(1) }} stars ({{album.public_reviews|length}})
                 {% else %}
                     No reviews (0)
                 {% endif %}
@@ -64,7 +65,8 @@
             </div>
             <div class="shop-item-rating">
                 {% if merch_item.public_reviews|length > 0 %}
-                    {{merch_item.avg_rating / merch_item.public_reviews|length}} stars ({{merch_item.public_reviews|length}})
+                    <!-- Round average star rating to first decimal -->
+                    {{ (merch_item.avg_rating / merch_item.public_reviews|length)|float|round(1) }} stars ({{merch_item.public_reviews|length}})
                 {% else %}
                     No reviews (0)
                 {% endif %}
@@ -125,7 +127,8 @@
                                 <p class="col">Currently, no reviews available.</p>
                             {% else %}
                             <p class="col">
-                                {{album.avg_rating / album.public_reviews|length}} stars ({{album.public_reviews|length}})
+                                <!-- Round average star rating to first decimal -->
+                                {{ (album.avg_rating / album.public_reviews|length)|float|round(1) }} stars ({{album.public_reviews|length}})
                             </p>
                             {% endif %}
                         </span>
@@ -207,7 +210,8 @@
                                 <p class="col">Currently, no reviews available.</p>
                             {% else %}
                                 <p class="col">
-                                    {{merch_item.avg_rating / merch_item.public_reviews|length}} stars ({{merch_item.public_reviews|length}})
+                                    <!-- Round average star rating to first decimal -->
+                                    {{ (merch_item.avg_rating / merch_item.public_reviews|length)|float|round(1) }} stars ({{merch_item.public_reviews|length}})
                                 </p>
                             {% endif %}
                         </span>
