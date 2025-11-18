@@ -1,4 +1,65 @@
-<!-- BILLING STATES DROPDOWN UI -->
+<!-- SHIPPING INFO: STATES DROPDOWN UI 
+  - 'saved_data': Accounts for pre-saved account shipping info express checkout
+-->
+{% macro shipping_dropdown(saved_data) %}
+  <label id="ship-state-label" class="col-md-3">State</label>
+  <select class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState" aria-labelledby="ship-state-label">
+      <option value="AK" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AK' else "" }}>Alaska</option>
+      <option value="AZ" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AZ' else "" }}>Arizona</option>
+      <option value="AR" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AR' else "" }}>Arkansas</option>
+      <option value="AS" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AS' else "" }}>American Samoa</option>
+      <option value="CA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'CA' else "" }}>California</option>
+      <option value="CO" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'CO' else "" }}>Colorado</option>
+      <option value="CT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'CT' else "" }}>Connecticut</option>
+      <option value="DE" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'DE' else "" }}>Delaware</option>
+      <option value="DC" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'DC' else "" }}>District of Columbia</optio>
+      <option value="FL" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'FL' else "" }}>Florida</option>
+      <option value="GA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'GA' else "" }}>Georgia</option>
+      <option value="GU" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'GU' else "" }}>Guam</option>
+      <option value="HI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'HI' else "" }}>Hawaii</option>
+      <option value="ID" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'ID' else "" }}>Idaho</option>
+      <option value="IL" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'IL' else "" }}>Illinois</option>
+      <option value="IN" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'IN' else "" }}>Indiana</option>
+      <option value="IA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'IA' else "" }}>Iowa</option>
+      <option value="KS" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'KS' else "" }}>Kansas</option>
+      <option value="KY" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'KY' else "" }}>Kentucky</option>
+      <option value="LA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'LA' else "" }}>Louisiana</option>
+      <option value="ME" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'ME' else "" }}>Maine</option>
+      <option value="MD" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MD' else "" }}>Maryland</option>
+      <option value="MA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MA' else "" }}>Massachusetts</option>
+      <option value="MI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MI' else "" }}>Michigan</option>
+      <option value="MN" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MN' else "" }}>Minnesota</option>
+      <option value="MS" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MS' else "" }}>Mississippi</option>
+      <option value="MO" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MO' else "" }}>Missouri</option>
+      <option value="MT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'MT' else "" }}>Montana</option>
+      <option value="NE" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NE' else "" }}>Nebraska</option>
+      <option value="NV" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NV' else "" }}>Nevada</option>
+      <option value="NH" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NH' else "" }}>New Hampshire</option>
+      <option value="NJ" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NJ' else "" }}>New Jersey</option>
+      <option value="NM" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NM' else "" }}>New Mexico</option>
+      <option value="NY" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NY' else "" }}>New York</option>
+      <option value="NC" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'NC' else "" }}>North Carolina</option>
+      <option value="ND" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'ND' else "" }}>North Dakota</option>
+      <option value="OH" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'OH' else "" }}>Ohio</option>
+      <option value="OK" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'OK' else "" }}>Oklahoma</option>
+      <option value="OR" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'OR' else "" }}>Oregon</option>
+      <option value="PA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'PA' else "" }}>Pennsylvania</option>
+      <option value="RI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'RI' else "" }}>Rhode Island</option>
+      <option value="SC" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'SC' else "" }}>South Carolina</option>
+      <option value="SD" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'SD' else "" }}>South Dakota</option>
+      <option value="TN" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'TN' else "" }}>Tennessee</option>
+      <option value="TX" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'TX' else "" }}>Texas</option>
+      <option value="UT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'UT' else "" }}>Utah</option>
+      <option value="VT" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'VT' else "" }}>Vermont</option>
+      <option value="VA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'VA' else "" }}>Virginia</option>
+      <option value="WA" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WA' else "" }}>Washington</option>
+      <option value="WV" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WV' else "" }}>West Virginia</option>
+      <option value="WI" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WI' else "" }}>Wisconsin</option>
+      <option value="WY" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'WY' else "" }}>Wyoming</option>
+  </select>
+{% endmacro %}
+
+<!-- BILLING INFO: STATES DROPDOWN UI -->
 {% macro billing_dropdown() %}
   <label id="bill-state-label" class="col-md-3">State</label>
   <select
