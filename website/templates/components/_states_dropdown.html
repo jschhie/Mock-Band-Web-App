@@ -1,9 +1,9 @@
 <!-- SHIPPING INFO: STATES DROPDOWN UI 
   - 'saved_data': Accounts for pre-saved account shipping info express checkout
 -->
-{% macro shipping_dropdown(saved_data) %}
-  <label id="ship-state-label" class="col-md-3">State</label>
-  <select class="form-control col-md-3" placeholder="ST" id="shipState" name="shipState" aria-labelledby="ship-state-label">
+{% macro shipping_dropdown(saved_data, label_id, select_id, select_name, aria_label) %}
+  <label id="{{label_id}}" class="col-md-3">State</label>
+  <select class="form-control col-md-3" placeholder="ST" id="{{select_id}}" name="{{select_name}}" aria-labelledby="{{aria_label}}">
       <option value="AK" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AK' else "" }}>Alaska</option>
       <option value="AZ" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AZ' else "" }}>Arizona</option>
       <option value="AR" {{ "selected='selected'" if saved_data and saved_data.ship_state == 'AR' else "" }}>Arkansas</option>
