@@ -3,20 +3,21 @@
 > Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
 
 ## Overview
-* Full-stack, responsive e-commerce platform
+* Full-stack Flask e-commerce platform
 * Features include:
-  * store catalog with shopping cart functionality
-  * order lookup and purchase history
-  * account and guest checkout with autofill options
-  * customer reviews and ratings
-  * membership points system
-* Hosted on PythonAnywhere at: https://bandstore.pythonanywhere.com/
+  * Store catalog with shopping cart functionality
+  * Order lookup & purchase history
+  * Account express checkout & guest checkout with autofill
+  * Customer reviews and ratings
+  * Membership points system
+  * Responsive design
+* Live site: https://bandstore.pythonanywhere.com/
 
 ## 🔖 Table of Contents
-* [Website Demo](https://github.com/jschhie/band-web-app/blob/main/README.md#website-demo)
+* [Website Demos](https://github.com/jschhie/band-web-app/blob/main/README.md#website-demos)
 * [Running the Website Manually](https://github.com/jschhie/band-web-app/blob/main/README.md#running-the-site-manually)
 
-## Website Demo
+## Website Demos
 
 ### 💿 Main Store Page
 > Sample Merch and Albums for Sale
@@ -39,17 +40,20 @@
 
 <img src="https://github.com/jschhie/Mock-Band-Web-App/blob/main/newdemos/new-font-merch2.png">
 
-### 📦 Order History & Membership Points
+### 📦 Order History, & Membership Points
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/all-discounts/new-account.png">
 
 ### ✍️ My Reviews
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/stars.png">
 
+### 📓 Account Settings (for Express Checkout)
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/account-settings.png">
+
 ### 🎤 Tour Dates
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/tours.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-tours.png">
 
 ### 📷 Photo Gallery
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/about1.png">
+<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-gallery.png">
 
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/new-bio.png">
 
