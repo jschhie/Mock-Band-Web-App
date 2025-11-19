@@ -186,7 +186,7 @@ function checkFormFields(idType, idName) {
 
 
 
-/* * * * * TICKETS / MERCH STORE PURCHASE OPERATIONS * * * * * */
+/* * * * * STORE PURCHASE OPERATIONS * * * * * */
 /* TOGGLE EMPTY CART MESSAGE, CHECKOUT BUTTON */
 function toggleEmptyCart(totalPriceId, emptyTextId, checkoutBtnId) {
     var total_price = document.getElementById(totalPriceId).innerHTML;
@@ -223,22 +223,6 @@ function applyPoints(checkbox) {
 
     addCheckoutPrices(); // add subtotal, discount, shipping fee
 
-    /*
-    // update total amount in checkout
-    subtotalStr = document.getElementById("subtotal").innerText.replace('$', '');
-    feeStr = document.getElementById("shipping-fee").innerText.replace('$', '');
-    discountStr = document.getElementById("discount").innerText.replace('$','');
-    document.getElementById("total-price").innerText = (parseFloat(subtotalStr) + parseFloat(feeStr)).toFixed(2);
-    if (parseFloat(discountStr) != '-0.00') {
-        document.getElementById("total-price").innerText = (parseFloat(document.getElementById("total-price").innerText) + parseFloat(discountStr)).toFixed(2);
-    }
-    
-    // Hidden div information
-    document.getElementById("hidden-subtotal").value = subtotalStr;
-    document.getElementById("hidden-delivery-fee").value = feeStr;
-    document.getElementById("hidden-points").value = discountStr; // formatted as: -123.45, without $ character
-    document.getElementById("hidden-total-price").value = document.getElementById("total-price").innerText;
-    */
 }
 
 /* UPDATE CART TOTAL */
@@ -341,7 +325,7 @@ function formatPrice(total, element) {
 
 
 
-/* * * * * STORE OPERATIONS -- PURCHASE ALBUMS, MERCH * * * * * */
+/* * * * * SHOPPING CART OPERATIONS * * * * * */
 function addToCart(event) {
     var addToCartBtn = event;
     var itemRow = addToCartBtn.parentElement.parentElement;
@@ -425,14 +409,3 @@ function addRowToCart(title, price, imageSrc) {
         alert(title + ' (Album) added to cart!');
     }
 }
-
-
-/* * * * * SETTINGS: SAVE SHIPPING ADDRESS SELECTED STATE * * * * * */
-/*
-function saveShippingState() {
-    //var state = document.getElementById('hiddenState').value;
-    var state = document.getElementById("savedState").value;
-    document.getElementById('hiddenState').value = state;
-    alert(state);
-    document.getElementById(state).selected = "true";
-}*/
