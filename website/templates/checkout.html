@@ -39,7 +39,7 @@
                 <input class="form-control col-md-3" placeholder="City" id="shipCity" name="shipCity" minlength="3" maxlength="30">
                 {% endif %}
                 <!-- IMPORT SHIPPING STATES DROPDOWN COMPONENT -->
-                {{ states_dropdown.shipping_dropdown(saved_data, 'ship-state-label', 'shipState', 'shipState', 'ship-state-label') }}
+                {{ states_dropdown.states_dropdown(saved_data, 'ship-state-label', 'shipState', 'shipState', 'ship-state-label') }}
             </div>
             <br>
             <div class="row">
@@ -82,7 +82,7 @@
                 <label class="col-md-3">City</label>
                 <input class="form-control col-md-3" placeholder="City" id="billCity" name="billCity" minlength="3" maxlength="30">
                 <!-- IMPORT BILLING STATES DROPDOWN COMPONENT -->
-                {{ states_dropdown.billing_dropdown() }}
+                {{ states_dropdown.states_dropdown(None, 'bill-state-label', 'billState', 'billState', 'bill-state-label') }}
             </div>
             <br>
             <div class="row">

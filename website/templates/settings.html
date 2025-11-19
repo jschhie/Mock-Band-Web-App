@@ -42,7 +42,7 @@
                     <input class="form-control col-md-3" placeholder="City" id="savedCity" name="savedCity" minlength="3" maxlength="30">
                     {% endif %}
                     <!-- IMPORT SHIPPING STATES DROPDOWN COMPONENT -->
-                    {{ states_dropdown.shipping_dropdown(saved_data, 'account-ship-state-label', 'savedState', 'savedState', 'account-ship-state-label') }}
+                    {{ states_dropdown.states_dropdown(saved_data, 'account-ship-state-label', 'savedState', 'savedState', 'account-ship-state-label') }}
                 </div>
                 <br>
                 <div class="row">
