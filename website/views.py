@@ -1,3 +1,4 @@
+### IMPORTS ###
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
 from .models import Customer, Order, ItemSold, Product, Concert, Review, SavedShippingData
@@ -7,6 +8,22 @@ from datetime import datetime
 import json
 import random
 
+
+### HELPER FUNCTIONS ###
+def load_data_from_json(filepath):
+  try:
+    with open(filepath, 'r') as f:
+      # Convert JSON into Python list/dict
+      data = json.load(f)
+      return data
+  except FileNotFoundError:
+    return []
+  except json.JSONDecodeError:
+    return []
+
+
+
+### FLASK APP VIEWS ###
 views = Blueprint('views', __name__)
 
 
@@ -215,7 +232,9 @@ def about():
         username = current_customer.username
     else:
         username = None
-    return render_template('about.html', hideCart=True, user=current_user, username=username)
+    about_page_data = load_data_from_json('website/static/aboutPageData.json')
+    gallery_data = about_page_data["gallery"]
+    return render_template('about.html', hideCart=True, user=current_user, username=username, gallery_data=gallery_data)
 
 
 
