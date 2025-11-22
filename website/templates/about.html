@@ -57,62 +57,15 @@
     <br>
     <h2 class="section-header">members</h2>
     <div class="bio-all">
+        {% for member in members_data %}
         <div class="bio-parent shadow">
-            <img class="bio-img" src="https://live.staticflickr.com/65535/53019080418_34873e2f1c_o.jpg"  style="width:100%;" alt="Jimin">
+            <img class="bio-img" src="{{member.bioSrc}}"  style="width:100%;" alt="{{member.name}}">
             <div class="bio-text">
-                <h3>Jimin</h3>
-                <p>Lead vocalist</p>
+                <h3>{{member.name}}</h3>
+                <p>{{member.role}}</p>
             </div>
         </div>
-
-        <div class="bio-parent shadow">
-            <img class="bio-img" src="https://live.staticflickr.com/65535/53019080498_bbac2951d3_o.jpg"  style="width:100%;" alt="Jungkook">
-            <div class="bio-text">
-                <h3>Jungkook</h3>
-                <p>Main vocals</p>
-            </div>
-        </div>
-
-        <div class="bio-parent shadow">
-            <img class="bio-img" src="https://live.staticflickr.com/65535/53019080508_fd3ed1f113_o.jpg"  style="width:100%;" alt="V">
-            <div class="bio-text">
-                <h3>V</h3>
-                <p>Vocals</p>
-            </div>
-        </div>
-
-        <div class="bio-parent shadow">
-            <img src="https://live.staticflickr.com/65535/53018597866_b8d202b5fd_o.jpg"   style="width:100%;" alt="J-Hope">
-            <div class="bio-text">
-                <h3>J-Hope</h3>
-                <p>Rapper</p>
-            </div>
-        </div>
-
-        <div class="bio-parent shadow">
-            <img src="https://live.staticflickr.com/65535/53018597876_a41e6d1ff4_o.jpg"  style="width:100%;" alt="RM">
-            <div class="bio-text">
-                <h3>RM</h3>
-                <p>Main rapper</p>
-            </div>
-        </div>
-
-        <div class="bio-parent shadow">
-            <img src="https://live.staticflickr.com/65535/53018597861_7d3a8a7675_o.jpg"  style="width:100%;" alt="SUGA">
-            <div class="bio-text">
-                <h3>SUGA</h3>
-                <p>Lead rapper</p>
-            </div>
-        </div>
-
-        <div class="bio-parent shadow">
-            <img src="https://live.staticflickr.com/65535/53018597871_80456d465b_o.jpg" style="width:100%;" alt="Jin">
-            <div class="bio-text">
-                <h3>Jin</h3>
-                <p>Vocals</p>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
 
 </section>
