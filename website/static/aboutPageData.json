@@ -14,5 +14,50 @@
       "src": "https://live.staticflickr.com/65535/52992080204_85b1838acc.jpg",
       "alt": "BTS | Spring Day Concept Group Photo II"
     }
+  ],
+
+  "members": [
+    {
+      "bioSrc": "https://live.staticflickr.com/65535/53019080418_34873e2f1c_o.jpg",
+      "name": "Jimin",
+      "role": "Lead vocalist"
+    },
+
+    {
+      "bioSrc": "https://live.staticflickr.com/65535/53019080498_bbac2951d3_o.jpg",
+      "name": "Jungkook",
+      "role": "Main vocals"
+    },
+
+    {
+      "bioSrc": "https://live.staticflickr.com/65535/53019080508_fd3ed1f113_o.jpg",
+      "name": "V",
+      "role": "Vocals"
+    },
+
+    {
+      "bioSrc": "https://live.staticflickr.com/65535/53018597866_b8d202b5fd_o.jpg",
+      "name": "J-Hope",
+      "role": "Rapper"
+    },
+
+    {
+      "bioSrc": "https://live.staticflickr.com/65535/53018597876_a41e6d1ff4_o.jpg",
+      "name": "RM",
+      "role": "Main rapper"
+    },
+    
+    {
+      "bioSrc": "https://live.staticflickr.com/65535/53018597861_7d3a8a7675_o.jpg",
+      "name": "SUGA",
+      "role": "Lead rapper"
+    },
+
+    {
+      "bioSrc": "https://live.staticflickr.com/65535/53018597871_80456d465b_o.jpg",
+      "name": "Jin",
+      "role": "Vocals"
+    }
+
   ]
 }
