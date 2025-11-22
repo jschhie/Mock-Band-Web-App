@@ -17,15 +17,11 @@
             </div>
 
             <div class="carousel-inner">
+                {% for gallery_item in gallery_data %}
                 <div class="carousel-item active">
-                    <img src="https://live.staticflickr.com/65535/52726177441_42743d38ed_o.png" class="selected-img d-block w-100" alt="BTS | Spring Day Concept Group Photo I">
+                    <img src="{{gallery_item.src}}" class="selected-img d-block w-100" alt="{{gallery_item.alt}}"/>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://live.staticflickr.com/65535/52992400583_ec5cbcd797.jpg" alt="BTS | Spring Day Concept Photo: Jimin" class="selected-img d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://live.staticflickr.com/65535/52992080204_85b1838acc.jpg" alt="BTS | Spring Day Concept Group Photo II" class="selected-img d-block w-100">
-                </div>
+                {% endfor %}
             </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
