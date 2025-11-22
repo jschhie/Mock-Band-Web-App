@@ -11,9 +11,14 @@
     <div id="gallery" class="shadow">
         <div id="carousel" class="carousel slide">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="BTS Photo 1"></button>
-                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="BTS Photo 2"></button>
-                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="BTS Photo 3"></button>
+                {% for count in range(gallery_data|length) %}
+                    {% set gallery_count = count + 1 %}
+                    {% if count == 0 %}
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="{{count}}" class="active" aria-current="true" aria-label="{{ 'BTS Photo ' + gallery_count|string}}"></button>
+                    {% else %}
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="{{count}}" aria-label="{{ 'BTS Photo ' + gallery_count|string}}"></button>
+                    {% endif %}
+                {% endfor %}
             </div>
 
             <div class="carousel-inner">
