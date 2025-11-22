@@ -127,15 +127,14 @@
                 </select>
                 <label id="expiry-year-label">Expiry Year</label>
                 <select class="form-control col-md-3" autocomplete="off" aria-labelledby="expiry-year-label">
-                    <option value="25" selected>2025</option>
-                    <option value="26">2026</option>
-                    <option value="27">2027</option>
-                    <option value="28">2028</option>
-                    <option value="29">2029</option>
-                    <option value="30">2030</option>
-                    <option value="31">2031</option>
-                    <option value="32">2032</option>
-                    <option value="33">2033</option>
+                    {% set init_year = 2025 %}
+                    {% for year in range(init_year, init_year + 10) %}
+                        {% if year == 2025 %}
+                        <option value="{{year}}" selected>{{year}}</option>
+                        {% else %}
+                        <option value="{{year}}">{{year}}</option>
+                        {% endif %}
+                    {% endfor %}
                 </select>
             </div>
         </div>
