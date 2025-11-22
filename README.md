@@ -1,17 +1,26 @@
-# Online Music Band Store ♩♪♫
+# Music Band Store ♩♪♫
 
-> Flask, Python,  SQLAlchemy, HTML, CSS, Bootstrap, JavaScript, Jinja
+> - Full-stack e-commerce platform <br>
+> - **Live demo:** https://bandstore.pythonanywhere.com/
+
+## Tech Stack 
+| Component | Tech Used |
+| :--- | :--- |
+| **Backend** | Python, Flask |
+| **Data** | SQLite, SQL, JSON |
+| **Frontend Logic** | JavaScript, Jinja Templating |
+| **UI/Styling** | Bootstrap |
+| **Deployment** | PythonAnywhere |
 
 ## Overview
 * Full-stack Flask e-commerce platform
 * Features include:
-  * Store catalog with shopping cart functionality
+  * Store catalog with JSON-driven shopping cart
   * Order lookup & purchase history
   * Account express checkout & guest checkout with autofill
   * Customer reviews and ratings
   * Membership points system
-  * Responsive design
-* Live site: https://bandstore.pythonanywhere.com/
+  * Responsive, mobile-first design
 
 ## 🔖 Table of Contents
 * [Website Demos](https://github.com/jschhie/band-web-app/blob/main/README.md#website-demos)
@@ -42,53 +51,3 @@
 
 ### 📦 Order History, & Membership Points
 <img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/all-discounts/new-account.png">
-
-### ✍️ My Reviews
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/stars.png">
-
-### 📓 Account Settings (for Express Checkout)
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/account-settings.png">
-
-### 🎤 Tour Dates
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-tours.png">
-
-### 📷 Photo Gallery
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/new-gallery.png">
-
-<img src="https://github.com/jschhie/band-web-app/blob/main/newdemos/login-view/new-bio.png">
-
-
-<hr>
-
-## Running the Site Manually
-1. Clone this repository:
-```bash 
-git clone https://github.com/jschhie/mock-band-web-app.git [folderNameHere]
-```
-
-2. Navigate into the folder: 
-```bash 
-cd [folderNameHere]
-```
-
-3. Create and activate virtual environment (`venv`):
-> To isolate the project's dependencies
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-4. Install the required packages:
-```bash
-pip3 install -r requirements.txt
-```
-
-5. Run the Flask app:
-```bash
-python3 main.py
-```
-
-<p>The application will automatically generate a <code>band_store_database.db</code> file in the <code>website</code> directory.</p>
-
-<p>Users can access the web application at: http://127.0.0.1:5000/ via any web browser.</p>
