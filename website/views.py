@@ -233,8 +233,11 @@ def about():
     else:
         username = None
     about_page_data = load_data_from_json('website/static/aboutPageData.json')
-    gallery_data = about_page_data["gallery"]
-    members_data = about_page_data["members"]
+    gallery_data = []
+    members_data = []
+    if isinstance(about_page_data, dict):
+        gallery_data = about_page_data["gallery"]
+        members_data = about_page_data["members"]
     return render_template('about.html', hideCart=True, user=current_user, username=username, gallery_data=gallery_data, members_data=members_data)
 
 
