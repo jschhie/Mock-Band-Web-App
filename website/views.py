@@ -236,8 +236,13 @@ def about():
     gallery_data = []
     members_data = []
     if isinstance(about_page_data, dict):
+        print('Returned JSON data is dict type')
         gallery_data = about_page_data["gallery"]
         members_data = about_page_data["members"]
+    elif (isinstance(about_page_data, list) and len(about_page_data) > 0):
+        print('Returned JSON data is list type')
+        gallery_data = about_page_data[0]["gallery"]
+        members_data = about_page_data[0]["members"]
     return render_template('about.html', hideCart=True, user=current_user, username=username, gallery_data=gallery_data, members_data=members_data)
 
 
