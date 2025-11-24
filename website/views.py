@@ -17,8 +17,10 @@ def load_data_from_json(filepath):
       data = json.load(f)
       return data
   except FileNotFoundError:
+    print('JSON Error: File Not Found')
     return []
   except json.JSONDecodeError:
+    print('JSON Decode Error')
     return []
 
 
@@ -232,6 +234,7 @@ def about():
         username = current_customer.username
     else:
         username = None
+    
     about_page_data = load_data_from_json('website/static/aboutPageData.json')
     gallery_data = []
     members_data = []
