@@ -74,10 +74,11 @@ cd [folderNameHere]
 ```
 
 3. Create and activate virtual environment (`venv`):
-> To isolate the project's dependencies
+> - This project assumes you have `python` v3.11
+> - To isolate the project's dependencies:
 
 ```bash
-python3 -m venv venv
+/usr/local/bin/python3.11 -m venv venv
 source venv/bin/activate
 ```
 
