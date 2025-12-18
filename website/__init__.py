@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from os import path
+from os import path, environ
+from dotenv import load_dotenv
 
 from flask_login import LoginManager, current_user
 
@@ -14,7 +15,11 @@ def page_not_found(e):
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = '0b21fcf8155e59dd9c8e41a54e1f6083' # enable sessions and flashed messages
+    
+    # Enable sessions and flashed messages
+    load_dotenv()
+    app.config['SECRET_KEY'] = environ.get('FLASK_SECRET_KEY', 'dev-key-for-local-use-only')
+
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
