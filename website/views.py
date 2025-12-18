@@ -7,17 +7,23 @@ from datetime import datetime
 
 import json
 import random
+import os
 
 
 ### HELPER FUNCTIONS ###
-def load_data_from_json(filepath):
+def load_data_from_json(relative_path):
+  
+  # Use full path to locate JSON file (on server & locally)
+  current_dir = os.path.dirname(os.path.abspath(__file__))
+  full_path = os.path.join(current_dir, relative_path)
+  
   try:
-    with open(filepath, 'r') as f:
+    with open(full_path, 'r') as f:
       # Convert JSON into Python list/dict
       data = json.load(f)
       return data
   except FileNotFoundError:
-    print('JSON Error: File Not Found')
+    print(f"JSON Error: File Not Found at {full_path}")
     return []
   except json.JSONDecodeError:
     print('JSON Decode Error')
@@ -235,7 +241,7 @@ def about():
     else:
         username = None
     
-    about_page_data = load_data_from_json('website/static/aboutPageData.json')
+    about_page_data = load_data_from_json('static/aboutPageData.json')
     gallery_data = []
     members_data = []
     if isinstance(about_page_data, dict):
