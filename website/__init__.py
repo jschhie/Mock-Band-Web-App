@@ -16,10 +16,16 @@ def page_not_found(e):
 def create_app():
     app = Flask(__name__)
     
-    # Enable sessions and flashed messages
-    load_dotenv()
+    # Get absolute path of current file (for server and local dev)
+    current_dir = path.abspath(path.dirname(__file__))
+
+    project_root = path.dirname(current_dir)
+    env_path = path.join(project_root, '.env')
+
+    load_dotenv(env_path)
 
     # Fetch secret key from .env var (Default: placeholder string if DNE)
+    # (To enable sessions and flashed messages)
     app.config['SECRET_KEY'] = environ.get('FLASK_SECRET_KEY', 'dev-key-for-local-use-only')
 
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
