@@ -18,6 +18,8 @@ def create_app():
     
     # Enable sessions and flashed messages
     load_dotenv()
+
+    # Fetch secret key from .env var (Default: placeholder string if DNE)
     app.config['SECRET_KEY'] = environ.get('FLASK_SECRET_KEY', 'dev-key-for-local-use-only')
 
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
