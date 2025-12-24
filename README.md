@@ -29,37 +29,35 @@
 ---
 
 ## 🔖 Table of Contents
-* [Website Demos](https://github.com/jschhie/Music-Band-Store/blob/main/README.md#website-demos)
+* [Website Demos](https://github.com/jschhie/Music-Band-Store/blob/main/README.md#visual-demos)
 * [Running the Website Manually](https://github.com/jschhie/Music-Band-Store/blob/main/README.md#running-the-site-manually)
 
 ---
 
-## Website Demos
+## Visual Demos
 
-### 💿 Storefront
+### 💿 Main Storefront
 > Responsive Design Demos
 
 | Desktop View |
-| :---: | 
-| <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/avg-stars-store.png" width="600"> |
+| :---: |
+| <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/avg-stars-store.png" width="650"> |
 
-| Mobile View | Tablet View |
+| Mobile | Tablet |
 | :---: | :---: |
-| <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/rwd/mobile-store.png" width="250"> | <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/rwd/tablet-store.jpeg" width="500"> |
+| <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/rwd/mobile-store.png" width="250"> | <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/rwd/tablet-store.jpeg" width="400"> |
 
-> Product Catalog
+### 🏷️ Product Catalog with Customer Reviews
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/avg-stars.png">
 
 
 ### 🛒 Shopping Cart Functionality
-> Cart Section for Merch
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/login-view/cart.png">
 
-### 💳 Customer Checkout with Membership Rewards
+### 💳 Express Checkout with Membership Rewards
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/all-discounts/discounts-2.png">
 
 ### 🧾 Order Confirmation
-> Sample Receipt
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/new-font-merch.png">
 
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/new-font-merch2.png">
@@ -107,9 +105,10 @@ FLASK_SECRET_KEY=any_random_string_here
 ```
 
 ### 6. Run the Flask app:
-```bash
-python3 main.py
-```
 
 > - <p>The application will automatically generate a <code>band_store_database.db</code> file in the <code>website</code> directory.</p>
 > - <p>Users can access the web application at: http://127.0.0.1:5000/ via any web browser.</p>
+
+```bash
+python3 main.py
+```
