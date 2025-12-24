@@ -24,7 +24,7 @@
   * Account express checkout & guest checkout with autofill
   * Customer reviews and ratings
   * Membership points system
-  * Responsive, mobile-first design
+  * Responsive, mobile-first UI
 
 ---
 
@@ -36,28 +36,35 @@
 
 ## Website Demos
 
-### 💿 Main Store Page
-> Sample Merch and Albums for Sale
-<img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/avg-stars-store.png">
+### 💿 Storefront
+> Responsive Design Demos
+
+| Desktop View |
+| :---: | 
+| <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/avg-stars-store.png" width="600"> |
+
+| Mobile View | Tablet View |
+| :---: | :---: |
+| <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/rwd/mobile-store.png" width="250"> | <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/rwd/tablet-store.jpeg" width="500"> |
 
 > Product Catalog
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/avg-stars.png">
 
 
-### 🛒 Main Store: Sample Cart
+### 🛒 Shopping Cart Functionality
 > Cart Section for Merch
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/login-view/cart.png">
 
-### 💳 Customer Checkout with Membership Discount
+### 💳 Customer Checkout with Membership Rewards
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/all-discounts/discounts-2.png">
 
 ### 🧾 Order Confirmation
-> Sample Receipt for Main Store Merch
+> Sample Receipt
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/new-font-merch.png">
 
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/new-font-merch2.png">
 
-### 📦 Order History, & Membership Points
+### 📦 Order History & Membership Points
 <img src="https://github.com/jschhie/Music-Band-Store/blob/main/newdemos/all-discounts/new-account.png">
 
 ---
@@ -104,6 +111,5 @@ FLASK_SECRET_KEY=any_random_string_here
 python3 main.py
 ```
 
-<p>The application will automatically generate a <code>band_store_database.db</code> file in the <code>website</code> directory.</p>
-
-<p>Users can access the web application at: http://127.0.0.1:5000/ via any web browser.</p>
+> - <p>The application will automatically generate a <code>band_store_database.db</code> file in the <code>website</code> directory.</p>
+> - <p>Users can access the web application at: http://127.0.0.1:5000/ via any web browser.</p>
